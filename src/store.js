@@ -27,6 +27,7 @@ const rrfConfig = {
 //init firebase instance
 firebase.initializeApp(firebaseConfig);
 //init firestore
+
 // const firestore = firebase.firestore();
 
 const rootReducer = combineReducers({
@@ -49,5 +50,5 @@ export const rrfProps = {
   firebase,
   config: rrfConfig,
   dispatch: store.dispatch,
-  createFirestoreInstance // <- needed if using firestore
+  createFirestoreInstance
 };
