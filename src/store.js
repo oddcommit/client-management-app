@@ -28,7 +28,7 @@ const rrfConfig = {
 firebase.initializeApp(firebaseConfig);
 //init firestore
 
-// const firestore = firebase.firestore();
+const firestore = firebase.firestore();
 
 const rootReducer = combineReducers({
   firebase: firebaseReducer,

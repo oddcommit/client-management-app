@@ -7,6 +7,7 @@ import { store, rrfProps } from "./store";
 
 import AppNavBar from "./components/layout/AppNavBar";
 import Dashboard from "./components/layout/Dashboard";
+import AddClient from "./components/clients/AddClient";
 
 import "./App.css";
 
@@ -20,7 +21,8 @@ class App extends React.Component {
               <AppNavBar />
               <div className="container">
                 <Switch>
-                  <Route exact patch="/" component={Dashboard} />
+                  <Route exact path="/" component={Dashboard} />
+                  <Route exact path="/client/add" component={AddClient} />
                 </Switch>
               </div>
             </div>
