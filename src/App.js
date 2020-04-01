@@ -9,6 +9,7 @@ import AppNavBar from "./components/layout/AppNavBar";
 import Dashboard from "./components/layout/Dashboard";
 import AddClient from "./components/clients/AddClient";
 import ClientDetails from "./components/clients/ClientDetails";
+import EditClient from "./components/clients/EditClient";
 
 import "./App.css";
 
@@ -25,6 +26,7 @@ class App extends React.Component {
                   <Route exact path="/" component={Dashboard} />
                   <Route exact path="/client/add" component={AddClient} />
                   <Route exact path="/client/:id" component={ClientDetails} />
+                  <Route exact path="/client/edit/:id" component={EditClient} />
                 </Switch>
               </div>
             </div>

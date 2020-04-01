@@ -57,7 +57,7 @@ class AddClient extends Component {
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group row">
-                <div class="col-sm-6">
+                <div className="col-sm-6">
                   <label htmlFor="firstName">First Name</label>
                   <input
                     type="text"
@@ -70,7 +70,7 @@ class AddClient extends Component {
                   />
                 </div>
 
-                <div class="col-sm-6">
+                <div className="col-sm-6">
                   <label htmlFor="lastName">Last Name</label>
                   <input
                     type="text"
@@ -116,7 +116,7 @@ class AddClient extends Component {
                     value={this.state.phone}
                   />
                 </div>{" "}
-                <div class="col-sm-6">
+                <div className="col-sm-6">
                   <label htmlFor="balance">Balance</label>
                   <input
                     type="text"
@@ -148,39 +148,39 @@ class AddClient extends Component {
                   value={this.state.instrument}
                 />
               </div>
-              <div class="form-group row">
-                <div class="col-sm-6">
-                  <label for="streetAddress">Address</label>
+              <div className="form-group row">
+                <div className="col-sm-6">
+                  <label htmlFor="streetAddress">Address</label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="streetAddress"
                     placeholder="Street Address"
                   />
                 </div>
-                <div class="col-sm-6">
-                  <label for="city">City</label>
+                <div className="col-sm-6">
+                  <label htmlFor="city">City</label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="city"
                     placeholder="City"
                   />
                 </div>
-                <div class="col-sm-6">
-                  <label for="state">State</label>
+                <div className="col-sm-6">
+                  <label htmlFor="state">State</label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="state"
                     placeholder="State"
                   />
                 </div>
-                <div class="col-sm-6">
-                  <label for="postalCode">Postal Code</label>
+                <div className="col-sm-6">
+                  <label htmlFor="postalCode">Postal Code</label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="postalCode"
                     placeholder="Postal Code"
                   />
