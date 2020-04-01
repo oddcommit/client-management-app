@@ -17,9 +17,9 @@ class Clients extends Component {
     const { clients } = props;
 
     if (clients) {
-      //add the balances
+      //add the deposits
       const total = clients.reduce((total, client) => {
-        return total + parseFloat(client.balance.toString());
+        return total + parseFloat(client.deposit.toString());
       }, 0);
       return { totalOwed: total };
     }
@@ -52,7 +52,7 @@ class Clients extends Component {
               <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Balance</th>
+                <th>Deposit</th>
                 <th></th>
               </tr>
             </thead>
@@ -63,7 +63,7 @@ class Clients extends Component {
                     {client.firstName} {client.lastName}
                   </td>
                   <td>{client.email}</td>
-                  <td>${parseFloat(client.balance).toFixed(2)}</td>
+                  <td>${parseFloat(client.deposit).toFixed(2)}</td>
                   <td>
                     <Link
                       to={`/client/${client.id}`}

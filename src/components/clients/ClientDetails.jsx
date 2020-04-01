@@ -10,17 +10,17 @@ import { firestoreConnect } from "react-redux-firebase";
 
 class ClientDetails extends Component {
   state = {
-    showBalanceUpdate: false,
-    balanceUpdateAmount: ""
+    showDepositUpdate: false,
+    depositUpdateAmount: ""
   };
-  //update balance
-  balanceSubmit = e => {
+  //update deposit
+  depositSubmit = e => {
     e.preventDefault();
 
     const { client, firestore } = this.props;
-    const { balanceUpdateAmount } = this.state;
+    const { depositUpdateAmount } = this.state;
     const clientUpdate = {
-      balance: parseFloat(balanceUpdateAmount)
+      deposit: parseFloat(depositUpdateAmount)
     };
 
     //update firestore
@@ -40,20 +40,40 @@ class ClientDetails extends Component {
   onChange = e => this.setState({ [e.target.name]: e.target.value });
   render() {
     const { client } = this.props;
-    const { showBalanceUpdate, balanceUpdateAmount } = this.state;
+    const { showDepositUpdate, depositUpdateAmount } = this.state;
+    //get the total and current day
+    function parseDate(str) {
+      var mdy = str.split("-");
+      return new Date(mdy[2], mdy[0] - 1, mdy[1]);
+    }
 
-    let balanceForm = "";
-    //if balance form should deisplay
-    if (showBalanceUpdate) {
-      balanceForm = (
-        <form onSubmit={this.balanceSubmit}>
+    function datediff(first) {
+      var today = new Date();
+      var date =
+        today.getMonth() +
+        1 +
+        "-" +
+        today.getDate() +
+        "-" +
+        today.getFullYear();
+
+      return Math.round(
+        (parseDate(first) - parseDate(date)) / (1000 * 60 * 60 * 24)
+      );
+    }
+
+    let depositForm = "";
+    //if deposit form should deisplay
+    if (showDepositUpdate) {
+      depositForm = (
+        <form onSubmit={this.depositSubmit}>
           <div className="input-group">
             <input
               type="text"
               className="form-control"
-              name="balanceUpdateAmount"
-              placeholder="Add New Balance"
-              value={balanceUpdateAmount}
+              name="depositUpdateAmount"
+              placeholder="Add New deposit"
+              value={depositUpdateAmount}
               onChange={this.onChange}
             />
             <div className="input-group-append">
@@ -67,7 +87,7 @@ class ClientDetails extends Component {
         </form>
       );
     } else {
-      balanceForm = null;
+      depositForm = null;
     }
 
     if (client) {
@@ -95,7 +115,7 @@ class ClientDetails extends Component {
           <div className="card">
             <h3 className="card-header">
               {client.firstName}
-              {client.lastName}
+              {client.lastName} ({client.instrument.toUpperCase()})
             </h3>
             <div className="card-body">
               <div className="row">
@@ -107,14 +127,14 @@ class ClientDetails extends Component {
                 </div>
                 <div className="col-md-4 col-sm-6">
                   <h3 className="pull-right">
-                    Balance: ${parseFloat(client.balance).toFixed(2)}{" "}
+                    Deposit: ${parseFloat(client.deposit).toFixed(2)}{" "}
                     <small>
                       {" "}
                       <a
                         href="#!"
                         onClick={() =>
                           this.setState({
-                            showBalanceUpdate: !this.state.showBalanceUpdate
+                            showDepositUpdate: !this.state.showDepositUpdate
                           })
                         }
                       >
@@ -122,7 +142,7 @@ class ClientDetails extends Component {
                       </a>
                     </small>
                   </h3>
-                  {balanceForm}
+                  {depositForm}
                 </div>
               </div>
 
@@ -134,9 +154,41 @@ class ClientDetails extends Component {
                 </li>
                 <li className="list-group-item">
                   {" "}
+                  Parent: {client.parentName}
+                </li>
+                <li className="list-group-item">
+                  {" "}
                   Contact Phone: {client.phone}
                 </li>
+                <li className="list-group-item"> DOB: {client.dob}</li>
+                <li className="list-group-item">
+                  {" "}
+                  Class Day: {client.classDay.toUpperCase()}
+                </li>
+                <li className="list-group-item">
+                  {" "}
+                  Sign Up: {client.signUpDate}
+                </li>
+                <li className="list-group-item">
+                  {" "}
+                  Total Days: {datediff(client.signUpDate)}
+                </li>
               </ul>
+
+              <hr />
+              <div className="container">
+                <div className="col-md-4">
+                  <div>
+                    <strong>Address</strong>
+                    <br />
+                    {client.streetAddress}
+                    <br />
+                    {client.city}, {client.state} {client.postalCode}
+                    <br />
+                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

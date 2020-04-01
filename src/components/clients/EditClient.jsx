@@ -17,8 +17,10 @@ class EditClient extends Component {
     this.parentNameInput = React.createRef();
     this.emailInput = React.createRef();
     this.phoneInput = React.createRef();
-    this.balanceInput = React.createRef();
+    this.depositInput = React.createRef();
     this.classDayInput = React.createRef();
+    this.signUpDateInput = React.createRef();
+    this.dobInput = React.createRef();
     this.instrumentInput = React.createRef();
     this.streetAddressInput = React.createRef();
     this.cityInput = React.createRef();
@@ -36,11 +38,13 @@ class EditClient extends Component {
       parentName: this.parentNameInput.current.value,
       email: this.emailInput.current.value,
       phone: this.phoneInput.current.value,
-      balance:
-        this.balanceInput.current.value == ""
+      deposit:
+        this.depositInput.current.value == ""
           ? 0
-          : this.balanceInput.current.value,
+          : this.depositInput.current.value,
       classDay: this.classDayInput.current.value,
+      signUpDate: this.signUpDateInput.current.value,
+      dob: this.dobInput.current.value,
       instrument: this.instrumentInput.current.value,
       streetAddress: this.streetAddressInput.current.value,
       city: this.cityInput.current.value,
@@ -96,6 +100,39 @@ class EditClient extends Component {
                       defaultValue={client.lastName}
                     />
                   </div>
+                  <div className="col-sm-6">
+                    <label htmlFor="sob">DOB</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="dob"
+                      minLength="2"
+                      required
+                      ref={this.dobInput}
+                      defaultValue={client.dob}
+                    />
+                  </div>
+
+                  <div className="col-sm-6">
+                    <label className="mr-sm-2" htmlFor="instrument">
+                      Instrument
+                    </label>
+                    <select
+                      className="custom-select mr-sm-2"
+                      id="instrument"
+                      name="instrument"
+                      ref={this.instrumentInput}
+                      defaultValue={client.instrument}
+                    >
+                      <option defaultValue="">Choose...</option>
+                      <option value="piano">Piano</option>
+                      <option value="drums">Drums</option>
+                      <option value="guitar">Guitar</option>
+                      <option value="bass">Bass</option>
+                      <option value="violin">Violin</option>
+                      <option value="cello">Cello</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div className="form-group">
@@ -131,36 +168,40 @@ class EditClient extends Component {
                     />
                   </div>{" "}
                   <div className="col-sm-6">
-                    <label htmlFor="balance">Balance</label>
+                    <label htmlFor="deposit">Deposit</label>
                     <input
                       type="text"
                       className="form-control"
-                      name="balance"
-                      ref={this.balanceInput}
-                      defaultValue={client.balance}
+                      name="deposit"
+                      ref={this.depositInput}
+                      defaultValue={client.deposit}
                     />
                   </div>
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="classDay">Class Day</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="classDay"
-                    ref={this.classDayInput}
-                    defaultValue={client.classDay}
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="instrument">Instrument</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="instrument"
-                    ref={this.instrumentInput}
-                    defaultValue={client.instrument}
-                  />
+                <div className="form-group row">
+                  <div className="col-sm-6">
+                    <label htmlFor="classDay">Class Day</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="classDay"
+                      ref={this.classDayInput}
+                      defaultValue={client.classDay}
+                    />
+                  </div>{" "}
+                  <div className="col-sm-6">
+                    <label htmlFor="signUpDate">
+                      Sign Up Date (<small>Default: current date</small>)
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="signUpDate"
+                      ref={this.signUpDateInput}
+                      defaultValue={client.signUpDate}
+                    />
+                  </div>
                 </div>
                 <div className="form-group row">
                   <div className="col-sm-6">
@@ -170,7 +211,7 @@ class EditClient extends Component {
                       className="form-control"
                       id="streetAddress"
                       ref={this.streetAddressInput}
-                      placeholder="Street Address"
+                      defaultValue={client.streetAddress}
                     />
                   </div>
                   <div className="col-sm-6">
@@ -180,7 +221,7 @@ class EditClient extends Component {
                       className="form-control"
                       id="city"
                       ref={this.cityInput}
-                      placeholder="City"
+                      defaultValue={client.city}
                     />
                   </div>
                   <div className="col-sm-6">
@@ -190,7 +231,7 @@ class EditClient extends Component {
                       className="form-control"
                       id="state"
                       ref={this.stateInput}
-                      placeholder="State"
+                      defaultValue={client.state}
                     />
                   </div>
                   <div className="col-sm-6">
@@ -200,7 +241,7 @@ class EditClient extends Component {
                       className="form-control"
                       id="postalCode"
                       ref={this.postalCodeInput}
-                      placeholder="Postal Code"
+                      defaultValue={client.postalCode}
                     />
                   </div>
                 </div>

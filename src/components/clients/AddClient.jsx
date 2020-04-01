@@ -13,7 +13,7 @@ class AddClient extends Component {
     lastName: "",
     email: "",
     phone: "",
-    balance: "",
+    deposit: "",
     parentName: "",
     classDay: "",
     instrument: "",
@@ -33,25 +33,29 @@ class AddClient extends Component {
     e.preventDefault();
     const newClient = this.state;
     const { firestore } = this.props;
-    //if no balance, make 0
-    if (newClient.balance === "") {
-      newClient.balance = 0;
+    //if no deposit, make 0
+    if (newClient.deposit === "") {
+      newClient.deposit = 0;
     }
+    if (newClient.signUpDate === "") {
+      var today = new Date();
+      var date =
+        today.getMonth() +
+        1 +
+        "-" +
+        today.getDate() +
+        "-" +
+        today.getFullYear();
+
+      newClient.signUpDate = date;
+    }
+
     firestore
       .add({ collection: "clients" }, newClient)
       .then(() => this.props.history.push("/"));
   };
 
   render() {
-    var today = new Date();
-    var date =
-      today.getFullYear() +
-      "-" +
-      (today.getMonth() + 1) +
-      "-" +
-      today.getDate();
-
-    console.log(date);
     return (
       <div>
         <div className="row">
@@ -159,13 +163,13 @@ class AddClient extends Component {
                   />
                 </div>{" "}
                 <div className="col-sm-6">
-                  <label htmlFor="balance">Balance</label>
+                  <label htmlFor="deposit">Deposit</label>
                   <input
                     type="text"
                     className="form-control"
-                    name="balance"
+                    name="deposit"
                     onChange={this.onChange}
-                    value={this.state.balance}
+                    value={this.state.deposit}
                   />
                 </div>
               </div>
@@ -181,14 +185,16 @@ class AddClient extends Component {
                   />
                 </div>{" "}
                 <div className="col-sm-6">
-                  <label htmlFor="signUpDate">Current Date</label>
+                  <label htmlFor="signUpDate">
+                    Sign Up Date (<small>Default: current date</small>)
+                  </label>
                   <input
                     type="text"
                     className="form-control"
                     name="signUpDate"
                     onChange={this.onChange}
                     value={this.state.signUpDate}
-                    placeholder={date}
+                    placeholder={this.state.signUpDate}
                   />
                 </div>
               </div>
