@@ -13,7 +13,15 @@ class AddClient extends Component {
     lastName: "",
     email: "",
     phone: "",
-    balance: ""
+    balance: "",
+    parentName: "",
+    classDay: "",
+    instrument: "",
+    streetAddress: "",
+    city: "",
+    postalCode: "",
+    state: "",
+    dob: ""
   };
 
   onChange = e => {
@@ -45,30 +53,45 @@ class AddClient extends Component {
 
         <div className="card">
           <div className="card-header">Add Client</div>
+
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
-              <div className="form-group">
-                <label htmlFor="firstName">First Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="firstName"
-                  minLength="2"
-                  required
-                  onChange={this.onChange}
-                  value={this.state.firstName}
-                />
+              <div className="form-group row">
+                <div class="col-sm-6">
+                  <label htmlFor="firstName">First Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="firstName"
+                    minLength="2"
+                    required
+                    onChange={this.onChange}
+                    value={this.state.firstName}
+                  />
+                </div>
+
+                <div class="col-sm-6">
+                  <label htmlFor="lastName">Last Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="lastName"
+                    minLength="2"
+                    required
+                    onChange={this.onChange}
+                    value={this.state.lastName}
+                  />
+                </div>
               </div>
+
               <div className="form-group">
-                <label htmlFor="lastName">Last Name</label>
+                <label htmlFor="parentName">Parent Name</label>
                 <input
                   type="text"
                   className="form-control"
-                  name="lastName"
-                  minLength="2"
-                  required
+                  name="parentName"
                   onChange={this.onChange}
-                  value={this.state.lastName}
+                  value={this.state.parentName}
                 />
               </div>
               <div className="form-group">
@@ -81,27 +104,89 @@ class AddClient extends Component {
                   value={this.state.email}
                 />
               </div>
+              <div className="form-group row">
+                <div class="col-sm-6">
+                  <label htmlFor="phone">Phone</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="phone"
+                    minLength="10"
+                    onChange={this.onChange}
+                    value={this.state.phone}
+                  />
+                </div>{" "}
+                <div class="col-sm-6">
+                  <label htmlFor="balance">Balance</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="balance"
+                    onChange={this.onChange}
+                    value={this.state.balance}
+                  />
+                </div>
+              </div>
+
               <div className="form-group">
-                <label htmlFor="phone">Phone</label>
+                <label htmlFor="classDay">Class Day</label>
                 <input
                   type="text"
                   className="form-control"
-                  name="phone"
-                  minLength="10"
+                  name="classDay"
                   onChange={this.onChange}
-                  value={this.state.phone}
+                  value={this.state.classDay}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="balance">Balance</label>
+                <label htmlFor="instrument">Instrument</label>
                 <input
                   type="text"
                   className="form-control"
-                  name="balance"
+                  name="instrument"
                   onChange={this.onChange}
-                  value={this.state.balance}
+                  value={this.state.instrument}
                 />
               </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <label for="streetAddress">Address</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="streetAddress"
+                    placeholder="Street Address"
+                  />
+                </div>
+                <div class="col-sm-6">
+                  <label for="city">City</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="city"
+                    placeholder="City"
+                  />
+                </div>
+                <div class="col-sm-6">
+                  <label for="state">State</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="state"
+                    placeholder="State"
+                  />
+                </div>
+                <div class="col-sm-6">
+                  <label for="postalCode">Postal Code</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="postalCode"
+                    placeholder="Postal Code"
+                  />
+                </div>
+              </div>
+
               <input
                 type="submit"
                 value="Submit"
