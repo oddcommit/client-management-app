@@ -21,7 +21,8 @@ class AddClient extends Component {
     city: "",
     postalCode: "",
     state: "",
-    dob: ""
+    dob: "",
+    signUpDate: ""
   };
 
   onChange = e => {
@@ -42,6 +43,15 @@ class AddClient extends Component {
   };
 
   render() {
+    var today = new Date();
+    var date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
+
+    console.log(date);
     return (
       <div>
         <div className="row">
@@ -82,6 +92,38 @@ class AddClient extends Component {
                     value={this.state.lastName}
                   />
                 </div>
+                <div className="col-sm-6">
+                  <label htmlFor="sob">DOB</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="dob"
+                    minLength="2"
+                    required
+                    onChange={this.onChange}
+                    value={this.state.dob}
+                  />
+                </div>
+
+                <div className="col-sm-6">
+                  <label className="mr-sm-2" htmlFor="instrument">
+                    Instrument
+                  </label>
+                  <select
+                    className="custom-select mr-sm-2"
+                    id="instrument"
+                    name="instrument"
+                    onChange={this.onChange}
+                  >
+                    <option defaultValue="">Choose...</option>
+                    <option value="piano">Piano</option>
+                    <option value="drums">Drums</option>
+                    <option value="guitar">Guitar</option>
+                    <option value="bass">Bass</option>
+                    <option value="violin">Violin</option>
+                    <option value="cello">Cello</option>
+                  </select>
+                </div>
               </div>
 
               <div className="form-group">
@@ -105,7 +147,7 @@ class AddClient extends Component {
                 />
               </div>
               <div className="form-group row">
-                <div class="col-sm-6">
+                <div className="col-sm-6">
                   <label htmlFor="phone">Phone</label>
                   <input
                     type="text"
@@ -127,34 +169,39 @@ class AddClient extends Component {
                   />
                 </div>
               </div>
+              <div className="form-group row">
+                <div className="col-sm-6">
+                  <label htmlFor="classDay">Class Day</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="classDay"
+                    onChange={this.onChange}
+                    value={this.state.classDay}
+                  />
+                </div>{" "}
+                <div className="col-sm-6">
+                  <label htmlFor="signUpDate">Current Date</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="signUpDate"
+                    onChange={this.onChange}
+                    value={this.state.signUpDate}
+                    placeholder={date}
+                  />
+                </div>
+              </div>
 
-              <div className="form-group">
-                <label htmlFor="classDay">Class Day</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="classDay"
-                  onChange={this.onChange}
-                  value={this.state.classDay}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="instrument">Instrument</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="instrument"
-                  onChange={this.onChange}
-                  value={this.state.instrument}
-                />
-              </div>
               <div className="form-group row">
                 <div className="col-sm-6">
                   <label htmlFor="streetAddress">Address</label>
                   <input
                     type="text"
                     className="form-control"
-                    id="streetAddress"
+                    name="streetAddress"
+                    onChange={this.onChange}
+                    value={this.state.streetAddress}
                     placeholder="Street Address"
                   />
                 </div>
@@ -163,7 +210,9 @@ class AddClient extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    id="city"
+                    name="city"
+                    onChange={this.onChange}
+                    value={this.state.city}
                     placeholder="City"
                   />
                 </div>
@@ -172,7 +221,9 @@ class AddClient extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    id="state"
+                    name="state"
+                    onChange={this.onChange}
+                    value={this.state.state}
                     placeholder="State"
                   />
                 </div>
@@ -181,7 +232,9 @@ class AddClient extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    id="postalCode"
+                    name="postalCode"
+                    value={this.state.postalCode}
+                    onChange={this.onChange}
                     placeholder="Postal Code"
                   />
                 </div>
