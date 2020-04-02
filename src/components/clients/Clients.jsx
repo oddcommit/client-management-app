@@ -10,7 +10,8 @@ import { firestoreConnect } from "react-redux-firebase";
 
 class Clients extends Component {
   state = {
-    totalOwed: null
+    totalOwed: null,
+    searchResult: ""
   };
 
   static getDerivedStateFromProps(props, state) {

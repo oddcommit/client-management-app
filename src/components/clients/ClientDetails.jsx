@@ -185,7 +185,6 @@ class ClientDetails extends Component {
                     <br />
                     {client.city}, {client.state} {client.postalCode}
                     <br />
-                    <abbr title="Phone">P:</abbr> (123) 456-7890
                   </div>
                 </div>
               </div>
