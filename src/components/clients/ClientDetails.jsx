@@ -58,7 +58,7 @@ class ClientDetails extends Component {
         today.getFullYear();
 
       return Math.round(
-        (parseDate(first) - parseDate(date)) / (1000 * 60 * 60 * 24)
+        Math.abs((parseDate(first) - parseDate(date)) / (1000 * 60 * 60 * 24))
       );
     }
 
@@ -146,7 +146,7 @@ class ClientDetails extends Component {
                 </div>
               </div>
 
-              <hr />
+              <hr className="bg-primary" />
               <ul className="list-group">
                 <li className="list-group-item">
                   {" "}
@@ -175,7 +175,7 @@ class ClientDetails extends Component {
                 </li>
               </ul>
 
-              <hr />
+              <hr className="bg-success" />
               <div className="container">
                 <div className="col-md-4">
                   <div>
