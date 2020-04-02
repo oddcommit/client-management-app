@@ -13,6 +13,7 @@ import AddClient from "./components/clients/AddClient";
 import ClientDetails from "./components/clients/ClientDetails";
 import EditClient from "./components/clients/EditClient";
 import Login from "./components/auth/Login";
+import Setting from "./components/settings/Setting";
 
 import "./App.css";
 
@@ -50,6 +51,11 @@ class App extends React.Component {
                     exact
                     path="/login"
                     component={UserIsNotAuthenticated(Login)}
+                  />
+                  <Route
+                    exact
+                    path="/settings"
+                    component={UserIsAuthenticated(Setting)}
                   />
                 </Switch>
               </div>
