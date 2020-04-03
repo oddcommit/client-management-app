@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {
-  setAllowRegistraction,
+  setAllowRegistration,
   setDisableBalanceOnAdd,
   setDisableBalanceOnEdit
 } from "../../actions/settingAction";
@@ -17,8 +17,8 @@ class Setting extends Component {
     setDisableBalanceOnEdit();
   };
   allowRegistrationChange = () => {
-    const { setAllowRegistraction } = this.props;
-    setAllowRegistraction();
+    const { setAllowRegistration } = this.props;
+    setAllowRegistration();
   };
   render() {
     const {
@@ -79,12 +79,12 @@ Setting.propTypes = {
   settings: PropTypes.object.isRequired,
   setDisableBalanceOnAdd: PropTypes.func.isRequired,
   setDisableBalanceOnEdit: PropTypes.func.isRequired,
-  setAllowRegistraction: PropTypes.func.isRequired
+  setAllowRegistration: PropTypes.func.isRequired
 };
 export default connect(
   (state, props) => ({
     auth: state.firebase.auth,
     settings: state.settings
   }),
-  { setAllowRegistraction, setDisableBalanceOnAdd, setDisableBalanceOnEdit }
+  { setAllowRegistration, setDisableBalanceOnAdd, setDisableBalanceOnEdit }
 )(Setting);
