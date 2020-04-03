@@ -10,7 +10,7 @@ import { firestoreConnect } from "react-redux-firebase";
 
 class Clients extends Component {
   state = {
-    totalOwed: null,
+    totalDeposit: null,
     searchResult: ""
   };
 
@@ -22,13 +22,13 @@ class Clients extends Component {
       const total = clients.reduce((total, client) => {
         return total + parseFloat(client.deposit.toString());
       }, 0);
-      return { totalOwed: total };
+      return { totalDeposit: total };
     }
     return null;
   }
   render() {
     const { clients } = this.props;
-    const { totalOwed } = this.state;
+    const { totalDeposit } = this.state;
     if (clients) {
       return (
         <div>
@@ -41,9 +41,9 @@ class Clients extends Component {
             </div>
             <div className="col-md-6">
               <h5 className="text-right text-secondary">
-                Total Owed{" "}
+                Total Class{" "}
                 <span className="text-primary">
-                  ${parseFloat(totalOwed).toFixed(2)}
+                  ${parseFloat(totalDeposit).toFixed(2)}
                 </span>
               </h5>
             </div>
@@ -52,8 +52,11 @@ class Clients extends Component {
             <thead className="thead-inverse">
               <tr>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Deposit</th>
+                <th>Teacher</th>
+                <th>Class Day & Time</th>
+                <th>Quantity</th>
+                <th>Total($25)</th>
+                <th>Gender</th>
                 <th></th>
               </tr>
             </thead>
@@ -63,14 +66,25 @@ class Clients extends Component {
                   <td>
                     {client.firstName} {client.lastName}
                   </td>
-                  <td>{client.email}</td>
-                  <td>${parseFloat(client.deposit).toFixed(2)}</td>
+                  <td>{client.teacher}</td>
+                  <td>
+                    {client.classDay.toUpperCase()} - {client.time}
+                  </td>
+                  <td>{client.quantity}</td>
+                  <td>${parseFloat(client.quantity * 25).toFixed(2)}</td>
+                  <td>{client.gender}</td>
                   <td>
                     <Link
                       to={`/client/${client.id}`}
                       className="btn btn-secondary btn-sm"
                     >
                       <i className="fas fa-arrow-circle-right " /> Details
+                    </Link>{" "}
+                    <Link
+                      to={`/invoice/${client.id}`}
+                      className="btn btn-primary btn-sm"
+                    >
+                      <i className="fas fa-arrow-circle-right " /> Invoice
                     </Link>
                   </td>
                 </tr>

@@ -18,10 +18,15 @@ class EditClient extends Component {
     this.emailInput = React.createRef();
     this.phoneInput = React.createRef();
     this.depositInput = React.createRef();
+    this.quantityInput = React.createRef();
     this.classDayInput = React.createRef();
+    this.timeDayInput = React.createRef();
+    this.teacherDayInput = React.createRef();
     this.signUpDateInput = React.createRef();
     this.dobInput = React.createRef();
     this.instrumentInput = React.createRef();
+    this.genderInput = React.createRef();
+    this.knowAboutUsInput = React.createRef();
     this.streetAddressInput = React.createRef();
     this.cityInput = React.createRef();
     this.stateInput = React.createRef();
@@ -42,10 +47,18 @@ class EditClient extends Component {
         this.depositInput.current.value == ""
           ? 0
           : this.depositInput.current.value,
+      quantity:
+        this.quantityInput.current.value == ""
+          ? 0
+          : this.quantityInput.current.value,
       classDay: this.classDayInput.current.value,
+      time: this.timeInput.current.value,
+      teacher: this.teacherInput.current.value,
       signUpDate: this.signUpDateInput.current.value,
       dob: this.dobInput.current.value,
       instrument: this.instrumentInput.current.value,
+      gender: this.genderInput.current.value,
+      knowAboutUs: this.knowAboutUsInput.current.value,
       streetAddress: this.streetAddressInput.current.value,
       city: this.cityInput.current.value,
       state: this.stateInput.current.value,
@@ -132,6 +145,50 @@ class EditClient extends Component {
                       <option value="bass">Bass</option>
                       <option value="violin">Violin</option>
                       <option value="cello">Cello</option>
+                      <option value="vocal">Vocal</option>
+                    </select>
+                  </div>
+
+                  <div className="col-sm-6 mt-4 space-between">
+                    <label htmlFor="gender">Gender </label>
+                    {"  "}
+                    <input
+                      type="radio"
+                      id="male"
+                      name="gender"
+                      value="Male"
+                      ref={this.genderInput}
+                      defaultValue={client.gender}
+                    />{" "}
+                    <label for="male">Male</label>{" "}
+                    <input
+                      type="radio"
+                      id="female"
+                      name="gender"
+                      value="Female"
+                      ref={this.genderInput}
+                      defaultValue={client.gender}
+                    />{" "}
+                    <label for="female">Female</label>
+                  </div>
+
+                  <div className="col-sm-6">
+                    <label className="mr-sm-2" htmlFor="knowAboutUs">
+                      How did you know about us?
+                    </label>
+                    <select
+                      className="custom-select mr-sm-2"
+                      id="knowAboutUs"
+                      name="knowAboutUs"
+                      ref={this.knowAboutUsInput}
+                      defaultValue={client.knowAboutUs}
+                    >
+                      <option defaultValue="">Choose...</option>
+                      <option value="internet">Internet</option>
+                      <option value="newspaper">Newspaper</option>
+                      <option value="walkIn">Walk In</option>
+                      <option value="referral">Referral</option>
+                      <option value="other">Other</option>
                     </select>
                   </div>
                 </div>
@@ -168,7 +225,7 @@ class EditClient extends Component {
                       defaultValue={client.phone}
                     />
                   </div>{" "}
-                  <div className="col-sm-6">
+                  <div className="col-sm-4">
                     <label htmlFor="deposit">Deposit</label>
                     <input
                       type="text"
@@ -179,10 +236,20 @@ class EditClient extends Component {
                       disabled={disableBalanceOnEdit}
                     />
                   </div>
+                  <div className="col-sm-2">
+                    <label htmlFor="quantity">Quantity</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="quantity"
+                      ref={this.quantityInput}
+                      defaultValue={client.quantity}
+                    />
+                  </div>
                 </div>
 
                 <div className="form-group row">
-                  <div className="col-sm-6">
+                  <div className="col-sm-2">
                     <label htmlFor="classDay">Class Day</label>
                     <input
                       type="text"
@@ -190,6 +257,26 @@ class EditClient extends Component {
                       name="classDay"
                       ref={this.classDayInput}
                       defaultValue={client.classDay}
+                    />
+                  </div>{" "}
+                  <div className="col-sm-2">
+                    <label htmlFor="time">Time</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="time"
+                      ref={this.timeInput}
+                      defaultValue={client.time}
+                    />
+                  </div>{" "}
+                  <div className="col-sm-2">
+                    <label htmlFor="teacher">Teacher</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="teacher"
+                      ref={this.teacherInput}
+                      defaultValue={client.teacher}
                     />
                   </div>{" "}
                   <div className="col-sm-6">

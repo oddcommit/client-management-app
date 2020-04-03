@@ -17,13 +17,18 @@ class AddClient extends Component {
     deposit: "",
     parentName: "",
     classDay: "",
+    time: "",
     instrument: "",
     streetAddress: "",
     city: "",
     postalCode: "",
     state: "",
     dob: "",
-    signUpDate: ""
+    signUpDate: "",
+    knowAboutUs: "",
+    gender: "",
+    quantity: "",
+    teacher: ""
   };
 
   onChange = e => {
@@ -128,6 +133,47 @@ class AddClient extends Component {
                     <option value="bass">Bass</option>
                     <option value="violin">Violin</option>
                     <option value="cello">Cello</option>
+                    <option value="vocal">Vocal</option>
+                  </select>
+                </div>
+
+                <div className="col-sm-6 mt-4 space-between">
+                  <label htmlFor="gender">Gender </label>
+                  {"  "}
+                  <input
+                    type="radio"
+                    id="male"
+                    name="gender"
+                    value="Male"
+                    onChange={this.onChange}
+                  />{" "}
+                  <label for="male">Male</label>{" "}
+                  <input
+                    type="radio"
+                    id="female"
+                    name="gender"
+                    value="Female"
+                    onChange={this.onChange}
+                  />{" "}
+                  <label for="female">Female</label>
+                </div>
+
+                <div className="col-sm-6">
+                  <label className="mr-sm-2" htmlFor="knowAboutUs">
+                    How did you know about us?
+                  </label>
+                  <select
+                    className="custom-select mr-sm-2"
+                    id="knowAboutUs"
+                    name="knowAboutUs"
+                    onChange={this.onChange}
+                  >
+                    <option defaultValue="">Choose...</option>
+                    <option value="internet">Internet</option>
+                    <option value="newspaper">Newspaper</option>
+                    <option value="walkIn">Walk In</option>
+                    <option value="referral">Referral</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
               </div>
@@ -164,7 +210,7 @@ class AddClient extends Component {
                     value={this.state.phone}
                   />
                 </div>{" "}
-                <div className="col-sm-6">
+                <div className="col-sm-4">
                   <label htmlFor="deposit">Deposit</label>
                   <input
                     type="text"
@@ -175,9 +221,19 @@ class AddClient extends Component {
                     disabled={disableBalanceOnAdd}
                   />
                 </div>
+                <div className="col-sm-2">
+                  <label htmlFor="quantity">Quantity</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="quantity"
+                    onChange={this.onChange}
+                    value={this.state.quantity}
+                  />
+                </div>
               </div>
               <div className="form-group row">
-                <div className="col-sm-6">
+                <div className="col-sm-2">
                   <label htmlFor="classDay">Class Day</label>
                   <input
                     type="text"
@@ -185,6 +241,26 @@ class AddClient extends Component {
                     name="classDay"
                     onChange={this.onChange}
                     value={this.state.classDay}
+                  />
+                </div>{" "}
+                <div className="col-sm-2">
+                  <label htmlFor="time">Time</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="time"
+                    onChange={this.onChange}
+                    value={this.state.time}
+                  />
+                </div>{" "}
+                <div className="col-sm-2">
+                  <label htmlFor="teacher">Teacher</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="teacher"
+                    onChange={this.onChange}
+                    value={this.state.teacher}
                   />
                 </div>{" "}
                 <div className="col-sm-6">

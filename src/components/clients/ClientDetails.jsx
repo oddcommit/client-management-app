@@ -161,6 +161,7 @@ class ClientDetails extends Component {
                   Contact Phone: {client.phone}
                 </li>
                 <li className="list-group-item"> DOB: {client.dob}</li>
+                <li className="list-group-item"> Gender: {client.gender}</li>
                 <li className="list-group-item">
                   {" "}
                   Class Day: {client.classDay.toUpperCase()}
