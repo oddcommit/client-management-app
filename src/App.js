@@ -14,6 +14,7 @@ import ClientDetails from "./components/clients/ClientDetails";
 import EditClient from "./components/clients/EditClient";
 import Login from "./components/auth/Login";
 import Setting from "./components/settings/Setting";
+import Register from "./components/auth/Register";
 
 import "./App.css";
 
@@ -56,6 +57,11 @@ class App extends React.Component {
                     exact
                     path="/settings"
                     component={UserIsAuthenticated(Setting)}
+                  />
+                  <Route
+                    exact
+                    path="/register"
+                    component={UserIsAuthenticated(Register)}
                   />
                 </Switch>
               </div>
