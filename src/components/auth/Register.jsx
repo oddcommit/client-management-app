@@ -43,8 +43,10 @@ class Login extends Component {
               ) : null}
               <h1 className="text-center pb-4 pt-3">
                 <span className="text-primary">
-                  <i className="fas fa-lock"></i> Register
+                  <i className="fas fa-lock"></i> Master Register
                 </span>
+
+                <h5 className="text-danger">create a new login and password</h5>
               </h1>
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
