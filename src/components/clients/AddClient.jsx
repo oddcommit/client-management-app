@@ -28,7 +28,8 @@ class AddClient extends Component {
     knowAboutUs: "",
     gender: "",
     quantity: "",
-    teacher: ""
+    teacher: "",
+    invoice: []
   };
 
   onChange = e => {

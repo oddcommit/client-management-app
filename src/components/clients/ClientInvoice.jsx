@@ -1,14 +1,76 @@
 import React, { Component } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
+import * as moment from "moment";
+import "moment-recur";
 
 import "./ClientInvoice.style.css";
 import { firestoreConnect } from "react-redux-firebase";
 import Spinner from "../layout/Spinner";
+import ClientInvoiceItem from "./ClientInvoiceItem";
 
 class ClientInvoice extends Component {
+  state = {
+    extra: "",
+    showUpdate: false
+  };
+  getNextEvents = dayOfWeek => {
+    let firstDay = new Date();
+
+    let nextMonth = new Date(
+      firstDay.getFullYear(),
+      firstDay.getMonth(),
+      firstDay.getDate()
+    );
+    let events = moment(nextMonth)
+      .recur()
+      .every(dayOfWeek)
+      .daysOfWeek()
+      .weeksOfMonthByDay();
+
+    return events.next(4, "MM/DD/YYYY");
+  };
+  //update submit
+  updateSubmit = e => {
+    e.preventDefault();
+  };
+
+  onChange = e => this.setState({ [e.target.name]: e.target.value });
   render() {
     const { client } = this.props;
+    const { extra, showUpdate } = this.state;
+    let now = moment().format("LLL");
+
+    //set update book and extra
+    let updateForm = "";
+    //if deposit form should deisplay
+    if (showUpdate) {
+      updateForm = (
+        <form onSubmit={this.updateSubmit}>
+          <div className="input-group">
+            <input
+              type="text"
+              className="form-control"
+              name="extra"
+              placeholder="Enter the amount"
+              value={extra}
+              onChange={this.onChange}
+            />
+            <div className="input-group-append">
+              <input
+                type="submit"
+                value="Update"
+                className="btn btn-outline-dark"
+              />
+            </div>
+          </div>
+        </form>
+      );
+    } else {
+      updateForm = null;
+    }
+
+    //
 
     if (client) {
       return (
@@ -23,8 +85,8 @@ class ClientInvoice extends Component {
                 www.doremimusic.net{" "}
               </a>
               <div className="float-right">
-                <h3 className="mb-0">Invoice #{client.Id}</h3>
-                Date: Current date
+                <h3 className="mb-0">Invoice #{client.id}</h3>
+                Date: {now}
               </div>
             </div>
             <div className="card-body">
@@ -55,60 +117,43 @@ class ClientInvoice extends Component {
                 <table className="table table-striped">
                   <thead>
                     <tr>
-                      <th className="center">#</th>
                       <th>Date</th>
-                      <th>Description</th>
-                      <th className="right">Price</th>
-                      <th className="center">Qty</th>
-                      <th className="right">Total</th>
+                      <th>Price</th>
+                      <th>Qty</th>
+                      <th>Total</th>
                     </tr>
                   </thead>
+
                   <tbody>
+                    {this.getNextEvents(client.classDay).map(date => (
+                      <ClientInvoiceItem client={client} date={date} />
+                    ))}
+
                     <tr>
-                      <td className="center">1</td>
-                      <td className="left strong">{client.signUpDate}</td>
-                      <td className="left">Iphone 10X with headphone</td>
-                      <td className="right">$25</td>
-                      <td className="center">{client.quantity}</td>
-                      <td className="right">${client.quantity * 25}</td>
-                    </tr>
-                    <tr>
-                      <td className="center">2</td>
-                      <td className="left">{client.signUpDate}</td>
-                      <td className="left">Iphone 8X with extended warranty</td>
-                      <td className="right">$25</td>
-                      <td className="center">{client.quantity}</td>
-                      <td className="right">${client.quantity * 25}</td>
-                    </tr>
-                    <tr>
-                      <td className="center">3</td>
-                      <td className="left">{client.signUpDate}</td>
-                      <td className="left">
-                        Samsung 4C with extended warranty
+                      <th scope="row">Extra</th>
+                      <td></td>
+                      <td></td>
+                      <td>
+                        {
+                          <h3 className="pull-right">
+                            ${extra === "" ? 0 : parseFloat(extra).toFixed(2)}{" "}
+                            <small>
+                              {" "}
+                              <a
+                                href="#!"
+                                onClick={() =>
+                                  this.setState({
+                                    showUpdate: !showUpdate
+                                  })
+                                }
+                              >
+                                <i className="fas fa-pencil-alt"></i>
+                              </a>
+                            </small>
+                            {updateForm}
+                          </h3>
+                        }
                       </td>
-                      <td className="right">$25</td>
-                      <td className="center">{client.quantity}</td>
-                      <td className="right">${client.quantity * 25}</td>
-                    </tr>
-                    <tr>
-                      <td className="center">4</td>
-                      <td className="left">{client.signUpDate}</td>
-                      <td className="left">
-                        Google prime with Amazon prime membership
-                      </td>
-                      <td className="right">$25</td>
-                      <td className="center">{client.quantity}</td>
-                      <td className="right">${client.quantity * 25}</td>
-                    </tr>
-                    <tr>
-                      <td className="center">Books</td>
-                      <td className="left">{client.signUpDate}</td>
-                      <td className="left">
-                        Google prime with Amazon prime membership
-                      </td>
-                      <td className="right">input cost</td>
-                      <td className="center">{client.quantity}</td>
-                      <td className="right">book total</td>
                     </tr>
                   </tbody>
                 </table>
@@ -120,18 +165,16 @@ class ClientInvoice extends Component {
                     <tbody>
                       <tr>
                         <td className="left">
-                          <strong className="text-dark"> extra</strong>
-                        </td>
-                        <td className="right"> extra cost</td>
-                      </tr>
-
-                      <tr>
-                        <td className="left">
                           <strong className="text-dark">Total</strong>{" "}
                         </td>
                         <td className="right">
                           <strong className="text-dark">
-                            ${client.quantity * 4 * 25} + book + extra
+                            {extra
+                              ? `$${(
+                                  client.quantity * 4 * 25 +
+                                  parseFloat(extra)
+                                ).toFixed(2)}`
+                              : `$${client.quantity * 4 * 25}`}
                           </strong>
                         </td>
                       </tr>
