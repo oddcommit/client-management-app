@@ -21,7 +21,7 @@ class EditClient extends Component {
     this.quantityInput = React.createRef();
     this.classDayInput = React.createRef();
     this.timeDayInput = React.createRef();
-    this.teacherDayInput = React.createRef();
+    this.teacherInput = React.createRef();
     this.signUpDateInput = React.createRef();
     this.dobInput = React.createRef();
     this.instrumentInput = React.createRef();
@@ -44,7 +44,7 @@ class EditClient extends Component {
       email: this.emailInput.current.value,
       phone: this.phoneInput.current.value,
       deposit:
-        this.depositInput.current.value == ""
+        this.depositInput.current.value === ""
           ? 0
           : this.depositInput.current.value,
       quantity:
