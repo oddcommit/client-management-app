@@ -12,6 +12,8 @@ import ClientInvoiceItem from "./ClientInvoiceItem";
 class ClientInvoice extends Component {
   state = {
     extra: "",
+    qty: [],
+    total: "",
     showUpdate: false
   };
   getNextEvents = dayOfWeek => {
@@ -30,9 +32,19 @@ class ClientInvoice extends Component {
 
     return events.next(4, "MM/DD/YYYY");
   };
+
   //update submit
   updateSubmit = e => {
     e.preventDefault();
+
+    const { client, firestore } = this.props;
+    const clientUpdate = {
+      invoice: this.state
+    };
+
+    //update firestore
+
+    firestore.update({ collection: "clients", doc: client.id }, clientUpdate);
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -125,8 +137,13 @@ class ClientInvoice extends Component {
                   </thead>
 
                   <tbody>
-                    {this.getNextEvents(client.classDay).map(date => (
-                      <ClientInvoiceItem client={client} date={date} />
+                    {this.getNextEvents(client.classDay).map((date, index) => (
+                      <ClientInvoiceItem
+                        client={client}
+                        date={date}
+                        index={index}
+                        state={this.state}
+                      />
                     ))}
 
                     <tr>
@@ -136,7 +153,6 @@ class ClientInvoice extends Component {
                       <td>
                         {
                           <h3 className="pull-right">
-                            ${extra === "" ? 0 : parseFloat(extra).toFixed(2)}{" "}
                             <small>
                               {" "}
                               <a
@@ -147,7 +163,10 @@ class ClientInvoice extends Component {
                                   })
                                 }
                               >
-                                <i className="fas fa-pencil-alt"></i>
+                                $
+                                {extra === ""
+                                  ? 0
+                                  : parseFloat(extra).toFixed(2)}{" "}
                               </a>
                             </small>
                             {updateForm}
