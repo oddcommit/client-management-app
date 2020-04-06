@@ -12,7 +12,12 @@ import ClientInvoiceItem from "./ClientInvoiceItem";
 class ClientInvoice extends Component {
   state = {
     extra: "",
-    qty: [],
+    qty: [
+      { showQtyUpdate: false, qty1: "" },
+      { showQtyUpdate: false, qty2: "" },
+      { showQtyUpdate: false, qty3: "" },
+      { showQtyUpdate: false, qty4: "" }
+    ],
     total: "",
     showUpdate: false
   };
@@ -38,19 +43,45 @@ class ClientInvoice extends Component {
     e.preventDefault();
 
     const { client, firestore } = this.props;
+    const { showUpdate, extra } = this.state;
+
+    let extra1 = extra;
+
     const clientUpdate = {
-      invoice: this.state
+      invoice: this.state.qty,
+      extra: extra1
     };
 
     //update firestore
 
     firestore.update({ collection: "clients", doc: client.id }, clientUpdate);
+
+    this.setState({
+      showUpdate: !showUpdate
+    });
+  };
+  onUpdateChange = () => {
+    const { showUpdate } = this.state;
+    this.setState({
+      showUpdate: !showUpdate
+    });
   };
 
+  //updating QTy
+
+  onQtyChange = index => {
+    const { showQtyUpdate } = this.state.qty[index];
+
+    this.setState({
+      showQtyUpdate: !showQtyUpdate
+    });
+    console.log(showQtyUpdate);
+  };
   onChange = e => this.setState({ [e.target.name]: e.target.value });
+
   render() {
     const { client } = this.props;
-    const { extra, showUpdate } = this.state;
+    const { extra, qty, showUpdate } = this.state;
     let now = moment().format("LLL");
 
     //set update book and extra
@@ -82,7 +113,34 @@ class ClientInvoice extends Component {
       updateForm = null;
     }
 
-    //
+    //update Qty form
+    let updateQtyForm = "";
+    //if deposit form should deisplay
+    // if (qty.showQtyUpdate) {
+    //   updateForm = (
+    //     <form onSubmit={this.updateSubmit}>
+    //       <div className="input-group">
+    //         <input
+    //           type="text"
+    //           className="form-control"
+    //           name="extra"
+    //           placeholder="Enter the amount"
+    //           value={extra}
+    //           onChange={this.onChange}
+    //         />
+    //         <div className="input-group-append">
+    //           <input
+    //             type="submit"
+    //             value="Update"
+    //             className="btn btn-outline-dark"
+    //           />
+    //         </div>
+    //       </div>
+    //     </form>
+    //   );
+    // } else {
+    //   updateForm = null;
+    // }
 
     if (client) {
       return (
@@ -141,8 +199,10 @@ class ClientInvoice extends Component {
                       <ClientInvoiceItem
                         client={client}
                         date={date}
+                        key={index}
                         index={index}
                         state={this.state}
+                        onQtyChange={this.onQtyChange}
                       />
                     ))}
 
@@ -155,14 +215,7 @@ class ClientInvoice extends Component {
                           <h3 className="pull-right">
                             <small>
                               {" "}
-                              <a
-                                href="#!"
-                                onClick={() =>
-                                  this.setState({
-                                    showUpdate: !showUpdate
-                                  })
-                                }
-                              >
+                              <a href="#!" onClick={this.onUpdateChange}>
                                 $
                                 {extra === ""
                                   ? 0
