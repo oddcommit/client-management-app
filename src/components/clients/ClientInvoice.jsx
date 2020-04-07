@@ -85,6 +85,35 @@ class ClientInvoice extends Component {
     });
   };
 
+  //qty toggle change
+  onQtyChange = e => {
+    const { qty } = this.state;
+    let i = 0;
+    let qtyArray = [];
+    for (let index in qty) {
+      let newQty = qty[index];
+      if (index == i) {
+        newQty = {
+          showQtyUpdate: !newQty.showQtyUpdate,
+          qty1: "It work!"
+        };
+      }
+      qtyArray.push(newQty);
+    }
+    this.setState({
+      qty: qtyArray
+    });
+
+    // const { qty } = { ...this.state };
+    // const name = e.target.name;
+    // const value = e.target.value;
+
+    // console.log("name and value", name, value, e);
+    // const currentState = qty;
+    // currentState[name] = value;
+    // this.setState({ qty: currentState });
+  };
+
   //updating QTy
 
   // onQtySubmit = i => {
@@ -106,22 +135,11 @@ class ClientInvoice extends Component {
   // };
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
-  //qty change
-  // onQtyChange = e => {
-  //   const { qty } = { ...this.state };
-  //   const name = e.target.name;
-  //   const value = e.target.value;
-
-  //   console.log("name and value", name, value, e);
-  //   // const currentState = qty;
-  //   // currentState[name] = value;
-  //   // this.setState({ qty: currentState });
-  // };
-
   render() {
     const { client } = this.props;
     const { extra, showUpdate, qty } = this.state;
     let now = moment().format("LLL");
+    console.log(qty);
 
     //set update book and extra
     let updateForm = "";
@@ -157,7 +175,8 @@ class ClientInvoice extends Component {
     //if deposit form should deisplay
 
     qty.map((item, index) => {
-      if (item.showQtyUpdate) {
+      const { showQtyUpdate } = this.state.qty[0];
+      if (showQtyUpdate) {
         updateQtyForm = (
           <form onSubmit={this.onQtySubmitForm}>
             <div className="input-group">
@@ -258,7 +277,7 @@ class ClientInvoice extends Component {
                           <h3 className="pull-right">
                             <small>
                               {" "}
-                              <a href="#!" onClick={() => this.onQtyChange()}>
+                              <a href="#!" onClick={this.onQtyChange}>
                                 {client.quantity}
                               </a>
                             </small>
