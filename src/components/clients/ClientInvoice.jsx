@@ -13,10 +13,10 @@ class ClientInvoice extends Component {
   state = {
     extra: "",
     qty: [
-      { showQtyUpdate: false, qty1: "" },
-      { showQtyUpdate: false, qty2: "" },
-      { showQtyUpdate: false, qty3: "" },
-      { showQtyUpdate: false, qty4: "" }
+      { showQtyUpdate: false, qtyItem: "hey" },
+      { showQtyUpdate: false, qtyItem: "ad" },
+      { showQtyUpdate: false, qtyItem: "yho" },
+      { showQtyUpdate: false, qtyItem: "bv" }
     ],
     total: "",
     showUpdate: false
@@ -60,6 +60,24 @@ class ClientInvoice extends Component {
       showUpdate: !showUpdate
     });
   };
+  //qty submit form
+  // onQtySubmitForm = e => {
+  //   e.preventDefault();
+  //   const name = e.target.name;
+  //   const value = e.target.value;
+
+  //   const { client, firestore } = this.props;
+  //   const { qty } = this.state;
+
+  //   const clientUpdate = {
+  //     qty: qty
+  //   };
+
+  //   //update firestore
+
+  //   firestore.update({ collection: "clients", doc: client.id }, clientUpdate);
+  // };
+  /////////////////////////////
   onUpdateChange = () => {
     const { showUpdate } = this.state;
     this.setState({
@@ -69,19 +87,40 @@ class ClientInvoice extends Component {
 
   //updating QTy
 
-  onQtyChange = index => {
-    const { showQtyUpdate } = this.state.qty[index];
-
-    this.setState({
-      showQtyUpdate: !showQtyUpdate
-    });
-    console.log(showQtyUpdate);
-  };
+  // onQtySubmit = i => {
+  //   const { qty } = this.state;
+  //   let qtyArray = [];
+  //   for (let index in qty) {
+  //     let newQty = qty[index];
+  //     if (index == i) {
+  //       newQty = {
+  //         showQtyUpdate: !newQty.showQtyUpdate,
+  //         qty1: "It work!"
+  //       };
+  //     }
+  //     qtyArray.push(newQty);
+  //   }
+  //   this.setState({
+  //     qty: qtyArray
+  //   });
+  // };
   onChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  //qty change
+  // onQtyChange = e => {
+  //   const { qty } = { ...this.state };
+  //   const name = e.target.name;
+  //   const value = e.target.value;
+
+  //   console.log("name and value", name, value, e);
+  //   // const currentState = qty;
+  //   // currentState[name] = value;
+  //   // this.setState({ qty: currentState });
+  // };
 
   render() {
     const { client } = this.props;
-    const { extra, qty, showUpdate } = this.state;
+    const { extra, showUpdate, qty } = this.state;
     let now = moment().format("LLL");
 
     //set update book and extra
@@ -116,31 +155,35 @@ class ClientInvoice extends Component {
     //update Qty form
     let updateQtyForm = "";
     //if deposit form should deisplay
-    // if (qty.showQtyUpdate) {
-    //   updateForm = (
-    //     <form onSubmit={this.updateSubmit}>
-    //       <div className="input-group">
-    //         <input
-    //           type="text"
-    //           className="form-control"
-    //           name="extra"
-    //           placeholder="Enter the amount"
-    //           value={extra}
-    //           onChange={this.onChange}
-    //         />
-    //         <div className="input-group-append">
-    //           <input
-    //             type="submit"
-    //             value="Update"
-    //             className="btn btn-outline-dark"
-    //           />
-    //         </div>
-    //       </div>
-    //     </form>
-    //   );
-    // } else {
-    //   updateForm = null;
-    // }
+
+    qty.map((item, index) => {
+      if (item.showQtyUpdate) {
+        updateQtyForm = (
+          <form onSubmit={this.onQtySubmitForm}>
+            <div className="input-group">
+              <input
+                type="text"
+                className="form-control"
+                name="AHHHH"
+                placeholder="Enter Qty"
+                value="kikiki"
+                onChange={this.onQtyChange}
+              />
+
+              <div className="input-group-append">
+                <input
+                  type="submit"
+                  value="Change"
+                  className="btn btn-outline-dark"
+                />
+              </div>
+            </div>
+          </form>
+        );
+      } else {
+        updateQtyForm = null;
+      }
+    });
 
     if (client) {
       return (
@@ -195,16 +238,36 @@ class ClientInvoice extends Component {
                   </thead>
 
                   <tbody>
-                    {this.getNextEvents(client.classDay).map((date, index) => (
+                    {/* {this.getNextEvents(client.classDay).map((date, index) => (
                       <ClientInvoiceItem
                         client={client}
                         date={date}
                         key={index}
                         index={index}
                         state={this.state}
-                        onQtyChange={this.onQtyChange}
+                        onQtyChange={this.onQtySubmit}
+                        updateQtyForm={this.updateQtyForm}
                       />
-                    ))}
+                    ))} */}
+
+                    <tr>
+                      <th scope="row">This is the date</th>
+                      <td>$25</td>
+                      <td>
+                        {
+                          <h3 className="pull-right">
+                            <small>
+                              {" "}
+                              <a href="#!" onClick={() => this.onQtyChange()}>
+                                {client.quantity}
+                              </a>
+                            </small>
+                            {updateQtyForm}
+                          </h3>
+                        }
+                      </td>
+                      <td>${client.quantity * 25}</td>
+                    </tr>
 
                     <tr>
                       <th scope="row">Extra</th>

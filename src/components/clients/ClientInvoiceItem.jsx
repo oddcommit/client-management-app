@@ -6,7 +6,8 @@ export default function ClientInvoiceItem({
   index,
   key,
   state,
-  onQtyChange
+  onQtyChange,
+  updateQtyForm
 }) {
   {
     let qty = state.qty;
@@ -26,7 +27,7 @@ export default function ClientInvoiceItem({
                 {client.quantity}
               </a>
             </small>
-            {/* {updateForm} */}
+            {updateQtyForm}
           </h3>
         }
       </td>
