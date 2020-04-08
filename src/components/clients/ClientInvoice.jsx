@@ -13,15 +13,15 @@ class ClientInvoice extends Component {
   state = {
     extra: "",
     qty: [
-      { showQtyUpdate: false, qtyItem: "hey" },
-      { showQtyUpdate: false, qtyItem: "ad" },
-      { showQtyUpdate: false, qtyItem: "yho" },
-      { showQtyUpdate: false, qtyItem: "bv" }
+      { id: 0, showQtyUpdate: false, qtyItem: "hey" },
+      { id: 2, showQtyUpdate: false, qtyItem: "ad" },
+      { id: 3, showQtyUpdate: false, qtyItem: "yho" },
+      { id: 4, showQtyUpdate: false, qtyItem: "bv" },
     ],
     total: "",
-    showUpdate: false
+    showUpdate: false,
   };
-  getNextEvents = dayOfWeek => {
+  getNextEvents = (dayOfWeek) => {
     let firstDay = new Date();
 
     let nextMonth = new Date(
@@ -39,7 +39,7 @@ class ClientInvoice extends Component {
   };
 
   //update submit
-  updateSubmit = e => {
+  updateSubmit = (e) => {
     e.preventDefault();
 
     const { client, firestore } = this.props;
@@ -49,7 +49,7 @@ class ClientInvoice extends Component {
 
     const clientUpdate = {
       invoice: this.state.qty,
-      extra: extra1
+      extra: extra1,
     };
 
     //update firestore
@@ -57,7 +57,7 @@ class ClientInvoice extends Component {
     firestore.update({ collection: "clients", doc: client.id }, clientUpdate);
 
     this.setState({
-      showUpdate: !showUpdate
+      showUpdate: !showUpdate,
     });
   };
   //qty submit form
@@ -81,12 +81,12 @@ class ClientInvoice extends Component {
   onUpdateChange = () => {
     const { showUpdate } = this.state;
     this.setState({
-      showUpdate: !showUpdate
+      showUpdate: !showUpdate,
     });
   };
 
   //qty toggle change
-  onQtyChange = e => {
+  onQtyChange = (e) => {
     const { qty } = this.state;
     let i = 0;
     let qtyArray = [];
@@ -95,13 +95,13 @@ class ClientInvoice extends Component {
       if (index == i) {
         newQty = {
           showQtyUpdate: !newQty.showQtyUpdate,
-          qty1: "It work!"
+          qty1: "It work!",
         };
       }
       qtyArray.push(newQty);
     }
     this.setState({
-      qty: qtyArray
+      qty: qtyArray,
     });
 
     // const { qty } = { ...this.state };
@@ -133,7 +133,7 @@ class ClientInvoice extends Component {
   //     qty: qtyArray
   //   });
   // };
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
+  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
   render() {
     const { client } = this.props;
@@ -174,9 +174,8 @@ class ClientInvoice extends Component {
     let updateQtyForm = "";
     //if deposit form should deisplay
 
-    qty.map((item, index) => {
-      const { showQtyUpdate } = this.state.qty[0];
-      if (showQtyUpdate) {
+    qty.forEach((item, index) => {
+      if (item.showQtyUpdate) {
         updateQtyForm = (
           <form onSubmit={this.onQtySubmitForm}>
             <div className="input-group">
@@ -357,10 +356,10 @@ class ClientInvoice extends Component {
 }
 
 export default compose(
-  firestoreConnect(props => [
-    { collection: "clients", storeAs: "client", doc: props.match.params.id }
+  firestoreConnect((props) => [
+    { collection: "clients", storeAs: "client", doc: props.match.params.id },
   ]),
   connect(({ firestore: { ordered } }, props) => ({
-    client: ordered.client && ordered.client[0]
+    client: ordered.client && ordered.client[0],
   }))
 )(ClientInvoice);
