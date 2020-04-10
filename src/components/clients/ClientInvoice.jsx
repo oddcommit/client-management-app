@@ -12,13 +12,23 @@ import ClientInvoiceItem from "./ClientInvoiceItem";
 class ClientInvoice extends Component {
   state = {
     extra: "",
-    qty: [
-      { id: 0, showQtyUpdate: false, qtyItem: "hey" },
-      { id: 2, showQtyUpdate: false, qtyItem: "ad" },
-      { id: 3, showQtyUpdate: false, qtyItem: "yho" },
-      { id: 4, showQtyUpdate: false, qtyItem: "bv" },
-    ],
     total: "",
+    item0: {
+      status: false,
+      amount: 1,
+    },
+    item2: {
+      status: false,
+      amount: 1,
+    },
+    item3: {
+      status: false,
+      amount: 1,
+    },
+    item4: {
+      status: false,
+      amount: 1,
+    },
     showUpdate: false,
   };
   getNextEvents = (dayOfWeek) => {
@@ -60,24 +70,7 @@ class ClientInvoice extends Component {
       showUpdate: !showUpdate,
     });
   };
-  //qty submit form
-  // onQtySubmitForm = e => {
-  //   e.preventDefault();
-  //   const name = e.target.name;
-  //   const value = e.target.value;
 
-  //   const { client, firestore } = this.props;
-  //   const { qty } = this.state;
-
-  //   const clientUpdate = {
-  //     qty: qty
-  //   };
-
-  //   //update firestore
-
-  //   firestore.update({ collection: "clients", doc: client.id }, clientUpdate);
-  // };
-  /////////////////////////////
   onUpdateChange = () => {
     const { showUpdate } = this.state;
     this.setState({
@@ -85,54 +78,6 @@ class ClientInvoice extends Component {
     });
   };
 
-  //qty toggle change
-  onQtyChange = (e) => {
-    const { qty } = this.state;
-    let i = 0;
-    let qtyArray = [];
-    for (let index in qty) {
-      let newQty = qty[index];
-      if (index == i) {
-        newQty = {
-          showQtyUpdate: !newQty.showQtyUpdate,
-          qty1: "It work!",
-        };
-      }
-      qtyArray.push(newQty);
-    }
-    this.setState({
-      qty: qtyArray,
-    });
-
-    // const { qty } = { ...this.state };
-    // const name = e.target.name;
-    // const value = e.target.value;
-
-    // console.log("name and value", name, value, e);
-    // const currentState = qty;
-    // currentState[name] = value;
-    // this.setState({ qty: currentState });
-  };
-
-  //updating QTy
-
-  // onQtySubmit = i => {
-  //   const { qty } = this.state;
-  //   let qtyArray = [];
-  //   for (let index in qty) {
-  //     let newQty = qty[index];
-  //     if (index == i) {
-  //       newQty = {
-  //         showQtyUpdate: !newQty.showQtyUpdate,
-  //         qty1: "It work!"
-  //       };
-  //     }
-  //     qtyArray.push(newQty);
-  //   }
-  //   this.setState({
-  //     qty: qtyArray
-  //   });
-  // };
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
   render() {
@@ -169,39 +114,6 @@ class ClientInvoice extends Component {
     } else {
       updateForm = null;
     }
-
-    //update Qty form
-    let updateQtyForm = "";
-    //if deposit form should deisplay
-
-    qty.forEach((item, index) => {
-      if (item.showQtyUpdate) {
-        updateQtyForm = (
-          <form onSubmit={this.onQtySubmitForm}>
-            <div className="input-group">
-              <input
-                type="text"
-                className="form-control"
-                name="AHHHH"
-                placeholder="Enter Qty"
-                value="kikiki"
-                onChange={this.onQtyChange}
-              />
-
-              <div className="input-group-append">
-                <input
-                  type="submit"
-                  value="Change"
-                  className="btn btn-outline-dark"
-                />
-              </div>
-            </div>
-          </form>
-        );
-      } else {
-        updateQtyForm = null;
-      }
-    });
 
     if (client) {
       return (
@@ -248,6 +160,7 @@ class ClientInvoice extends Component {
                 <table className="table table-striped">
                   <thead>
                     <tr>
+                      <th>#</th>
                       <th>Date</th>
                       <th>Price</th>
                       <th>Qty</th>
@@ -256,39 +169,19 @@ class ClientInvoice extends Component {
                   </thead>
 
                   <tbody>
-                    {/* {this.getNextEvents(client.classDay).map((date, index) => (
+                    {this.getNextEvents(client.classDay).map((date, index) => (
                       <ClientInvoiceItem
                         client={client}
                         date={date}
                         key={index}
                         index={index}
                         state={this.state}
-                        onQtyChange={this.onQtySubmit}
-                        updateQtyForm={this.updateQtyForm}
                       />
-                    ))} */}
-
-                    <tr>
-                      <th scope="row">This is the date</th>
-                      <td>$25</td>
-                      <td>
-                        {
-                          <h3 className="pull-right">
-                            <small>
-                              {" "}
-                              <a href="#!" onClick={this.onQtyChange}>
-                                {client.quantity}
-                              </a>
-                            </small>
-                            {updateQtyForm}
-                          </h3>
-                        }
-                      </td>
-                      <td>${client.quantity * 25}</td>
-                    </tr>
+                    ))}
 
                     <tr>
                       <th scope="row">Extra</th>
+                      <td></td>
                       <td></td>
                       <td></td>
                       <td>

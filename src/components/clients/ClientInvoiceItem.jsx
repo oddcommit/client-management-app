@@ -4,18 +4,12 @@ export default function ClientInvoiceItem({
   client,
   date,
   index,
-  key,
-  state,
-  onQtyChange,
-  updateQtyForm
+  updateQtyForm,
 }) {
-  {
-    let qty = state.qty;
-    qty[key] = client.quantity;
-  }
-
   return (
     <tr>
+      <th scope="row">{index + 1}</th>
+
       <th scope="row">{date}</th>
       <td>$25</td>
       <td>
@@ -23,9 +17,7 @@ export default function ClientInvoiceItem({
           <h3 className="pull-right">
             <small>
               {" "}
-              <a href="#!" onClick={() => onQtyChange(index)}>
-                {client.quantity}
-              </a>
+              <a href="#!">{client.quantity}</a>
             </small>
             {updateQtyForm}
           </h3>
