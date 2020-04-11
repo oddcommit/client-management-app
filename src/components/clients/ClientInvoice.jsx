@@ -14,9 +14,13 @@ class ClientInvoice extends Component {
     extra: "",
     total: "",
     item0: false,
+    itemQ0: "",
     item1: false,
+    itemQ1: "",
     item2: false,
+    itemQ2: "",
     item3: false,
+    itemQ3: "",
 
     showUpdate: false,
   };
@@ -91,10 +95,51 @@ class ClientInvoice extends Component {
     }
   };
 
+  myForm = (a, b) => {
+    console.log(a);
+    return (
+      <form onSubmit={this.updateSubmit}>
+        <div className="input-group">
+          <input
+            type="text"
+            className="form-control"
+            name={a}
+            placeholder="Enter the amount"
+            value={a}
+            onChange={this.onChange}
+          />
+          <div className="input-group-append">
+            <input
+              type="submit"
+              value="Update"
+              className="btn btn-outline-dark"
+            />
+          </div>
+        </div>
+      </form>
+    );
+  };
+
+  updateQtyForm = (index) => {
+    const { item0, item1, item2, item3 } = this.state;
+    let updateForm = "";
+    //if deposit form should deisplay
+    if (item0) {
+      return (updateForm = this.myForm("itemQ0", "hey"));
+    } else if (item1) {
+      updateForm = this.myForm("itemQ1", "hey");
+    } else if (item2) {
+      updateForm = this.myForm("itemQ2", "hey");
+    } else if (item3) {
+      updateForm = this.myForm("itemQ3", "hey");
+    } else {
+      updateForm = null;
+    }
+  };
+
   render() {
     const { client } = this.props;
     const { extra, showUpdate, item0, item1, item2, item3 } = this.state;
-    console.log(this.state);
     let now = moment().format("LLL");
 
     //set update book and extra
@@ -201,7 +246,7 @@ class ClientInvoice extends Component {
                                     {index}
                                   </a>
                                 </small>
-                                {/* {updateQtyForm} */}
+                                {this.updateQtyForm(index)}
                               </h3>
                             }
                           </td>
