@@ -6,6 +6,8 @@ export default function ClientInvoiceItem({
   index,
   updateQtyForm,
 }) {
+  const { item0, item1, item2, item3 } = client;
+
   return (
     <tr>
       <th scope="row">{index + 1}</th>
@@ -17,7 +19,10 @@ export default function ClientInvoiceItem({
           <h3 className="pull-right">
             <small>
               {" "}
-              <a href="#!">{client.quantity}</a>
+              <a href="#!">
+                {client.quantity} <span>This is index: </span>
+                {index}
+              </a>
             </small>
             {updateQtyForm}
           </h3>

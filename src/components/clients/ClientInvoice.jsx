@@ -13,22 +13,11 @@ class ClientInvoice extends Component {
   state = {
     extra: "",
     total: "",
-    item0: {
-      status: false,
-      amount: 1,
-    },
-    item2: {
-      status: false,
-      amount: 1,
-    },
-    item3: {
-      status: false,
-      amount: 1,
-    },
-    item4: {
-      status: false,
-      amount: 1,
-    },
+    item0: false,
+    item1: false,
+    item2: false,
+    item3: false,
+
     showUpdate: false,
   };
   getNextEvents = (dayOfWeek) => {
@@ -80,11 +69,33 @@ class ClientInvoice extends Component {
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
+  /////
+  onItemChange = (index) => {
+    const { item0, item1, item2, item3 } = this.state;
+    if (index === 0) {
+      this.setState({
+        item0: !item0,
+      });
+    } else if (index === 1) {
+      this.setState({
+        item1: !item1,
+      });
+    } else if (index === 2) {
+      this.setState({
+        item2: !item2,
+      });
+    } else if (index === 3) {
+      this.setState({
+        item3: !item3,
+      });
+    }
+  };
+
   render() {
     const { client } = this.props;
-    const { extra, showUpdate, qty } = this.state;
+    const { extra, showUpdate, item0, item1, item2, item3 } = this.state;
+    console.log(this.state);
     let now = moment().format("LLL");
-    console.log(qty);
 
     //set update book and extra
     let updateForm = "";
@@ -169,15 +180,43 @@ class ClientInvoice extends Component {
                   </thead>
 
                   <tbody>
-                    {this.getNextEvents(client.classDay).map((date, index) => (
-                      <ClientInvoiceItem
-                        client={client}
-                        date={date}
-                        key={index}
-                        index={index}
-                        state={this.state}
-                      />
-                    ))}
+                    {this.getNextEvents(client.classDay).map(
+                      (date, index) => (
+                        <tr>
+                          <th scope="row">{index + 1}</th>
+
+                          <th scope="row">{date}</th>
+                          <td>$25</td>
+                          <td>
+                            {
+                              <h3 className="pull-right">
+                                <small>
+                                  {" "}
+                                  <a
+                                    href="#!"
+                                    onClick={() => this.onItemChange(index)}
+                                  >
+                                    {client.quantity}{" "}
+                                    <span>This is index: </span>
+                                    {index}
+                                  </a>
+                                </small>
+                                {/* {updateQtyForm} */}
+                              </h3>
+                            }
+                          </td>
+                          <td>${client.quantity * 25}</td>
+                        </tr>
+                      )
+
+                      // <ClientInvoiceItem
+                      //   client={client}
+                      //   date={date}
+                      //   key={index}
+                      //   index={index}
+                      //   state={this.state}
+                      // />
+                    )}
 
                     <tr>
                       <th scope="row">Extra</th>
