@@ -3,11 +3,10 @@ import React from "react";
 export default function ClientInvoiceItem({
   client,
   date,
+  state,
   index,
   updateQtyForm,
 }) {
-  const { item0, item1, item2, item3 } = client;
-
   return (
     <tr>
       <th scope="row">{index + 1}</th>

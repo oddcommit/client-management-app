@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import * as moment from "moment";
 import "moment-recur";
 
-import "./ClientInvoice.style.css";
+import "./invoice.style.css";
 import { firestoreConnect } from "react-redux-firebase";
 import Spinner from "../layout/Spinner";
-import ClientInvoiceItem from "./ClientInvoiceItem";
+import InvoiceItem from "./InvoiceItem";
 
 class ClientInvoice extends Component {
   constructor() {
@@ -78,6 +78,7 @@ class ClientInvoice extends Component {
       showUpdate: !showUpdate,
     });
   };
+
   //get new State
   getState = (dates) => {
     let newState = this.state;
@@ -192,14 +193,14 @@ class ClientInvoice extends Component {
                       })
                     )}
 
-                    <ClientInvoiceItem
-                      client={client}
-                      date={this.state[1].date}
-                      key={this.state[1].id}
-                      index={this.state[1].id}
-                      state={this.state}
-                      onQtyChange={this.onQtySubmit}
-                      updateQtyForm={this.updateQtyForm}
+                    <InvoiceItem
+                    // client={client}
+                    // date={this.state[1].date}
+                    // key={this.state[1].id}
+                    // index={this.state[1].id}
+                    // state={this.state}
+                    // onQtyChange={this.onQtySubmit}
+                    // updateQtyForm={this.updateQtyForm}
                     />
 
                     <tr>

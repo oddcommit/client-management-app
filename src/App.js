@@ -11,7 +11,7 @@ import AppNavBar from "./components/layout/AppNavBar";
 import Dashboard from "./components/layout/Dashboard";
 import AddClient from "./components/clients/AddClient";
 import ClientDetails from "./components/clients/ClientDetails";
-import ClientInvoice from "./components/clients/ClientInvoice";
+import Invoice from "./components/invoice/Invoice";
 import EditClient from "./components/clients/EditClient";
 import Login from "./components/auth/Login";
 import Setting from "./components/settings/Setting";
@@ -47,7 +47,7 @@ class App extends React.Component {
                   <Route
                     exact
                     path="/invoice/:id"
-                    component={UserIsAuthenticated(ClientInvoice)}
+                    component={UserIsAuthenticated(Invoice)}
                   />
                   <Route
                     exact

@@ -30,14 +30,14 @@ class AddClient extends Component {
     quantity: "",
     teacher: "",
     invoice: [],
-    extra: 0
+    extra: 0,
   };
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     const newClient = this.state;
     const { firestore } = this.props;
@@ -342,12 +342,12 @@ class AddClient extends Component {
 
 AddClient.propTypes = {
   firestore: PropTypes.object.isRequired,
-  settings: PropTypes.object.isRequired
+  settings: PropTypes.object.isRequired,
 };
 
 export default compose(
   firestoreConnect(),
   connect((state, props) => ({
-    settings: state.settings
+    settings: state.settings,
   }))
 )(AddClient);
