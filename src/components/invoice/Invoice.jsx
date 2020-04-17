@@ -9,7 +9,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import Spinner from "../layout/Spinner";
 import InvoiceItem from "./InvoiceItem";
 
-class ClientInvoice extends Component {
+class Invoice extends Component {
   constructor() {
     super();
     this.state = {
@@ -53,7 +53,7 @@ class ClientInvoice extends Component {
       .daysOfWeek()
       .weeksOfMonthByDay();
 
-    return events.next(4, "MM/DD/YYYY");
+    return events.next(5, "MM/DD/YYYY");
   };
 
   //update submit////
@@ -79,16 +79,6 @@ class ClientInvoice extends Component {
     });
   };
 
-  //get new State
-  getState = (dates) => {
-    let newState = this.state;
-
-    newState[1] = dates[0];
-    newState[2] = dates[1];
-    newState[3] = dates[2];
-    newState[4] = dates[3];
-  };
-
   onUpdateChange = () => {
     const { showUpdate } = this.state;
     this.setState({
@@ -103,6 +93,7 @@ class ClientInvoice extends Component {
     const { client } = this.props;
     const { extra, showUpdate } = this.state;
     let now = moment().format("LLL");
+    console.log(this.state);
 
     //set update book and extra
     let updateForm = "";
@@ -187,11 +178,7 @@ class ClientInvoice extends Component {
                   </thead>
 
                   <tbody>
-                    {this.getState(
-                      this.getNextEvents(client.classDay).map((date, index) => {
-                        return date;
-                      })
-                    )}
+                    {console.log(this.getNextEvents(client.classDay))}
 
                     <InvoiceItem
                     // client={client}
@@ -279,4 +266,4 @@ export default compose(
   connect(({ firestore: { ordered } }, props) => ({
     client: ordered.client && ordered.client[0],
   }))
-)(ClientInvoice);
+)(Invoice);
