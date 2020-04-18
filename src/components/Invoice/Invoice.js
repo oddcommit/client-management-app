@@ -90,18 +90,15 @@ class Invoice extends Component {
   };
 
   calcGrandTotal = () => {
-    return this.calcLineItemsTotal() + this.calcTaxTotal();
+    return this.calcLineItemsTotal() + this.calcTaxTotal() + 5;
   };
 
   render = () => {
+    console.log(this.state.lineItems);
     return (
       <div className={styles.invoice}>
         <div className={styles.brand}>
-          <img
-            src="https://via.placeholder.com/150x50.png?text=logo"
-            alt="Logo"
-            className={styles.logo}
-          />
+          <img src="../Doremi.jpg" alt="Logo" className={styles.logo} />
         </div>
         <div className={styles.addresses}>
           <div className={styles.from}>
@@ -146,7 +143,7 @@ class Invoice extends Component {
 
         <div className={styles.totalContainer}>
           <form>
-            <div className={styles.valueTable}>
+            {/* <div className={styles.valueTable}>
               <div className={styles.row}>
                 <div className={styles.label}>Tax Rate (%)</div>
                 <div className={styles.value}>
@@ -160,22 +157,22 @@ class Invoice extends Component {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
           </form>
           <form>
             <div className={styles.valueTable}>
-              <div className={styles.row}>
+              {/* <div className={styles.row}>
                 <div className={styles.label}>Subtotal</div>
                 <div className={`${styles.value} ${styles.currency}`}>
                   {this.formatCurrency(this.calcLineItemsTotal())}
                 </div>
-              </div>
-              <div className={styles.row}>
+              </div> */}
+              {/* <div className={styles.row}>
                 <div className={styles.label}>Tax ({this.state.taxRate}%)</div>
                 <div className={`${styles.value} ${styles.currency}`}>
                   {this.formatCurrency(this.calcTaxTotal())}
                 </div>
-              </div>
+              </div> */}
               <div className={styles.row}>
                 <div className={styles.label}>Total Due</div>
                 <div className={`${styles.value} ${styles.currency}`}>
