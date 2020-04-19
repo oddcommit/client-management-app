@@ -126,7 +126,7 @@ class Invoice extends Component {
 
   calcGrandTotal = () => {
     const { client } = this.props;
-    return this.calcLineItemsTotal() + 25 * client.quantity;
+    return this.calcLineItemsTotal() + 25 * client.quantity * 4;
   };
 
   render = () => {
@@ -134,7 +134,6 @@ class Invoice extends Component {
 
     const { client } = this.props;
 
-    console.log("day: ", this.state.dateArray[0]);
     if (client) {
       return (
         <div className={styles.invoice}>

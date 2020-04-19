@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import LineItem from "./LineItem";
+import LineItemDate from "./LineitemDate";
 
 import { MdAddCircle as AddIcon } from "react-icons/md";
 import styles from "./LineItems.module.scss";
@@ -46,7 +47,7 @@ class LineItems extends Component {
           <div className={`${styles.gridTable}`}>
             <div className={`${styles.row} ${styles.header}`}>
               <div>#</div>
-              <div>Item</div>
+              <div>Name</div>
               <div>Description</div>
               <div>Qty</div>
               <div>Price</div>
@@ -63,21 +64,26 @@ class LineItems extends Component {
                       snapshot.isDraggingOver ? styles.listDraggingOver : ""
                     }
                   >
-                    <LineItem
-                      style={{ color: "red" }}
-                      index={2}
-                      name={
-                        client.firstName.charAt(0).toUpperCase() +
-                        client.firstName.slice(1) +
-                        " " +
-                        client.lastName.charAt(0).toUpperCase() +
-                        client.lastName.slice(1)
-                      }
-                      description={state.dateArray[0]}
-                      quantity={client.quantity}
-                      price={client.quantity * 25}
-                      {...functions}
-                    />
+                    {state.dateArray.map((date, index) => {
+                      return (
+                        <LineItemDate
+                          style={{ color: "red" }}
+                          index={index}
+                          key={client.id + index}
+                          name={
+                            client.firstName.charAt(0).toUpperCase() +
+                            client.firstName.slice(1) +
+                            " " +
+                            client.lastName.charAt(0).toUpperCase() +
+                            client.lastName.slice(1)
+                          }
+                          description={date}
+                          quantity={client.quantity}
+                          price={25}
+                          {...functions}
+                        />
+                      );
+                    })}
 
                     {this.props.items.map((item, i) => (
                       <Draggable key={item.id} draggableId={item.id} index={i}>

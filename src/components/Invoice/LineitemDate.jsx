@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import { MdCancel as DeleteIcon } from "react-icons/md";
 import styles from "./LineItem.module.scss";
 
-class LineItem extends Component {
+class LineItemDate extends Component {
   render = () => {
     const { index, name, description, quantity, price } = this.props;
 
     return (
       <div className={styles.lineItem}>
-        <div>{index + 5}</div>
+        <div>{index + 1}</div>
         <div>
           <input
             name="name"
@@ -52,22 +52,22 @@ class LineItem extends Component {
           {this.props.currencyFormatter(quantity * price)}
         </div>
         <div>
-          <button
+          {/* <button
             type="button"
             className={styles.deleteItem}
             onClick={this.props.deleteHandler(index)}
           >
             <DeleteIcon size="1.25em" />
-          </button>
+          </button> */}
         </div>
       </div>
     );
   };
 }
 
-export default LineItem;
+export default LineItemDate;
 
-LineItem.propTypes = {
+LineItemDate.propTypes = {
   index: PropTypes.number.isRequired,
   name: PropTypes.string,
   description: PropTypes.string,
