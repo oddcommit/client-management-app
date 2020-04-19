@@ -6,7 +6,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import LineItems from "./LineItems";
 import Spinner from "../layout/Spinner";
 
-import uuidv4 from "uuid/v4";
+import uuid from "react-uuid";
 import * as moment from "moment";
 import "moment-recur";
 import styles from "./Invoice.module.scss";
@@ -45,7 +45,7 @@ class Invoice extends Component {
     this.setState({
       // use optimistic uuid for drag drop; in a production app this could be a database id
       lineItems: this.state.lineItems.concat([
-        { id: uuidv4(), name: "", description: "", quantity: 0, price: 0.0 },
+        { id: uuid(), name: "", description: "", quantity: 0, price: 0.0 },
       ]),
     });
   };
@@ -80,10 +80,6 @@ class Invoice extends Component {
       maximumFractionDigits: 2,
     }).format(amount);
   };
-
-  static getDerivedStateFromProps(props, state) {
-    //setting state or set the date
-  }
 
   componentDidMount() {
     let now = moment().format("LLL");
