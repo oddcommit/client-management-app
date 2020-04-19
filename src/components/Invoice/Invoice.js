@@ -1,9 +1,15 @@
 import React, { Component } from "react";
-import styles from "./Invoice.module.scss";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
 
 import LineItems from "./LineItems";
+import Spinner from "../layout/Spinner";
 
 import uuidv4 from "uuid/v4";
+import * as moment from "moment";
+import "moment-recur";
+import styles from "./Invoice.module.scss";
 
 class Invoice extends Component {
   locale = "en-US";
@@ -11,6 +17,7 @@ class Invoice extends Component {
 
   state = {
     taxRate: 0.0,
+    dateArray: [],
     lineItems: [
       {
         id: "initial", // react-beautiful-dnd unique key
@@ -74,9 +81,37 @@ class Invoice extends Component {
     }).format(amount);
   };
 
-  calcTaxAmount = (c) => {
-    return c * (this.state.taxRate / 100);
-  };
+  static getDerivedStateFromProps(props, state) {
+    //setting state or set the date
+  }
+
+  componentDidMount() {
+    let now = moment().format("LLL");
+
+    //set the date
+    let firstDay = new Date();
+
+    let nextMonth = new Date(
+      firstDay.getFullYear(),
+      firstDay.getMonth(),
+      firstDay.getDate()
+    );
+    let events = moment(nextMonth)
+      .recur()
+      .every("monday")
+      .daysOfWeek()
+      .weeksOfMonthByDay();
+
+    let dateArray = events.next(4, "MM/DD/YYYY");
+    let newDateState = [dateArray];
+    this.setState({
+      dateArray: newDateState[0],
+    });
+  }
+
+  // calcTaxAmount = (c) => {
+  //   return c * (this.state.taxRate / 100);
+  // };
 
   calcLineItemsTotal = () => {
     return this.state.lineItems.reduce(
@@ -85,112 +120,127 @@ class Invoice extends Component {
     );
   };
 
-  calcTaxTotal = () => {
-    return this.calcLineItemsTotal() * (this.state.taxRate / 100);
-  };
+  // calcTaxTotal = () => {
+  //   return this.calcLineItemsTotal() * (this.state.taxRate / 100);
+  // };
 
   calcGrandTotal = () => {
-    return this.calcLineItemsTotal() + this.calcTaxTotal() + 5;
+    const { client } = this.props;
+    return this.calcLineItemsTotal() + 25 * client.quantity;
   };
 
   render = () => {
-    console.log(this.state.lineItems);
-    return (
-      <div className={styles.invoice}>
-        <div className={styles.brand}>
-          <img src="../Doremi.jpg" alt="Logo" className={styles.logo} />
-        </div>
-        <div className={styles.addresses}>
-          <div className={styles.from}>
-            <strong>Doremi Music</strong>
-            <br />
-            123 Kensington Ave
-            <br />
-            Toronto, ON, Canada &nbsp;A1B2C3
-            <br />
-            416-555-1234
-          </div>
-          <div>
-            <div className={`${styles.valueTable} ${styles.to}`}>
-              <div className={styles.row}>
-                <div className={styles.label}>Customer #</div>
-                <div className={styles.value}>123456</div>
+    const { index, name, description, quantity, price } = this.props;
+
+    const { client } = this.props;
+
+    console.log("day: ", this.state.dateArray[0]);
+    if (client) {
+      return (
+        <div className={styles.invoice}>
+          <div className="row mb-6">
+            <div className="col-sm-5">
+              <h5 className="mb-1">From:</h5>
+              <img
+                src="../Doremi.jpg"
+                className="img-fluid rounded"
+                alt="Invoice logo"
+              />
+            </div>
+            <div className="col-sm-3"></div>
+            <div className="col-sm-4 space-between">
+              <h5 className="mb-3">To:</h5>
+              <h4 className="text-dark mb-1">
+                {" "}
+                {client.firstName.charAt(0).toUpperCase() +
+                  client.firstName.slice(1)}{" "}
+                {client.lastName.charAt(0).toUpperCase() +
+                  client.lastName.slice(1)}
+              </h4>
+              <div>{client.streetAddress}</div>
+              <div>
+                {client.city}, {client.state}, {client.postalCode}
               </div>
-              <div className={styles.row}>
-                <div className={styles.label}>Invoice #</div>
-                <div className={styles.value}>123456</div>
-              </div>
-              <div className={styles.row}>
-                <div className={styles.label}>Date</div>
-                <div className={`${styles.value} ${styles.date}`}>
-                  2019-01-01
-                </div>
-              </div>
+              <div>Email: {client.email}</div>
+              <div>Phone: {client.phone}</div>
             </div>
           </div>
-        </div>
-        <h2>Invoice</h2>
+          <h2>Invoice</h2>
 
-        <LineItems
-          items={this.state.lineItems}
-          currencyFormatter={this.formatCurrency}
-          addHandler={this.handleAddLineItem}
-          changeHandler={this.handleLineItemChange}
-          focusHandler={this.handleFocusSelect}
-          deleteHandler={this.handleRemoveLineItem}
-          reorderHandler={this.handleReorderLineItems}
-        />
+          <LineItems
+            items={this.state.lineItems}
+            client={client}
+            currencyFormatter={this.formatCurrency}
+            addHandler={this.handleAddLineItem}
+            changeHandler={this.handleLineItemChange}
+            focusHandler={this.handleFocusSelect}
+            deleteHandler={this.handleRemoveLineItem}
+            reorderHandler={this.handleReorderLineItems}
+          />
 
-        <div className={styles.totalContainer}>
-          <form>
-            {/* <div className={styles.valueTable}>
-              <div className={styles.row}>
-                <div className={styles.label}>Tax Rate (%)</div>
-                <div className={styles.value}>
-                  <input
-                    name="taxRate"
-                    type="number"
-                    step="0.01"
-                    value={this.state.taxRate}
-                    onChange={this.handleInvoiceChange}
-                    onFocus={this.handleFocusSelect}
-                  />
-                </div>
-              </div>
-            </div> */}
-          </form>
-          <form>
-            <div className={styles.valueTable}>
-              {/* <div className={styles.row}>
-                <div className={styles.label}>Subtotal</div>
-                <div className={`${styles.value} ${styles.currency}`}>
-                  {this.formatCurrency(this.calcLineItemsTotal())}
+          <div className={styles.totalContainer}>
+            <form>
+              {/* <div className={styles.valueTable}>
+                <div className={styles.row}>
+                  <div className={styles.label}>Tax Rate (%)</div>
+                  <div className={styles.value}>
+                    <input
+                      name="taxRate"
+                      type="number"
+                      step="0.01"
+                      value={this.state.taxRate}
+                      onChange={this.handleInvoiceChange}
+                      onFocus={this.handleFocusSelect}
+                    />
+                  </div>
                 </div>
               </div> */}
-              {/* <div className={styles.row}>
-                <div className={styles.label}>Tax ({this.state.taxRate}%)</div>
-                <div className={`${styles.value} ${styles.currency}`}>
-                  {this.formatCurrency(this.calcTaxTotal())}
-                </div>
-              </div> */}
-              <div className={styles.row}>
-                <div className={styles.label}>Total Due</div>
-                <div className={`${styles.value} ${styles.currency}`}>
-                  {this.formatCurrency(this.calcGrandTotal())}
+            </form>
+            <form>
+              <div className={styles.valueTable}>
+                {/* <div className={styles.row}>
+                  <div className={styles.label}>Subtotal</div>
+                  <div className={`${styles.value} ${styles.currency}`}>
+                    {this.formatCurrency(this.calcLineItemsTotal())}
+                  </div>
+                </div> */}
+                {/* <div className={styles.row}>
+                  <div className={styles.label}>Tax ({this.state.taxRate}%)</div>
+                  <div className={`${styles.value} ${styles.currency}`}>
+                    {this.formatCurrency(this.calcTaxTotal())}
+                  </div>
+                </div> */}
+                <div className={styles.row}>
+                  <div className={styles.label}>Total Due</div>
+                  <div className={`${styles.value} ${styles.currency}`}>
+                    {this.formatCurrency(this.calcGrandTotal())}
+                  </div>
                 </div>
               </div>
-            </div>
-          </form>
-        </div>
+            </form>
+          </div>
 
-        <div className={styles.pay}>
-          <button className={styles.payNow} onClick={this.handlePayButtonClick}>
-            Pay Now
-          </button>
+          <div className={styles.pay}>
+            <button
+              className={styles.payNow}
+              onClick={this.handlePayButtonClick}
+            >
+              Print
+            </button>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return <Spinner />;
+    }
   };
 }
 
-export default Invoice;
+export default compose(
+  firestoreConnect((props) => [
+    { collection: "clients", storeAs: "client", doc: props.match.params.id },
+  ]),
+  connect(({ firestore: { ordered } }, props) => ({
+    client: ordered.client && ordered.client[0],
+  }))
+)(Invoice);
