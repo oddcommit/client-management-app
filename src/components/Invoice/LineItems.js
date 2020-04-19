@@ -31,7 +31,13 @@ class LineItems extends Component {
   };
 
   render = () => {
-    const { items, addHandler, reorderHandler, ...functions } = this.props;
+    const {
+      items,
+      client,
+      addHandler,
+      reorderHandler,
+      ...functions
+    } = this.props;
 
     return (
       <form>
