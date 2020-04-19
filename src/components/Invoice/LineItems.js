@@ -34,6 +34,7 @@ class LineItems extends Component {
     const {
       items,
       client,
+      state,
       addHandler,
       reorderHandler,
       ...functions
@@ -65,10 +66,16 @@ class LineItems extends Component {
                     <LineItem
                       style={{ color: "red" }}
                       index={2}
-                      name={"Van"}
-                      description={"cheap"}
-                      quantity={1}
-                      price={5.0}
+                      name={
+                        client.firstName.charAt(0).toUpperCase() +
+                        client.firstName.slice(1) +
+                        " " +
+                        client.lastName.charAt(0).toUpperCase() +
+                        client.lastName.slice(1)
+                      }
+                      description={state.dateArray[0]}
+                      quantity={client.quantity}
+                      price={client.quantity * 25}
                       {...functions}
                     />
 

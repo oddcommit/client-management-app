@@ -170,6 +170,7 @@ class Invoice extends Component {
           <LineItems
             items={this.state.lineItems}
             client={client}
+            state={this.state}
             currencyFormatter={this.formatCurrency}
             addHandler={this.handleAddLineItem}
             changeHandler={this.handleLineItemChange}
