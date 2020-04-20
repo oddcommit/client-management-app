@@ -170,25 +170,36 @@ class Invoice extends Component {
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Date</th>
-                      <th>Price</th>
+                      <th>Name</th>
+                      <th>Description</th>
                       <th>Qty</th>
+                      <th>Price</th>
                       <th>Total</th>
                     </tr>
                   </thead>
 
                   <tbody>
-                    {console.log(this.getNextEvents(client.classDay))}
+                    <tr>
+                      <th scope="row">{index + 1}</th>
 
-                    <InvoiceItem
-                    // client={client}
-                    // date={this.state[1].date}
-                    // key={this.state[1].id}
-                    // index={this.state[1].id}
-                    // state={this.state}
-                    // onQtyChange={this.onQtySubmit}
-                    // updateQtyForm={this.updateQtyForm}
-                    />
+                      <th scope="row">{date}</th>
+                      <td>$25</td>
+                      <td>
+                        {
+                          <h3 className="pull-right">
+                            <small>
+                              {" "}
+                              <a href="#!">
+                                {client.quantity} <span>This is index: </span>
+                                {index}
+                              </a>
+                            </small>
+                            {updateQtyForm}
+                          </h3>
+                        }
+                      </td>
+                      <td>{price}</td>
+                    </tr>
 
                     <tr>
                       <th scope="row">Extra</th>

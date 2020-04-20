@@ -1,5 +1,6 @@
 import { createStore, combineReducers, compose } from "redux";
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/auth";
 import "firebase/firestore";
 import { firebaseReducer } from "react-redux-firebase";
 import { createFirestoreInstance, firestoreReducer } from "redux-firestore";
@@ -16,13 +17,13 @@ const firebaseConfig = {
   storageBucket: "contacts-keeper-16284.appspot.com",
   messagingSenderId: "752525306288",
   appId: "1:752525306288:web:0257a4043773b8236dce75",
-  measurementId: "G-84BMRXFKJV"
+  measurementId: "G-84BMRXFKJV",
 };
 
 //react-redux-firebase config
 const rrfConfig = {
   userProfile: "users",
-  useFirestoreForProfile: true
+  useFirestoreForProfile: true,
 };
 
 //init firebase instance
@@ -35,7 +36,7 @@ const rootReducer = combineReducers({
   firebase: firebaseReducer,
   firestore: firestoreReducer,
   notify: notifyReducer,
-  settings: settingReducer
+  settings: settingReducer,
 });
 
 //check for settings in localStorage
@@ -44,7 +45,7 @@ if (localStorage.getItem("settings") == null) {
   const defaultSettings = {
     disableBalanceOnAdd: true,
     disableBalenceOnEdit: false,
-    allowRegistration: false
+    allowRegistration: false,
   };
 
   //set to localstore. Localstore use string. turn the object to string.
@@ -66,5 +67,5 @@ export const rrfProps = {
   firebase,
   config: rrfConfig,
   dispatch: store.dispatch,
-  createFirestoreInstance
+  createFirestoreInstance,
 };

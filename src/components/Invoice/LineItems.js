@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import LineItem from "./LineItem";
 import LineItemDate from "./LineitemDate";
@@ -43,86 +42,60 @@ class LineItems extends Component {
 
     return (
       <form>
-        <div className={styles.lineItems}>
-          <div className={`${styles.gridTable}`}>
-            <div className={`${styles.row} ${styles.header}`}>
-              <div>#</div>
-              <div>Name</div>
-              <div>Description</div>
-              <div>Qty</div>
-              <div>Price</div>
-              <div>Total</div>
-              <div></div>
-            </div>
-
-            <DragDropContext onDragEnd={this.handleDragEnd}>
-              <Droppable droppableId="droppable">
-                {(provided, snapshot) => (
-                  <div
-                    ref={provided.innerRef}
-                    className={
-                      snapshot.isDraggingOver ? styles.listDraggingOver : ""
+        <div className="table-responsive-sm">
+          <table className="table table-bordered table-condensed ">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {state.dateArray.map((date, index) => {
+                return (
+                  <LineItemDate
+                    style={{ color: "red" }}
+                    index={index}
+                    key={client.id + index}
+                    name={
+                      client.firstName.charAt(0).toUpperCase() +
+                      client.firstName.slice(1) +
+                      " " +
+                      client.lastName.charAt(0).toUpperCase() +
+                      client.lastName.slice(1)
                     }
-                  >
-                    {state.dateArray.map((date, index) => {
-                      return (
-                        <LineItemDate
-                          style={{ color: "red" }}
-                          index={index}
-                          key={client.id + index}
-                          name={
-                            client.firstName.charAt(0).toUpperCase() +
-                            client.firstName.slice(1) +
-                            " " +
-                            client.lastName.charAt(0).toUpperCase() +
-                            client.lastName.slice(1)
-                          }
-                          description={date}
-                          quantity={client.quantity}
-                          price={25}
-                          {...functions}
-                        />
-                      );
-                    })}
+                    description={date}
+                    quantity={client.quantity}
+                    price={25}
+                    {...functions}
+                  />
+                );
+              })}
+              {this.props.items.map((item, i) => (
+                <LineItem
+                  style={{ color: "red" }}
+                  key={i + item.id}
+                  index={i}
+                  name={item.name}
+                  description={item.description}
+                  quantity={item.quantity}
+                  price={item.price}
+                  {...functions}
+                />
+              ))}
+            </tbody>
 
-                    {this.props.items.map((item, i) => (
-                      <Draggable key={item.id} draggableId={item.id} index={i}>
-                        {(provided, snapshot) => (
-                          <div
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            style={provided.draggableProps.style}
-                            className={
-                              snapshot.isDragging ? styles.listItemDragging : ""
-                            }
-                          >
-                            <LineItem
-                              style={{ color: "red" }}
-                              key={i + item.id}
-                              index={i}
-                              name={item.name}
-                              description={item.description}
-                              quantity={item.quantity}
-                              price={item.price}
-                              {...functions}
-                            />
-                          </div>
-                        )}
-                      </Draggable>
-                    ))}
-                    {provided.placeholder}
-                  </div>
-                )}
-              </Droppable>
-            </DragDropContext>
-          </div>
-
-          <div className={styles.addItem}>
-            <button type="button" onClick={addHandler}>
-              <AddIcon size="1.25em" className={styles.addIcon} /> Add Item
-            </button>
-          </div>
+            <div className={`${styles.addItem}`}>
+              <button type="button" onClick={addHandler}>
+                <AddIcon size="1.25em" className={styles.addIcon} /> Add Item
+              </button>
+            </div>
+          </table>
         </div>
       </form>
     );
