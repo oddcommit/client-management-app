@@ -119,8 +119,6 @@ class Invoice extends Component {
   };
 
   render = () => {
-    const { index, name, description, quantity, price } = this.props;
-
     const { client } = this.props;
 
     if (client) {
