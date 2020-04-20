@@ -8,28 +8,6 @@ import { MdAddCircle as AddIcon } from "react-icons/md";
 import styles from "./LineItems.module.scss";
 
 class LineItems extends Component {
-  handleDragEnd = (result) => {
-    if (!result.destination) return;
-
-    // helper function to reorder result (src: react-beautiful-dnd docs)
-    const reorder = (list, startIndex, endIndex) => {
-      const result = Array.from(list);
-      const [removed] = result.splice(startIndex, 1);
-      result.splice(endIndex, 0, removed);
-      return result;
-    };
-
-    // perform reorder
-    const lineItems = reorder(
-      this.props.items,
-      result.source.index,
-      result.destination.index
-    );
-
-    // call parent handler with new state representation
-    this.props.reorderHandler(lineItems);
-  };
-
   render = () => {
     const {
       items,

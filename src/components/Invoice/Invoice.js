@@ -106,20 +106,12 @@ class Invoice extends Component {
     });
   }
 
-  // calcTaxAmount = (c) => {
-  //   return c * (this.state.taxRate / 100);
-  // };
-
   calcLineItemsTotal = () => {
     return this.state.lineItems.reduce(
       (prev, cur) => prev + cur.quantity * cur.price,
       0
     );
   };
-
-  // calcTaxTotal = () => {
-  //   return this.calcLineItemsTotal() * (this.state.taxRate / 100);
-  // };
 
   calcGrandTotal = () => {
     const { client } = this.props;
@@ -176,37 +168,9 @@ class Invoice extends Component {
           />
 
           <div className={styles.totalContainer}>
-            <form>
-              {/* <div className={styles.valueTable}>
-                <div className={styles.row}>
-                  <div className={styles.label}>Tax Rate (%)</div>
-                  <div className={styles.value}>
-                    <input
-                      name="taxRate"
-                      type="number"
-                      step="0.01"
-                      value={this.state.taxRate}
-                      onChange={this.handleInvoiceChange}
-                      onFocus={this.handleFocusSelect}
-                    />
-                  </div>
-                </div>
-              </div> */}
-            </form>
+            <p></p>
             <form>
               <div className={styles.valueTable}>
-                {/* <div className={styles.row}>
-                  <div className={styles.label}>Subtotal</div>
-                  <div className={`${styles.value} ${styles.currency}`}>
-                    {this.formatCurrency(this.calcLineItemsTotal())}
-                  </div>
-                </div> */}
-                {/* <div className={styles.row}>
-                  <div className={styles.label}>Tax ({this.state.taxRate}%)</div>
-                  <div className={`${styles.value} ${styles.currency}`}>
-                    {this.formatCurrency(this.calcTaxTotal())}
-                  </div>
-                </div> */}
                 <div className={styles.row}>
                   <div className={styles.label}>Total Due</div>
                   <div className={`${styles.value} ${styles.currency}`}>
