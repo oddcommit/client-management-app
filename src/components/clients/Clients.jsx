@@ -11,7 +11,7 @@ import { firestoreConnect } from "react-redux-firebase";
 class Clients extends Component {
   state = {
     totalDeposit: null,
-    searchResult: ""
+    searchResult: "",
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -61,10 +61,13 @@ class Clients extends Component {
               </tr>
             </thead>
             <tbody>
-              {clients.map(client => (
+              {clients.map((client) => (
                 <tr key={client.id}>
                   <td>
-                    {client.firstName} {client.lastName}
+                    {client.firstName.charAt(0).toUpperCase() +
+                      client.firstName.slice(1)}{" "}
+                    {client.lastName.charAt(0).toUpperCase() +
+                      client.lastName.slice(1)}
                   </td>
                   <td>{client.teacher}</td>
                   <td>
@@ -101,12 +104,12 @@ class Clients extends Component {
 
 Clients.propTypes = {
   firestore: PropTypes.object.isRequired,
-  clients: PropTypes.array
+  clients: PropTypes.array,
 };
 
 export default compose(
   firestoreConnect([{ collection: "clients" }]),
   connect((state, props) => ({
-    clients: state.firestore.ordered.clients
+    clients: state.firestore.ordered.clients,
   }))
 )(Clients);

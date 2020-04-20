@@ -11,16 +11,16 @@ import { firestoreConnect } from "react-redux-firebase";
 class ClientDetails extends Component {
   state = {
     showDepositUpdate: false,
-    depositUpdateAmount: ""
+    depositUpdateAmount: "",
   };
   //update deposit
-  depositSubmit = e => {
+  depositSubmit = (e) => {
     e.preventDefault();
 
     const { client, firestore } = this.props;
     const { depositUpdateAmount } = this.state;
     const clientUpdate = {
-      deposit: parseFloat(depositUpdateAmount)
+      deposit: parseFloat(depositUpdateAmount),
     };
 
     //update firestore
@@ -37,7 +37,7 @@ class ClientDetails extends Component {
       .then(() => this.props.history.push("/"));
   };
 
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
+  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
   render() {
     const { client } = this.props;
     const { showDepositUpdate, depositUpdateAmount } = this.state;
@@ -114,8 +114,11 @@ class ClientDetails extends Component {
           <hr />
           <div className="card">
             <h3 className="card-header">
-              {client.firstName}
-              {client.lastName} ({client.instrument.toUpperCase()})
+              {client.firstName.charAt(0).toUpperCase() +
+                client.firstName.slice(1)}{" "}
+              {client.lastName.charAt(0).toUpperCase() +
+                client.lastName.slice(1)}{" "}
+              ({client.instrument.toUpperCase()})
             </h3>
             <div className="card-body">
               <div className="row">
@@ -134,7 +137,7 @@ class ClientDetails extends Component {
                         href="#!"
                         onClick={() =>
                           this.setState({
-                            showDepositUpdate: !this.state.showDepositUpdate
+                            showDepositUpdate: !this.state.showDepositUpdate,
                           })
                         }
                       >
@@ -200,14 +203,14 @@ class ClientDetails extends Component {
 }
 
 ClientDetails.propTypes = {
-  firestore: PropTypes.object.isRequired
+  firestore: PropTypes.object.isRequired,
 };
 
 export default compose(
-  firestoreConnect(props => [
-    { collection: "clients", storeAs: "client", doc: props.match.params.id }
+  firestoreConnect((props) => [
+    { collection: "clients", storeAs: "client", doc: props.match.params.id },
   ]),
   connect(({ firestore: { ordered } }, props) => ({
-    client: ordered.client && ordered.client[0]
+    client: ordered.client && ordered.client[0],
   }))
 )(ClientDetails);
