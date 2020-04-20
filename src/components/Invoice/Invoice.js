@@ -83,27 +83,29 @@ class Invoice extends Component {
   };
 
   componentDidMount() {
-    let now = moment().format("LLL");
+    // let now = moment().format("LLL");
+    const { client } = this.props;
 
     //set the date
     let firstDay = new Date();
+    if (client) {
+      let nextMonth = new Date(
+        firstDay.getFullYear(),
+        firstDay.getMonth(),
+        firstDay.getDate()
+      );
+      let events = moment(nextMonth)
+        .recur()
+        .every(client.classDay)
+        .daysOfWeek()
+        .weeksOfMonthByDay();
 
-    let nextMonth = new Date(
-      firstDay.getFullYear(),
-      firstDay.getMonth(),
-      firstDay.getDate()
-    );
-    let events = moment(nextMonth)
-      .recur()
-      .every("monday")
-      .daysOfWeek()
-      .weeksOfMonthByDay();
-
-    let dateArray = events.next(4, "MM/DD/YYYY");
-    let newDateState = [dateArray];
-    this.setState({
-      dateArray: newDateState[0],
-    });
+      let dateArray = events.next(4, "MM/DD/YYYY");
+      let newDateState = [dateArray];
+      this.setState({
+        dateArray: newDateState[0],
+      });
+    }
   }
 
   calcLineItemsTotal = () => {
