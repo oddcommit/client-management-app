@@ -42,7 +42,7 @@ class LineItems extends Component {
 
     return (
       <form>
-        <div className="table-responsive-sm">
+        <div className="table-responsive">
           <table className="table table-bordered table-condensed ">
             <thead>
               <tr>
@@ -89,14 +89,15 @@ class LineItems extends Component {
                 />
               ))}
             </tbody>
-
-            <div className={`${styles.addItem}`}>
-              <button type="button" onClick={addHandler}>
-                <AddIcon size="1.25em" className={styles.addIcon} /> Add Item
-              </button>
-            </div>
           </table>
         </div>
+        <button
+          className="btn btn-circle btn-light right"
+          type="button"
+          onClick={addHandler}
+        >
+          <AddIcon /> Add Item
+        </button>
       </form>
     );
   };

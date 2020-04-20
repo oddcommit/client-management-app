@@ -10,6 +10,7 @@ import uuid from "react-uuid";
 import * as moment from "moment";
 import "moment-recur";
 import styles from "./Invoice.module.scss";
+import "./invoice.style.css";
 
 class Invoice extends Component {
   locale = "en-US";
@@ -132,7 +133,7 @@ class Invoice extends Component {
 
     if (client) {
       return (
-        <div className={styles.invoice}>
+        <div>
           <div className="row mb-6">
             <div className="col-sm-5">
               <h5 className="mb-1">From:</h5>

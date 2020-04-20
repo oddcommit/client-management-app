@@ -30,3 +30,13 @@ h5 {
 .text-dark {
   color: #3d405c !important;
 }
+
+.btn-circle {
+  margin-top: 10px;
+  border-radius: 15px;
+}
+/* 
+.table-responsive .table {
+  max-width: none;
+  -webkit-overflow-scrolling: touch !important;
+} */

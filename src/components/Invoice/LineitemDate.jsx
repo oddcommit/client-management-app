@@ -10,10 +10,7 @@ class LineItemDate extends Component {
     return (
       <tr>
         <th scope="row">{index + 1}</th>
-        <th scope="row">
-          {name}
-          {/* <input name="name" type="text" value={name} /> */}
-        </th>
+        <th scope="row">{name}</th>
 
         <td>{description}</td>
         <td>{quantity}</td>
