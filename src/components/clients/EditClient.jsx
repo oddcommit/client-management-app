@@ -33,7 +33,7 @@ class EditClient extends Component {
     this.postalCodeInput = React.createRef();
   }
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     const { client, firestore } = this.props;
     //updated the client
@@ -52,7 +52,7 @@ class EditClient extends Component {
           ? 0
           : this.quantityInput.current.value,
       classDay: this.classDayInput.current.value,
-      time: this.timeInput.current.value,
+      timeDay: this.timeDayInput.current.value,
       teacher: this.teacherInput.current.value,
       signUpDate: this.signUpDateInput.current.value,
       dob: this.dobInput.current.value,
@@ -62,7 +62,7 @@ class EditClient extends Component {
       streetAddress: this.streetAddressInput.current.value,
       city: this.cityInput.current.value,
       state: this.stateInput.current.value,
-      postalCode: this.postalCodeInput.current.value
+      postalCode: this.postalCodeInput.current.value,
     };
     //update the firestore
     firestore
@@ -250,14 +250,25 @@ class EditClient extends Component {
 
                 <div className="form-group row">
                   <div className="col-sm-2">
-                    <label htmlFor="classDay">Class Day</label>
-                    <input
-                      type="text"
-                      className="form-control"
+                    <label className="mr-sm-2" htmlFor="classDay">
+                      Class Day
+                    </label>
+                    <select
+                      className="custom-select mr-sm-2"
+                      id="classDay"
                       name="classDay"
                       ref={this.classDayInput}
                       defaultValue={client.classDay}
-                    />
+                    >
+                      <option defaultValue="">Choose...</option>
+                      <option value="monday">Monday</option>
+                      <option value="tuesday">Tuesday</option>
+                      <option value="wednesday">Wednesday</option>
+                      <option value="thursday">Thursday</option>
+                      <option value="friday">Friday</option>
+                      <option value="saturday">Saturday</option>
+                      <option value="sunday">Sunday</option>
+                    </select>
                   </div>{" "}
                   <div className="col-sm-2">
                     <label htmlFor="time">Time</label>
@@ -265,7 +276,7 @@ class EditClient extends Component {
                       type="text"
                       className="form-control"
                       name="time"
-                      ref={this.timeInput}
+                      ref={this.timeDayInput}
                       defaultValue={client.time}
                     />
                   </div>{" "}
@@ -352,15 +363,15 @@ class EditClient extends Component {
 }
 
 EditClient.propTypes = {
-  firestore: PropTypes.object.isRequired
+  firestore: PropTypes.object.isRequired,
 };
 
 export default compose(
-  firestoreConnect(props => [
-    { collection: "clients", storeAs: "client", doc: props.match.params.id }
+  firestoreConnect((props) => [
+    { collection: "clients", storeAs: "client", doc: props.match.params.id },
   ]),
   connect(({ firestore: { ordered }, settings }, props) => ({
     client: ordered.client && ordered.client[0],
-    settings: settings
+    settings: settings,
   }))
 )(EditClient);

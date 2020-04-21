@@ -30,6 +30,7 @@ class AddClient extends Component {
     quantity: "",
     teacher: "",
     extra: 0,
+    active: true,
   };
 
   onChange = (e) => {
@@ -233,16 +234,27 @@ class AddClient extends Component {
                   />
                 </div>
               </div>
+
               <div className="form-group row">
                 <div className="col-sm-2">
-                  <label htmlFor="classDay">Class Day</label>
-                  <input
-                    type="text"
-                    className="form-control"
+                  <label className="mr-sm-2" htmlFor="classDay">
+                    Class Day
+                  </label>
+                  <select
+                    className="custom-select mr-sm-2"
+                    id="classDay"
                     name="classDay"
                     onChange={this.onChange}
-                    value={this.state.classDay}
-                  />
+                  >
+                    <option defaultValue="">Choose...</option>
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                    <option value="sunday">Sunday</option>
+                  </select>
                 </div>{" "}
                 <div className="col-sm-2">
                   <label htmlFor="time">Time</label>
