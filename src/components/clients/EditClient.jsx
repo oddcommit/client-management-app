@@ -26,11 +26,13 @@ class EditClient extends Component {
     this.dobInput = React.createRef();
     this.instrumentInput = React.createRef();
     this.genderInput = React.createRef();
+    this.activeInput = React.createRef();
     this.knowAboutUsInput = React.createRef();
     this.streetAddressInput = React.createRef();
     this.cityInput = React.createRef();
     this.stateInput = React.createRef();
     this.postalCodeInput = React.createRef();
+    console.log(this.genderInput, this.activeInput);
   }
 
   onSubmit = (e) => {
@@ -58,6 +60,7 @@ class EditClient extends Component {
       dob: this.dobInput.current.value,
       instrument: this.instrumentInput.current.value,
       gender: this.genderInput.current.value,
+      active: this.activeInput.current.value,
       knowAboutUs: this.knowAboutUsInput.current.value,
       streetAddress: this.streetAddressInput.current.value,
       city: this.cityInput.current.value,
@@ -149,27 +152,34 @@ class EditClient extends Component {
                     </select>
                   </div>
 
-                  <div className="col-sm-6 mt-4 space-between">
-                    <label htmlFor="gender">Gender </label>
-                    {"  "}
-                    <input
-                      type="radio"
-                      id="male"
-                      name="gender"
-                      value="Male"
-                      ref={this.genderInput}
-                      defaultValue={client.gender}
-                    />{" "}
-                    <label for="male">Male</label>{" "}
-                    <input
-                      type="radio"
-                      id="female"
-                      name="gender"
-                      value="Female"
-                      ref={this.genderInput}
-                      defaultValue={client.gender}
-                    />{" "}
-                    <label for="female">Female</label>
+                  <div className="col-sm-3 mt-4 space-between">
+                    <label htmlFor="gender">
+                      Gender{" "}
+                      <select
+                        name="gender"
+                        id="gender"
+                        ref={this.genderInput}
+                        defaultValue={client.gender}
+                      >
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  <div className="col-sm-3 mt-4 space-between">
+                    <label htmlFor="active">
+                      Active{" "}
+                      <select
+                        name="active"
+                        id="active"
+                        ref={this.activeInput}
+                        defaultValue={client.active}
+                      >
+                        <option value="true">True</option>
+                        <option value="false">False</option>
+                      </select>
+                    </label>
                   </div>
 
                   <div className="col-sm-6">

@@ -8,7 +8,6 @@ import Spinner from "../layout/Spinner";
 
 import { firestoreConnect } from "react-redux-firebase";
 
-import "./clientDetails.style.css";
 class ClientDetails extends Component {
   state = {
     showDepositUpdate: false,
@@ -154,7 +153,11 @@ class ClientDetails extends Component {
                   {depositForm}
                   <h3 className="pull-right">
                     Active:{" "}
-                    {client.active ? <span>True</span> : <span>WithDraw</span>}
+                    {client.active === "true" ? (
+                      <span className="text-success">Still in Class</span>
+                    ) : (
+                      <span className="text-danger">Withdrew </span>
+                    )}
                   </h3>
                 </div>
               </div>

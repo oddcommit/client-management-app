@@ -146,7 +146,7 @@ class AddClient extends Component {
                     type="radio"
                     id="male"
                     name="gender"
-                    value="Male"
+                    value="male"
                     onChange={this.onChange}
                   />{" "}
                   <label for="male">Male</label>{" "}
@@ -154,7 +154,7 @@ class AddClient extends Component {
                     type="radio"
                     id="female"
                     name="gender"
-                    value="Female"
+                    value="female"
                     onChange={this.onChange}
                   />{" "}
                   <label for="female">Female</label>
