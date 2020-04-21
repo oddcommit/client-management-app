@@ -69,7 +69,10 @@ class Clients extends Component {
                     {client.lastName.charAt(0).toUpperCase() +
                       client.lastName.slice(1)}
                   </td>
-                  <td>{client.teacher}</td>
+                  <td>
+                    {client.teacher.charAt(0).toUpperCase() +
+                      client.teacher.slice(1)}
+                  </td>
                   <td>
                     {client.classDay.toUpperCase()} - {client.time}
                   </td>
