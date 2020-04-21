@@ -17,7 +17,6 @@ class Invoice extends Component {
   currency = "USD";
 
   state = {
-    taxRate: 0.0,
     dateArray: [],
     lineItems: [
       {
@@ -70,7 +69,17 @@ class Invoice extends Component {
   };
 
   handlePayButtonClick = () => {
+    const { client, firestore } = this.props;
+    const { showUpdate, extra } = this.state;
     window.print();
+
+    const invoiceUpdate = {
+      invoice: this.state,
+    };
+
+    //update firestore
+
+    firestore.update({ collection: "clients", doc: client.id }, invoiceUpdate);
   };
 
   formatCurrency = (amount) => {
