@@ -8,6 +8,7 @@ import Spinner from "../layout/Spinner";
 
 import { firestoreConnect } from "react-redux-firebase";
 
+import "./clientDetails.style.css";
 class ClientDetails extends Component {
   state = {
     showDepositUpdate: false,
@@ -38,9 +39,14 @@ class ClientDetails extends Component {
   };
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+
   render() {
     const { client } = this.props;
-    const { showDepositUpdate, depositUpdateAmount } = this.state;
+    const {
+      showDepositUpdate,
+      depositUpdateAmount,
+      showActiveUpdate,
+    } = this.state;
     //get the total and current day
     function parseDate(str) {
       var mdy = str.split("-");
@@ -146,6 +152,10 @@ class ClientDetails extends Component {
                     </small>
                   </h3>
                   {depositForm}
+                  <h3 className="pull-right">
+                    Active:{" "}
+                    {client.active ? <span>True</span> : <span>WithDraw</span>}
+                  </h3>
                 </div>
               </div>
 
