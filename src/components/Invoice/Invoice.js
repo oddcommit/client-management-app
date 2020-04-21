@@ -70,7 +70,7 @@ class Invoice extends Component {
   };
 
   handlePayButtonClick = () => {
-    alert("Not implemented");
+    window.print();
   };
 
   formatCurrency = (amount) => {
@@ -181,7 +181,7 @@ class Invoice extends Component {
             </form>
           </div>
 
-          <div className={styles.pay}>
+          <div className={`${styles.pay} hide-on-print`}>
             <button
               className={styles.payNow}
               onClick={this.handlePayButtonClick}

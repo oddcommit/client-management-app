@@ -35,6 +35,12 @@ h5 {
   margin-top: 10px;
   border-radius: 15px;
 }
+
+@media print {
+  .hide-on-print {
+    display: none;
+  }
+}
 /* 
 .table-responsive .table {
   max-width: none;

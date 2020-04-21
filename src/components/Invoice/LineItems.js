@@ -70,7 +70,7 @@ class LineItems extends Component {
           </table>
         </div>
         <button
-          className="btn btn-circle btn-light right"
+          className="btn btn-circle btn-light right hide-on-print"
           type="button"
           onClick={addHandler}
         >
