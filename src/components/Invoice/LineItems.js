@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import LineItem from "./LineItem";
 import LineItemDate from "./LineitemDate";
+import Spinner from "../layout/Spinner";
 
 import { MdAddCircle as AddIcon } from "react-icons/md";
 import styles from "./LineItems.module.scss";
@@ -30,30 +31,34 @@ class LineItems extends Component {
                 <th>Qty</th>
                 <th>Price</th>
                 <th>Total</th>
-                <th></th>
+                <th className="hide-on-print"></th>
               </tr>
             </thead>
             <tbody>
-              {state.dateArray.map((date, index) => {
-                return (
-                  <LineItemDate
-                    style={{ color: "red" }}
-                    index={index}
-                    key={client.id + index}
-                    name={
-                      client.firstName.charAt(0).toUpperCase() +
-                      client.firstName.slice(1) +
-                      " " +
-                      client.lastName.charAt(0).toUpperCase() +
-                      client.lastName.slice(1)
-                    }
-                    description={date}
-                    quantity={client.quantity}
-                    price={25}
-                    {...functions}
-                  />
-                );
-              })}
+              {client ? (
+                state.dateArray.map((date, index) => {
+                  return (
+                    <LineItemDate
+                      style={{ color: "red" }}
+                      index={index}
+                      key={client.id + index}
+                      name={
+                        client.firstName.charAt(0).toUpperCase() +
+                        client.firstName.slice(1) +
+                        " " +
+                        client.lastName.charAt(0).toUpperCase() +
+                        client.lastName.slice(1)
+                      }
+                      description={date}
+                      quantity={client.quantity}
+                      price={25}
+                      {...functions}
+                    />
+                  );
+                })
+              ) : (
+                <Spinner />
+              )}
               {this.props.items.map((item, i) => (
                 <LineItem
                   style={{ color: "red" }}

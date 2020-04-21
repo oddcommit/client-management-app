@@ -14,7 +14,7 @@ class LineItemDate extends Component {
         <td>{quantity}</td>
         <td>{price}</td>
         <td>{this.props.currencyFormatter(quantity * price)}</td>
-        <td></td>
+        <td className="hide-on-print"></td>
       </tr>
     );
   };

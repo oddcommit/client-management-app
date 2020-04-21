@@ -52,7 +52,7 @@ class LineItem extends Component {
           />
         </td>
         <td>{this.props.currencyFormatter(quantity * price)}</td>
-        <td>
+        <td className="hide-on-print">
           <button
             type="button"
             className="btn"
