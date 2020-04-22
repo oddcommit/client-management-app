@@ -18,6 +18,7 @@ class Invoice extends Component {
 
   state = {
     dateArray: [],
+    totalPrice: 0,
     lineItems: [
       {
         id: "initial", // react-beautiful-dnd unique key
@@ -70,7 +71,6 @@ class Invoice extends Component {
 
   handlePayButtonClick = () => {
     const { client, firestore } = this.props;
-    const { showUpdate, extra } = this.state;
     window.print();
 
     const invoiceUpdate = {
@@ -126,7 +126,9 @@ class Invoice extends Component {
 
   calcGrandTotal = () => {
     const { client } = this.props;
-    return this.calcLineItemsTotal() + 25 * client.quantity * 4;
+    let total = this.calcLineItemsTotal() + client.price * client.quantity * 4;
+
+    return total;
   };
 
   render = () => {
@@ -176,27 +178,35 @@ class Invoice extends Component {
             reorderHandler={this.handleReorderLineItems}
           />
 
-          <div className={styles.totalContainer}>
-            <p></p>
-            <form>
-              <div className={styles.valueTable}>
-                <div className={styles.row}>
-                  <div className={styles.label}>Total Due</div>
-                  <div className={`${styles.value} ${styles.currency}`}>
-                    {this.formatCurrency(this.calcGrandTotal())}
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-
-          <div className={`${styles.pay} hide-on-print`}>
+          <div className="d-flex flex-column bd-highlight mb-3 align-items-end">
             <button
-              className={styles.payNow}
+              className={` btn btn-circle btn-primary hide-on-print mb-3 `}
               onClick={this.handlePayButtonClick}
             >
-              Print
+              Save
             </button>
+            <div className={styles.totalContainer}>
+              <p></p>
+              <form>
+                <div className={styles.valueTable}>
+                  <div className={styles.row}>
+                    <div className={styles.label}>Total Due</div>
+                    <div className={`${styles.value} ${styles.currency}`}>
+                      {this.formatCurrency(this.calcGrandTotal())}
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div className={`${styles.pay} hide-on-print`}>
+              <button
+                className={styles.payNow}
+                onClick={this.handlePayButtonClick}
+              >
+                Print
+              </button>
+            </div>
           </div>
         </div>
       );

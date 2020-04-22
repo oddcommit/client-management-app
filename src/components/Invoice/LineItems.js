@@ -51,7 +51,7 @@ class LineItems extends Component {
                       }
                       description={date}
                       quantity={client.quantity}
-                      price={25}
+                      price={client.price}
                       {...functions}
                     />
                   );

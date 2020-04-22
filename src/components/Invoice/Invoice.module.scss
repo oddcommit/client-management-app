@@ -1,4 +1,4 @@
-@import 'Invoice';
+@import "Invoice";
 
 .invoice {
   max-width: $invoiceMaxWidth;
@@ -22,7 +22,8 @@
   flex-flow: row wrap;
   justify-content: space-between;
   text-align: left;
-  .from, .to {
+  .from,
+  .to {
     padding: $rhythm;
     border-radius: $borderRadius;
     width: 100%;
@@ -71,7 +72,6 @@
       justify-content: flex-start;
       font-weight: bold;
     }
-
   }
 }
 
@@ -82,6 +82,11 @@
 }
 
 .pay {
+  display: flex;
+  justify-content: flex-end;
+  padding: ($rhythm * 1) 0 ($rhythm) $rhythm;
+}
+.save {
   display: flex;
   justify-content: flex-end;
   padding: ($rhythm * 1) 0 ($rhythm) $rhythm;
@@ -103,7 +108,8 @@ button.payNow {
   .comments {
     padding: $rhythm;
     border-radius: $borderRadius;
-    h4, h5 {
+    h4,
+    h5 {
       margin-top: 0;
       margin-bottom: $rhythm / 2;
     }
@@ -115,7 +121,4 @@ button.payNow {
   .closing {
     padding-top: $rhythm;
   }
-
 }
-
-

@@ -30,6 +30,7 @@ class AddClient extends Component {
     quantity: "",
     teacher: "",
     active: "true",
+    price: "",
   };
 
   onChange = (e) => {
@@ -211,7 +212,7 @@ class AddClient extends Component {
                     value={this.state.phone}
                   />
                 </div>{" "}
-                <div className="col-sm-4">
+                <div className="col-sm-2">
                   <label htmlFor="deposit">Deposit</label>
                   <input
                     type="text"
@@ -220,6 +221,16 @@ class AddClient extends Component {
                     onChange={this.onChange}
                     value={this.state.deposit}
                     disabled={disableBalanceOnAdd}
+                  />
+                </div>
+                <div className="col-sm-2">
+                  <label htmlFor="quantity">Price</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="price"
+                    onChange={this.onChange}
+                    value={this.state.price}
                   />
                 </div>
                 <div className="col-sm-2">
