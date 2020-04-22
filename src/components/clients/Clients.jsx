@@ -12,23 +12,33 @@ class Clients extends Component {
   state = {
     totalDeposit: null,
     searchResult: "",
+    count: null,
   };
 
   static getDerivedStateFromProps(props, state) {
-    const { clients } = props;
-
-    if (clients) {
-      //add the deposits
-      const total = clients.reduce((total, client) => {
-        return total + parseFloat(client.deposit.toString());
-      }, 0);
-      return { totalDeposit: total };
-    }
-    return null;
+    const { length } = props.clients;
+    console.log(length);
+    // if (clients) {
+    //   //add the deposits
+    //   const total = clients.reduce((total, client) => {
+    //     return total + parseFloat(client.deposit.toString());
+    //   }, 0);
+    //   return { totalDeposit: total };
+    // }
+    // return null;
+    // let c = 0;
+    // for (let i = 0; i < clients.length; i++) {
+    //   if (clients[i].active === "true") {
+    //     c++;
+    //   }
+    // }
+    // return { count: c };
   }
+
   render() {
     const { clients } = this.props;
-    const { totalDeposit } = this.state;
+    const { totalDeposit, count } = this.state;
+
     if (clients) {
       return (
         <div>
@@ -41,10 +51,7 @@ class Clients extends Component {
             </div>
             <div className="col-md-6">
               <h5 className="text-right text-secondary">
-                Total Class{" "}
-                <span className="text-primary">
-                  ${parseFloat(totalDeposit).toFixed(2)}
-                </span>
+                Total Class: <span className="text-primary">{count}</span>
               </h5>
             </div>
           </div>
@@ -55,7 +62,7 @@ class Clients extends Component {
                 <th>Teacher</th>
                 <th>Class Day & Time</th>
                 <th>Quantity</th>
-                <th>Total($25)</th>
+                <th>Active</th>
                 <th>Gender</th>
                 <th></th>
               </tr>
@@ -77,7 +84,13 @@ class Clients extends Component {
                     {client.classDay.toUpperCase()} - {client.time}
                   </td>
                   <td>{client.quantity}</td>
-                  <td>${parseFloat(client.quantity * 25).toFixed(2)}</td>
+                  <td>
+                    {client.active === "true" ? (
+                      <span className="text-success">Still in Class</span>
+                    ) : (
+                      <span className="text-danger">Withdrew</span>
+                    )}
+                  </td>
                   <td>{client.gender}</td>
                   <td>
                     <Link
