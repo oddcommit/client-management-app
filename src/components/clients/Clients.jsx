@@ -16,23 +16,21 @@ class Clients extends Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    const { length } = props.clients;
-    console.log(length);
-    // if (clients) {
-    //   //add the deposits
-    //   const total = clients.reduce((total, client) => {
-    //     return total + parseFloat(client.deposit.toString());
-    //   }, 0);
-    //   return { totalDeposit: total };
-    // }
-    // return null;
-    // let c = 0;
-    // for (let i = 0; i < clients.length; i++) {
-    //   if (clients[i].active === "true") {
-    //     c++;
-    //   }
-    // }
-    // return { count: c };
+    const { clients } = props;
+    if (clients) {
+      //add the deposits
+      // const total = clients.reduce((total, client) => {
+      //   return total + parseFloat(client.deposit.toString());
+      // }, 0);
+      // return { totalDeposit: total };
+      let count = clients.filter((client) => {
+        return client.active === "true";
+      });
+      return {
+        count: count.length,
+      };
+    }
+    return null;
   }
 
   render() {
@@ -51,7 +49,8 @@ class Clients extends Component {
             </div>
             <div className="col-md-6">
               <h5 className="text-right text-secondary">
-                Total Class: <span className="text-primary">{count}</span>
+                Total Still In Class:{" "}
+                <span className="text-primary">{count}</span>
               </h5>
             </div>
           </div>
@@ -91,7 +90,10 @@ class Clients extends Component {
                       <span className="text-danger">Withdrew</span>
                     )}
                   </td>
-                  <td>{client.gender}</td>
+                  <td>
+                    {client.gender.charAt(0).toUpperCase() +
+                      client.gender.slice(1)}
+                  </td>
                   <td>
                     <Link
                       to={`/client/${client.id}`}
