@@ -70,11 +70,19 @@ class Invoice extends Component {
   };
 
   handlePayButtonClick = () => {
-    const { client, firestore } = this.props;
     window.print();
+  };
+
+  handleSaveButtonClick = () => {
+    const { client, firestore } = this.props;
+
+    this.setState({
+      totalPrice: this.formatCurrency(this.calcGrandTotal()),
+    });
 
     const invoiceUpdate = {
       invoice: this.state,
+      totalPrice: this.state.totalPrice,
     };
 
     //update firestore
@@ -181,7 +189,7 @@ class Invoice extends Component {
           <div className="d-flex flex-column bd-highlight mb-3 align-items-end">
             <button
               className={` btn btn-circle btn-primary hide-on-print mb-3 `}
-              onClick={this.handlePayButtonClick}
+              onClick={this.handleSaveButtonClick}
             >
               Save
             </button>
