@@ -52,18 +52,32 @@ class Clients extends Component {
                 Total Still In Class:{" "}
                 <span className="text-primary">{count}</span>
               </h5>
+              <h5 className="text-right text-secondary">
+                Total Cash: <span className="text-primary">{count}</span>
+              </h5>
+              <h5 className="text-right text-secondary">
+                Total check: <span className="text-primary">{count}</span>
+              </h5>
+              <h5 className="text-right text-secondary">
+                Pay: <span className="text-primary">{count}</span>
+              </h5>
             </div>
           </div>
-          <table className="table table-striped">
-            <thead className="thead-inverse">
+          <table className="  table table-responsive-lg  table-bordered table-hover table-striped">
+            <thead className="thead-inverse  thead-dark ">
               <tr>
                 <th>Name</th>
                 <th>Teacher</th>
                 <th>Class Day & Time</th>
-                <th>Quantity</th>
+                <th>Qty</th>
                 <th>Active</th>
                 <th>Gender</th>
-                <th></th>
+                <th>Pay</th>
+                <th>
+                  {" "}
+                  <span className="text-success">Cash</span> /
+                  <span className="text-primary">Check</span>{" "}
+                </th>
               </tr>
             </thead>
             <tbody>

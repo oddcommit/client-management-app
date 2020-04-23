@@ -23,7 +23,7 @@ class LineItems extends Component {
       <form>
         <div className="table-responsive mt-3">
           <table className="table table-bordered table-condensed ">
-            <thead>
+            <thead className="thead-dark">
               <tr>
                 <th>#</th>
                 <th>Name</th>

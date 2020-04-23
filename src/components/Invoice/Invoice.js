@@ -192,7 +192,7 @@ class Invoice extends Component {
             >
               Credit: ${client.invoice.credit}{" "}
             </h4>{" "}
-            <h4>Deposit: ${client.deposit}</h4>
+            <h4 className="hide-on-print">Deposit: ${client.deposit}</h4>
             <h4
               className={`${
                 client.invoice.book > 0 ? "text-danger" : "text-success"
@@ -200,18 +200,6 @@ class Invoice extends Component {
             >
               Book: ${client.invoice.book}
             </h4>
-          </div>
-
-          <div className="hide-on-print">
-            Student Pay:{" "}
-            <BootstrapSwitchButton
-              checked={client.invoice.userPay}
-              onlabel="Yes"
-              offlabel="No"
-              onstyle="outline-success"
-              offstyle="outline-danger"
-              onChange={this.handleBootstrapSwith}
-            />
           </div>
 
           <LineItems
@@ -234,6 +222,18 @@ class Invoice extends Component {
             >
               Save
             </button>
+
+            <div className="hide-on-print mb-3">
+              Student Pay:{" "}
+              <BootstrapSwitchButton
+                checked={client.invoice.userPay}
+                onlabel="Yes"
+                offlabel="No"
+                onstyle="outline-success"
+                offstyle="outline-danger"
+                onChange={this.handleBootstrapSwith}
+              />
+            </div>
 
             <div className={styles.totalContainer}>
               <p></p>
