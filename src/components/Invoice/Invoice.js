@@ -82,7 +82,6 @@ class Invoice extends Component {
 
     const invoiceUpdate = {
       invoice: this.state,
-      totalPrice: this.state.totalPrice,
     };
 
     //update firestore
@@ -121,6 +120,7 @@ class Invoice extends Component {
       let newDateState = [dateArray];
       this.setState({
         dateArray: newDateState[0],
+        totalPrice: client.price * client.quantity * 4,
       });
     }
   }
@@ -200,7 +200,8 @@ class Invoice extends Component {
                   <div className={styles.row}>
                     <div className={styles.label}>Total Due</div>
                     <div className={`${styles.value} ${styles.currency}`}>
-                      {this.formatCurrency(this.calcGrandTotal())}
+                      {/* {this.formatCurrency(this.calcGrandTotal())} */}
+                      {this.state.totalPrice}
                     </div>
                   </div>
                 </div>
