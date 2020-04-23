@@ -9,7 +9,10 @@ import Spinner from "../layout/Spinner";
 import uuid from "react-uuid";
 import * as moment from "moment";
 import "moment-recur";
+import BootstrapSwitchButton from "bootstrap-switch-button-react";
+
 import styles from "./Invoice.module.scss";
+
 import "./invoice.style.css";
 
 class Invoice extends Component {
@@ -19,6 +22,7 @@ class Invoice extends Component {
   state = {
     dateArray: [],
     totalPrice: 0,
+    userPay: false,
     lineItems: [
       {
         id: "initial", // react-beautiful-dnd unique key
@@ -87,6 +91,10 @@ class Invoice extends Component {
     //update firestore
 
     firestore.update({ collection: "clients", doc: client.id }, invoiceUpdate);
+  };
+
+  handleBootstrapSwith = (checked) => {
+    this.setState({ userPay: checked });
   };
 
   formatCurrency = (amount) => {
@@ -173,6 +181,19 @@ class Invoice extends Component {
             </div>
           </div>
           <h2>Invoice</h2>
+          <div className="hide-on-print">
+            User Pay:{" "}
+            <BootstrapSwitchButton
+              checked={client.invoice.userPay}
+              onlabel="Yes"
+              offlabel="No"
+              onstyle="outline-success"
+              offstyle="outline-danger"
+              size="lg"
+              className="btn mb-3"
+              onChange={this.handleBootstrapSwith}
+            />
+          </div>
 
           <LineItems
             items={this.state.lineItems}

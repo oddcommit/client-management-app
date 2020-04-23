@@ -21,7 +21,7 @@ class LineItems extends Component {
 
     return (
       <form>
-        <div className="table-responsive">
+        <div className="table-responsive mt-3">
           <table className="table table-bordered table-condensed ">
             <thead>
               <tr>
