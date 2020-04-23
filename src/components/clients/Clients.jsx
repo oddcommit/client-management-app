@@ -5,6 +5,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 
 import Spinner from "../layout/Spinner";
+import BootstrapSwitchButton from "bootstrap-switch-button-react";
 
 import { firestoreConnect } from "react-redux-firebase";
 
@@ -13,6 +14,7 @@ class Clients extends Component {
     totalDeposit: null,
     searchResult: "",
     count: null,
+    cashCheck: "",
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -32,6 +34,9 @@ class Clients extends Component {
     }
     return null;
   }
+  handleBootstrapSwith = (checked) => {
+    this.setState({ cashCheck: checked });
+  };
 
   render() {
     const { clients } = this.props;
@@ -63,21 +68,27 @@ class Clients extends Component {
               </h5>
             </div>
           </div>
-          <table className="  table table-responsive-lg  table-bordered table-hover table-striped">
+          <table className="  table table-responsive-md  table-bordered table-hover table-striped">
             <thead className="thead-inverse  thead-dark ">
               <tr>
                 <th>Name</th>
                 <th>Teacher</th>
-                <th>Class Day & Time</th>
+                <th>
+                  <small>Class Day & Time</small>
+                </th>
                 <th>Qty</th>
                 <th>Active</th>
                 <th>Gender</th>
                 <th>Pay</th>
+
                 <th>
                   {" "}
-                  <span className="text-success">Cash</span> /
-                  <span className="text-primary">Check</span>{" "}
+                  <small>
+                    <span className="text-success">Cash</span>/
+                    <span className="text-primary">Check</span>
+                  </small>
                 </th>
+                <th>Detail</th>
               </tr>
             </thead>
             <tbody>
@@ -107,6 +118,24 @@ class Clients extends Component {
                   <td>
                     {client.gender.charAt(0).toUpperCase() +
                       client.gender.slice(1)}
+                  </td>
+                  <td>
+                    {client.invoice.userPay ? (
+                      <p className="text-success">YES</p>
+                    ) : (
+                      <p className="text-danger">NO</p>
+                    )}
+                  </td>
+                  <td>
+                    <BootstrapSwitchButton
+                      checked={this.state.userPay}
+                      onlabel="Cash"
+                      offlabel="Check"
+                      size="sm"
+                      onstyle="outline-success"
+                      offstyle="outline-primary"
+                      onChange={this.handleBootstrapSwith}
+                    />
                   </td>
                   <td>
                     <Link
