@@ -38,6 +38,7 @@ class AppNavBar extends Component {
           <Link to="/" className="navbar-brand">
             Home
           </Link>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -87,7 +88,15 @@ class AppNavBar extends Component {
                   </a>
                 </li>
               </ul>
-            ) : null}
+            ) : (
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <Link to="/login" className="nav-link">
+                    Login
+                  </Link>
+                </li>
+              </ul>
+            )}
 
             {allowRegistration && !isAuthenticated ? (
               <ul className="navbar-nav ml-auto">

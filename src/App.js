@@ -35,11 +35,7 @@ class App extends React.Component {
                     path="/dashboard"
                     component={UserIsAuthenticated(Dashboard)}
                   />
-                  <Route
-                    exact
-                    path="/"
-                    component={UserIsAuthenticated(Homepage)}
-                  />
+                  <Route exact path="/" component={Homepage} />
                   <Route
                     exact
                     path="/"
