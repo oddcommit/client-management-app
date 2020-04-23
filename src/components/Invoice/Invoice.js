@@ -23,6 +23,8 @@ class Invoice extends Component {
     dateArray: [],
     totalPrice: 0,
     userPay: false,
+    credit: 0,
+    book: 0,
     lineItems: [
       {
         id: "initial", // react-beautiful-dnd unique key
@@ -181,6 +183,25 @@ class Invoice extends Component {
             </div>
           </div>
           <h2>Invoice</h2>
+          <hr className=" bg-primary my-3" />
+          <div className="d-flex align-items-end flex-column bd-highlight mb-3 justify-content-end">
+            <h4
+              className={`${
+                client.invoice.credit > 0 ? "text-danger" : "text-success"
+              }`}
+            >
+              Credit: ${client.invoice.credit}{" "}
+            </h4>{" "}
+            <h4>Deposit: ${client.deposit}</h4>
+            <h4
+              className={`${
+                client.invoice.book > 0 ? "text-danger" : "text-success"
+              }`}
+            >
+              Book: ${client.invoice.book}
+            </h4>
+          </div>
+
           <div className="hide-on-print">
             Student Pay:{" "}
             <BootstrapSwitchButton
@@ -204,6 +225,7 @@ class Invoice extends Component {
             deleteHandler={this.handleRemoveLineItem}
             reorderHandler={this.handleReorderLineItems}
           />
+          <hr className=" bg-primary" />
 
           <div className="d-flex flex-column bd-highlight mb-3 align-items-end">
             <button
@@ -212,6 +234,7 @@ class Invoice extends Component {
             >
               Save
             </button>
+
             <div className={styles.totalContainer}>
               <p></p>
               <form>
