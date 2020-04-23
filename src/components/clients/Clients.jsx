@@ -46,24 +46,34 @@ class Clients extends Component {
       return (
         <div>
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-9">
               <h2>
                 {" "}
                 <i className="fas fa-users" /> Client{""}
               </h2>
+              <button
+                className="btn btn-outline-dark mb-1"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseExample"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+                <small> Total Report</small>
+              </button>
             </div>
-            <div className="col-md-6">
-              <h5 className="text-right text-secondary">
+            <div className="col-md-3 collapse my-0 py-0 " id="collapseExample">
+              <h5 className="text-right text-secondary my-0 py-0 ">
                 Total Still In Class:{" "}
-                <span className="text-primary">{count}</span>
+                <span className="text-primary ">{count}</span>
               </h5>
-              <h5 className="text-right text-secondary">
+              <h5 className="text-right text-secondary my-0 py-0 ">
                 Total Cash: <span className="text-primary">{count}</span>
               </h5>
-              <h5 className="text-right text-secondary">
+              <h5 className="text-right text-secondary my-0 py-0 ">
                 Total check: <span className="text-primary">{count}</span>
               </h5>
-              <h5 className="text-right text-secondary">
+              <h5 className="text-right text-secondary my-0 py-0 ">
                 Pay: <span className="text-primary">{count}</span>
               </h5>
             </div>
