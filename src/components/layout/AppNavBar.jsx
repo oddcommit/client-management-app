@@ -50,7 +50,7 @@ class AppNavBar extends Component {
             <ul className="navbar-nav mr-auto">
               {isAuthenticated ? (
                 <li className="nav-item">
-                  <Link to="/" className="nav-link">
+                  <Link to="/dashboard" className="nav-link">
                     Client Panel
                   </Link>
                 </li>

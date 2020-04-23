@@ -9,6 +9,7 @@ import { UserIsAuthenticated, UserIsNotAuthenticated } from "./helper/auth";
 
 import AppNavBar from "./components/layout/AppNavBar";
 import Dashboard from "./components/layout/Dashboard";
+import Homepage from "./components/layout/Homepage";
 import AddClient from "./components/clients/AddClient";
 import ClientDetails from "./components/clients/ClientDetails";
 import Invoice from "./components/invoice/Invoice";
@@ -31,8 +32,18 @@ class App extends React.Component {
                 <Switch>
                   <Route
                     exact
-                    path="/"
+                    path="/dashboard"
                     component={UserIsAuthenticated(Dashboard)}
+                  />
+                  <Route
+                    exact
+                    path="/"
+                    component={UserIsAuthenticated(Homepage)}
+                  />
+                  <Route
+                    exact
+                    path="/"
+                    component={UserIsNotAuthenticated(Homepage)}
                   />
                   <Route
                     exact
