@@ -182,7 +182,7 @@ class Invoice extends Component {
           </div>
           <h2>Invoice</h2>
           <div className="hide-on-print">
-            User Pay:{" "}
+            Student Pay:{" "}
             <BootstrapSwitchButton
               checked={client.invoice.userPay}
               onlabel="Yes"
@@ -190,7 +190,6 @@ class Invoice extends Component {
               onstyle="outline-success"
               offstyle="outline-danger"
               size="lg"
-              className="btn mb-3"
               onChange={this.handleBootstrapSwith}
             />
           </div>
