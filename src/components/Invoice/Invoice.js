@@ -189,7 +189,6 @@ class Invoice extends Component {
               offlabel="No"
               onstyle="outline-success"
               offstyle="outline-danger"
-              size="lg"
               onChange={this.handleBootstrapSwith}
             />
           </div>
