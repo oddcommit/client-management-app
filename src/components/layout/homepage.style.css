@@ -1,0 +1,82 @@
+body {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  margin: 0;
+}
+
+.banner {
+  background: url("/background.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  height: 80%;
+}
+header .container {
+  padding-top: 100px;
+  padding-bottom: 200px;
+  text-shadow: 2px 2px 0px rgba(150, 150, 150, 1);
+}
+
+header .btn {
+  border-color: #1f6ea9;
+  background-color: white;
+  text-shadow: none;
+}
+
+.intro-text .naslov {
+  display: block;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 70px;
+  color: white;
+}
+
+h2 {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 50px;
+  color: #1f6ea9;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.ikonica {
+  font-size: 50px;
+  padding: 20px;
+}
+.intro-text .tekst {
+  color: white;
+  text-shadow: 1px 1px 15px rgba(0, 0, 0, 1);
+  font-weight: bold;
+  padding: 30px 0;
+}
+
+hr.star-primary {
+  margin: 25px auto 30px;
+  padding: 0 0 30px 0; /* samo bottom ima padding */
+  max-width: 250px;
+  border: 0;
+  border-top: solid 5px;
+  text-align: center;
+  border-color: #1f6ea9;
+}
+
+hr.star-primary:after {
+  content: "\f005";
+  display: inline-block;
+  position: relative;
+  top: -0.8em;
+  padding: 0 0.25em;
+  font-family: FontAwesome;
+  font-size: 2em;
+  color: #1f6ea9;
+  background-color: #fff;
+}
+
+footer,
+#portfolio {
+  background-color: #eeefef;
+  padding: 30px 0;
+}
+
+#portfolio hr.star-primary:after {
+  background-color: #eeefef;
+}
