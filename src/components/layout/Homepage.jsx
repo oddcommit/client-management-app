@@ -7,10 +7,6 @@ export default function Homepage() {
       <header className=" jumbotron jumbotron-fluid mb-0">
         <div className="container row">
           <div className="col-lg-12">
-            {/* <img
-              className="img-responsive center-block"
-              src="https://api-assets.clashofclans.com/badges/200/m44uEqux13r-GkmdXdko2y7fil8p0S57uwKJJbHVZnc.png"
-            ></img> */}
             <div className="intro-text">
               <span className="naslov text-center">doremi - Music Lessons</span>
 
@@ -18,17 +14,6 @@ export default function Homepage() {
                 We offer music lessons for Piano, Guitar, Drums, Violin, Viola,
                 Cello and Bass.
               </h4>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-lg-8 col-lg-offset-2 text-center">
-              <a
-                href="https://www.facebook.com/"
-                className="btn btn-lg btn-outline"
-              >
-                <i className="fa fa-facebook"></i> Facebook
-              </a>
             </div>
           </div>
         </div>
