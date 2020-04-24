@@ -3,9 +3,9 @@ import "./homepage.style.css";
 
 export default function Homepage() {
   return (
-    <body>
-      <header className="banner">
-        <div className="container">
+    <div>
+      <header className=" jumbotron jumbotron-fluid mb-0">
+        <div className="container row">
           <div className="col-lg-12">
             {/* <img
               className="img-responsive center-block"
@@ -55,7 +55,7 @@ export default function Homepage() {
               <p>
                 <strong>Doremi Music</strong>
                 <br />
-                <small>We provide quality music lessons, founded 2016.</small>
+                <small>We provide quality music lessons, founded 2011.</small>
                 <br />
               </p>
 
@@ -237,7 +237,7 @@ export default function Homepage() {
                   <a href="#about">About</a>
                 </li>
                 <li>
-                  <a href="#portfolio">Portfolio</a>
+                  <a href="#portfolio">Media</a>
                 </li>
                 <li>
                   <a href="#contact">Contact</a>
@@ -247,6 +247,6 @@ export default function Homepage() {
           </div>
         </div>
       </footer>
-    </body>
+    </div>
   );
 }
