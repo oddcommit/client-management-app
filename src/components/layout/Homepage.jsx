@@ -8,12 +8,16 @@ export default function Homepage() {
         <div className="container row">
           <div className="col-lg-12">
             <div className="intro-text">
-              <span className="naslov text-center">doremi - Music Lessons</span>
+              <span className="naslov text-center ">
+                doremi - Music Lessons
+              </span>
+              <hr className="bg-white " />
 
               <h4 className="tekst text-center">
                 We offer music lessons for Piano, Guitar, Drums, Violin, Viola,
                 Cello and Bass.
               </h4>
+              <hr className="bg-white" />
             </div>
           </div>
         </div>
@@ -376,7 +380,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      <footer>
+      <footer className="mt-3">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">

@@ -30,6 +30,7 @@ header .btn {
   font-family: "Luckiest Guy", cursive;
   font-size: 70px;
   color: white;
+  text-shadow: 2px 2px black;
 }
 
 h2 {
@@ -47,10 +48,10 @@ h2 {
 .intro-text .tekst {
   color: white;
   text-shadow: 1px 1px 15px rgba(0, 0, 0, 1);
+  font-size: 30px;
   font-weight: bold;
   padding: 30px 0;
 }
-
 hr.star-primary {
   margin: 25px auto 30px;
   padding: 0 0 30px 0; /* samo bottom ima padding */
