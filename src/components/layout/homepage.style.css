@@ -1,9 +1,5 @@
 .homepageBG {
-  background: url("../../images/background1.jpeg");
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden;
+  background-color: rgb(241, 236, 236);
 }
 .jumbotron {
   background: url("/background.jpg") no-repeat center center;
