@@ -63,7 +63,7 @@ hr.star-primary {
 }
 
 hr.star-primary:after {
-  content: "\f005";
+  content: "\f006";
   display: inline-block;
   position: relative;
   top: -0.8em;
