@@ -74,22 +74,22 @@ export default function Homepage() {
 
       <section id="portfolio">
         <div className="container">
-          <div class="row">
-            <div class="col-lg-4 col-md-12 mb-4">
+          <div className="row">
+            <div className="col-lg-4 col-md-12 mb-4">
               <div
-                class="modal fade"
+                className="modal fade"
                 id="modal1"
                 tabindex="-1"
                 role="dialog"
                 aria-labelledby="myModalLabel"
                 aria-hidden="true"
               >
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    <div class="modal-body mb-0 p-0">
-                      <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                <div className="modal-dialog modal-lg" role="document">
+                  <div className="modal-content">
+                    <div className="modal-body mb-0 p-0">
+                      <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
                         <iframe
-                          class="embed-responsive-item"
+                          className="embed-responsive-item"
                           src="https://www.youtube.com/embed/5oLwrZANJxw"
                           allowfullscreen
                           picture-in-picture
@@ -97,24 +97,27 @@ export default function Homepage() {
                       </div>
                     </div>
 
-                    <div class="modal-footer justify-content-center">
-                      <span class="mr-4">Spread the word!</span>
-                      <a type="button" class="btn-floating btn-sm btn-fb">
-                        <i class="fab fa-facebook-f"></i>
+                    <div className="modal-footer justify-content-center">
+                      <span className="mr-4">Spread the word!</span>
+                      <a type="button" className="btn-floating btn-sm btn-fb">
+                        <i className="fab fa-facebook-f"></i>
                       </a>
-                      <a type="button" class="btn-floating btn-sm btn-tw">
-                        <i class="fab fa-twitter"></i>
+                      <a type="button" className="btn-floating btn-sm btn-tw">
+                        <i className="fab fa-twitter"></i>
                       </a>
-                      <a type="button" class="btn-floating btn-sm btn-gplus">
-                        <i class="fab fa-google-plus-g"></i>
+                      <a
+                        type="button"
+                        className="btn-floating btn-sm btn-gplus"
+                      >
+                        <i className="fab fa-google-plus-g"></i>
                       </a>
-                      <a type="button" class="btn-floating btn-sm btn-ins">
-                        <i class="fab fa-linkedin-in"></i>
+                      <a type="button" className="btn-floating btn-sm btn-ins">
+                        <i className="fab fa-linkedin-in"></i>
                       </a>
 
                       <button
                         type="button"
-                        class="btn btn-outline-primary btn-rounded btn-md ml-4"
+                        className="btn btn-outline-primary btn-rounded btn-md ml-4"
                         data-dismiss="modal"
                       >
                         Close
@@ -126,7 +129,7 @@ export default function Homepage() {
 
               <a>
                 <img
-                  class="img-fluid z-depth-1"
+                  className="img-fluid z-depth-1 btn"
                   src="video1.jpg"
                   alt="video"
                   data-toggle="modal"
@@ -135,45 +138,48 @@ export default function Homepage() {
               </a>
             </div>
 
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div className="col-lg-4 col-md-6 mb-4">
               <div
-                class="modal fade"
+                className="modal fade"
                 id="modal6"
                 tabindex="-1"
                 role="dialog"
                 aria-labelledby="myModalLabel"
                 aria-hidden="true"
               >
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    <div class="modal-body mb-0 p-0">
-                      <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                <div className="modal-dialog modal-lg" role="document">
+                  <div className="modal-content">
+                    <div className="modal-body mb-0 p-0">
+                      <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
                         <iframe
-                          class="embed-responsive-item"
+                          className="embed-responsive-item"
                           src="https://www.youtube.com/embed/HOKkOXVZKYs"
                           allowfullscreen
                         ></iframe>
                       </div>
                     </div>
 
-                    <div class="modal-footer justify-content-center">
-                      <span class="mr-4">Spread the word!</span>
-                      <a type="button" class="btn-floating btn-sm btn-fb">
-                        <i class="fab fa-facebook-f"></i>
+                    <div className="modal-footer justify-content-center">
+                      <span className="mr-4">Spread the word!</span>
+                      <a type="button" className="btn-floating btn-sm btn-fb">
+                        <i className="fab fa-facebook-f"></i>
                       </a>
-                      <a type="button" class="btn-floating btn-sm btn-tw">
-                        <i class="fab fa-twitter"></i>
+                      <a type="button" className="btn-floating btn-sm btn-tw">
+                        <i className="fab fa-twitter"></i>
                       </a>
-                      <a type="button" class="btn-floating btn-sm btn-gplus">
-                        <i class="fab fa-google-plus-g"></i>
+                      <a
+                        type="button"
+                        className="btn-floating btn-sm btn-gplus"
+                      >
+                        <i className="fab fa-google-plus-g"></i>
                       </a>
-                      <a type="button" class="btn-floating btn-sm btn-ins">
-                        <i class="fab fa-linkedin-in"></i>
+                      <a type="button" className="btn-floating btn-sm btn-ins">
+                        <i className="fab fa-linkedin-in"></i>
                       </a>
 
                       <button
                         type="button"
-                        class="btn btn-outline-primary btn-rounded btn-md ml-4"
+                        className="btn btn-outline-primary btn-rounded btn-md ml-4"
                         data-dismiss="modal"
                       >
                         Close
@@ -185,7 +191,7 @@ export default function Homepage() {
 
               <a>
                 <img
-                  class="img-fluid z-depth-1"
+                  className="img-fluid z-depth-1 btn"
                   src="video2.jpg"
                   alt="video"
                   data-toggle="modal"
@@ -194,45 +200,48 @@ export default function Homepage() {
               </a>
             </div>
 
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div className="col-lg-4 col-md-6 mb-4">
               <div
-                class="modal fade"
+                className="modal fade"
                 id="modal4"
                 tabindex="-1"
                 role="dialog"
                 aria-labelledby="myModalLabel"
                 aria-hidden="true"
               >
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    <div class="modal-body mb-0 p-0">
-                      <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                <div className="modal-dialog modal-lg" role="document">
+                  <div className="modal-content">
+                    <div className="modal-body mb-0 p-0">
+                      <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
                         <iframe
-                          class="embed-responsive-item"
+                          className="embed-responsive-item"
                           src="https://www.youtube.com/embed/6veYo3CmiZU"
                           allowfullscreen
                         ></iframe>
                       </div>
                     </div>
 
-                    <div class="modal-footer justify-content-center">
-                      <span class="mr-4">Spread the word!</span>
-                      <a type="button" class="btn-floating btn-sm btn-fb">
-                        <i class="fab fa-facebook-f"></i>
+                    <div className="modal-footer justify-content-center">
+                      <span className="mr-4">Spread the word!</span>
+                      <a type="button" className="btn-floating btn-sm btn-fb">
+                        <i className="fab fa-facebook-f"></i>
                       </a>
-                      <a type="button" class="btn-floating btn-sm btn-tw">
-                        <i class="fab fa-twitter"></i>
+                      <a type="button" className="btn-floating btn-sm btn-tw">
+                        <i className="fab fa-twitter"></i>
                       </a>
-                      <a type="button" class="btn-floating btn-sm btn-gplus">
-                        <i class="fab fa-google-plus-g"></i>
+                      <a
+                        type="button"
+                        className="btn-floating btn-sm btn-gplus"
+                      >
+                        <i className="fab fa-google-plus-g"></i>
                       </a>
-                      <a type="button" class="btn-floating btn-sm btn-ins">
-                        <i class="fab fa-linkedin-in"></i>
+                      <a type="button" className="btn-floating btn-sm btn-ins">
+                        <i className="fab fa-linkedin-in"></i>
                       </a>
 
                       <button
                         type="button"
-                        class="btn btn-outline-primary btn-rounded btn-md ml-4"
+                        className="btn btn-outline-primary btn-rounded btn-md ml-4"
                         data-dismiss="modal"
                       >
                         Close
@@ -244,7 +253,7 @@ export default function Homepage() {
 
               <a>
                 <img
-                  class="img-fluid z-depth-1"
+                  className="img-fluid z-depth-1 btn"
                   src="video3.jpg"
                   alt="video"
                   data-toggle="modal"
