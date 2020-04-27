@@ -62,6 +62,7 @@ class Clients extends Component {
                 <small> Total Report</small>
               </button>
             </div>
+
             <div className="col-md-3 collapse my-0 py-0 " id="collapseExample">
               <h5 className="text-right text-secondary my-0 py-0 ">
                 Total Still In Class:{" "}
@@ -98,7 +99,17 @@ class Clients extends Component {
                     <span className="text-primary">Check</span>
                   </small>
                 </th>
-                <th>Detail</th>
+                <th>
+                  <form class="form-inline active-purple-3 active-purple-4">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <input
+                      class="form-control form-control-sm ml-3 w-75"
+                      type="text"
+                      placeholder="Search"
+                      aria-label="Search"
+                    />
+                  </form>
+                </th>
               </tr>
             </thead>
             <tbody>
