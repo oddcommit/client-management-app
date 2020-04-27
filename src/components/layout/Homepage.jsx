@@ -3,7 +3,7 @@ import "./homepage.style.css";
 
 export default function Homepage() {
   return (
-    <div>
+    <div className="homepageBG">
       <header className=" jumbotron jumbotron-fluid mb-0">
         <div className="container row">
           <div className="col-lg-12">

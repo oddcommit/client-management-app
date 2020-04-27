@@ -61,6 +61,14 @@ class Clients extends Component {
               >
                 <small> Total Report</small>
               </button>
+              <button>
+                <Link
+                  to="/client/add"
+                  className="btn btn-success btn-inline-block"
+                >
+                  <i className="fas fa-plus"> New</i>
+                </Link>
+              </button>
             </div>
 
             <div className="col-md-3 collapse my-0 py-0 " id="collapseExample">

@@ -1,13 +1,12 @@
-html,
-body {
-  width: 100%;
+.homepageBG {
+  background: url("../../images/background1.jpeg");
   height: 100%;
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
 }
 .jumbotron {
-  background: url("/background.jpg");
+  background: url("/background.jpg") no-repeat center center;
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
