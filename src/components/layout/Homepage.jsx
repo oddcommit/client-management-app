@@ -74,93 +74,251 @@ export default function Homepage() {
 
       <section id="portfolio">
         <div className="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-12 mb-4">
+              <div
+                class="modal fade"
+                id="modal1"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="myModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body mb-0 p-0">
+                      <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                        <iframe
+                          class="embed-responsive-item"
+                          src="https://www.youtube.com/embed/5oLwrZANJxw"
+                          allowfullscreen
+                          picture-in-picture
+                        ></iframe>
+                      </div>
+                    </div>
+
+                    <div class="modal-footer justify-content-center">
+                      <span class="mr-4">Spread the word!</span>
+                      <a type="button" class="btn-floating btn-sm btn-fb">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a type="button" class="btn-floating btn-sm btn-tw">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                      <a type="button" class="btn-floating btn-sm btn-gplus">
+                        <i class="fab fa-google-plus-g"></i>
+                      </a>
+                      <a type="button" class="btn-floating btn-sm btn-ins">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
+
+                      <button
+                        type="button"
+                        class="btn btn-outline-primary btn-rounded btn-md ml-4"
+                        data-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a>
+                <img
+                  class="img-fluid z-depth-1"
+                  src="video1.jpg"
+                  alt="video"
+                  data-toggle="modal"
+                  data-target="#modal1"
+                />
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div
+                class="modal fade"
+                id="modal6"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="myModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body mb-0 p-0">
+                      <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                        <iframe
+                          class="embed-responsive-item"
+                          src="https://www.youtube.com/embed/HOKkOXVZKYs"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                    </div>
+
+                    <div class="modal-footer justify-content-center">
+                      <span class="mr-4">Spread the word!</span>
+                      <a type="button" class="btn-floating btn-sm btn-fb">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a type="button" class="btn-floating btn-sm btn-tw">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                      <a type="button" class="btn-floating btn-sm btn-gplus">
+                        <i class="fab fa-google-plus-g"></i>
+                      </a>
+                      <a type="button" class="btn-floating btn-sm btn-ins">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
+
+                      <button
+                        type="button"
+                        class="btn btn-outline-primary btn-rounded btn-md ml-4"
+                        data-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a>
+                <img
+                  class="img-fluid z-depth-1"
+                  src="video2.jpg"
+                  alt="video"
+                  data-toggle="modal"
+                  data-target="#modal6"
+                />
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div
+                class="modal fade"
+                id="modal4"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="myModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body mb-0 p-0">
+                      <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                        <iframe
+                          class="embed-responsive-item"
+                          src="https://www.youtube.com/embed/6veYo3CmiZU"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                    </div>
+
+                    <div class="modal-footer justify-content-center">
+                      <span class="mr-4">Spread the word!</span>
+                      <a type="button" class="btn-floating btn-sm btn-fb">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a type="button" class="btn-floating btn-sm btn-tw">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                      <a type="button" class="btn-floating btn-sm btn-gplus">
+                        <i class="fab fa-google-plus-g"></i>
+                      </a>
+                      <a type="button" class="btn-floating btn-sm btn-ins">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
+
+                      <button
+                        type="button"
+                        class="btn btn-outline-primary btn-rounded btn-md ml-4"
+                        data-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a>
+                <img
+                  class="img-fluid z-depth-1"
+                  src="video3.jpg"
+                  alt="video"
+                  data-toggle="modal"
+                  data-target="#modal4"
+                />
+              </a>
+            </div>
+          </div>
+
           <div className="row">
             <div className="col-lg-12 text-center">
               <h2>Media</h2>
               <hr className="star-primary" />
             </div>
           </div>
-
-          <div className="row">
-            <div className="col-xs-6 col-md-3">
-              <a href="#" className="thumbnail ">
+          <div
+            id="carouselExampleControls"
+            className="carousel slide"
+            data-ride="carousel"
+          >
+            <div className="carousel-inner">
+              <div className="carousel-item active">
+                <img className="d-block w-100" src="/1.jpg" alt="First slide" />
+              </div>
+              <div className="carousel-item">
                 <img
-                  src="/1.jpg"
-                  alt="Portfolio 1"
-                  className="img-responsive img-fluid"
-                />
-              </a>
-            </div>
-
-            <div className="col-xs-6 col-md-3">
-              <a href="#" className="thumbnail">
-                <img
+                  className="d-block w-100"
                   src="/2.jpg"
-                  alt="Portfolio 2"
-                  className="img-responsive img-fluid"
+                  alt="Second slide"
                 />
-              </a>
+              </div>
+              <div className="carousel-item">
+                <img className="d-block w-100" src="/3.jpg" alt="Third slide" />
+              </div>
+              <div className="carousel-item">
+                <img className="d-block w-100" src="/4.jpg" alt="Third slide" />
+              </div>
+              <div className="carousel-item">
+                <img className="d-block w-100" src="/5.jpg" alt="Third slide" />
+              </div>
+              <div className="carousel-item">
+                <img className="d-block w-100" src="/6.jpg" alt="Third slide" />
+              </div>
+              <div className="carousel-item">
+                <img className="d-block w-100" src="/7.jpg" alt="Third slide" />
+              </div>
+              <div className="carousel-item">
+                <img className="d-block w-100" src="/8.jpg" alt="Third slide" />
+              </div>
             </div>
-
-            <div className="col-xs-6 col-md-3">
-              <a href="#" className="thumbnail">
-                <img
-                  src="/3.jpg"
-                  alt="Portfolio 3"
-                  className="img-responsive img-fluid"
-                />
-              </a>
-            </div>
-
-            <div className="col-xs-6 col-md-3">
-              <a href="#" className="thumbnail">
-                <img
-                  src="/4.jpg"
-                  alt="Portfolio 4"
-                  className="img-responsive img-fluid"
-                />
-              </a>
-            </div>
-
-            <div className="col-xs-6 col-md-3">
-              <a href="#" className="thumbnail">
-                <img
-                  src="/5.jpg"
-                  alt="Portfolio 5"
-                  className="img-responsive img-fluid"
-                />
-              </a>
-            </div>
-
-            <div className="col-xs-6 col-md-3">
-              <a href="#" className="thumbnail">
-                <img
-                  src="/6.jpg"
-                  alt="Portfolio 6"
-                  className="img-responsive img-fluid"
-                />
-              </a>
-            </div>
-
-            <div className="col-xs-6 col-md-3">
-              <a href="#" className="thumbnail">
-                <img
-                  src="/7.jpg"
-                  alt="Portfolio 7"
-                  className="img-responsive img-fluid"
-                />
-              </a>
-            </div>
-
-            <div className="col-xs-6 col-md-3">
-              <a href="#" className="thumbnail">
-                <img
-                  src="/8.jpg"
-                  alt="Portfolio 8"
-                  className="img-responsive img-fluid"
-                />
-              </a>
-            </div>
+            <a
+              className="carousel-control-prev"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                className="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span className="sr-only">Previous</span>
+            </a>
+            <a
+              className="carousel-control-next"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                className="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span className="sr-only">Next</span>
+            </a>
           </div>
         </div>
       </section>
@@ -195,11 +353,10 @@ export default function Homepage() {
             </div>
 
             <div className="col-lg-6">
-              <div className="embed-responsive-item">
+              <div className="embed-responsive embed-responsive-4by3">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106060.55008181452!2d-117.95986053127125!3d33.8279951552879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd2808fb8655ad%3A0x535d20ee21ffc70f!2sClash+of+Clans+Attack+Strategy!5e0!3m2!1ssr!2srs!4v1448058178196"
-                  width="580"
-                  height="400"
+                  className="embed-responsive-item"
+                  src="https://www.google.com/maps/d/embed?mid=1yrofSsxqpcT7Q84GTCfj3Pf79MrM8OYr"
                   frameborder="0"
                   style={{ border: "0" }}
                   allowfullscreen
