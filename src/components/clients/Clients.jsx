@@ -44,7 +44,7 @@ class Clients extends Component {
 
     if (clients) {
       return (
-        <div>
+        <div className="container">
           <div className="row">
             <div className="col-md-9">
               <h2>

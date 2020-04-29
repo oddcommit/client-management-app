@@ -4,7 +4,7 @@ import "./homepage.style.css";
 export default function Homepage() {
   return (
     <div className="homepageBG">
-      <header className=" jumbotron jumbotron-fluid mb-0">
+      <header className=" jumbotron jumbotron-fluid mb-0 bg-overlay ">
         <div className="container row">
           <div className="col-lg-12">
             <div className="intro-text">

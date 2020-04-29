@@ -33,7 +33,7 @@ class AppNavBar extends Component {
     const { auth } = this.props;
     const { allowRegistration } = this.props.settings;
     return (
-      <nav className="navbar navbar-expand-md navbar-dark bg-info mb-4">
+      <nav className="navbar navbar-expand-md navbar-dark bg-info ">
         <div className="container">
           <Link to="/" className="navbar-brand">
             <div className="btn circle">

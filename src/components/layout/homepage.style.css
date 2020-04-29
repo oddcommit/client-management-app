@@ -2,12 +2,14 @@
   background-color: rgb(241, 236, 236);
 }
 .jumbotron {
-  background: url("/background.jpg") no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("/background.jpg");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
-  height: 80%;
+  height: 90%;
 }
+
 header .container {
   padding-top: 100px;
   padding-bottom: 200px;
