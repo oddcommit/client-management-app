@@ -23,8 +23,8 @@ export default function Homepage() {
         </div>
       </header>
 
-      <section id="about">
-        <div className="container">
+      <section id="about  ">
+        <div className="container shadow p-3 my-5 bg-white rounded">
           <div className="row">
             <div className="col-lg-12 text-center">
               <h2>About</h2>
@@ -204,7 +204,7 @@ export default function Homepage() {
               </a>
             </div>
 
-            <div className="col-lg-4 col-md-6 mb-4">
+            <div className="col-lg-4 col-md-6 mb-4 ">
               <div
                 className="modal fade"
                 id="modal4"
@@ -278,18 +278,18 @@ export default function Homepage() {
             className="carousel slide"
             data-ride="carousel"
           >
-            <div className="carousel-inner">
+            <div className="carousel-inner shadow-sm p-3 mb-5 bg-white rounded ">
               <div className="carousel-item active">
                 <img className="d-block w-100" src="/1.jpg" alt="First slide" />
               </div>
               <div className="carousel-item">
                 <img
-                  className="d-block w-100"
+                  className="d-block w-100 "
                   src="/2.jpg"
                   alt="Second slide"
                 />
               </div>
-              <div className="carousel-item">
+              <div className="carousel-item ">
                 <img className="d-block w-100" src="/3.jpg" alt="Third slide" />
               </div>
               <div className="carousel-item">
@@ -337,7 +337,7 @@ export default function Homepage() {
       </section>
 
       <section id="contact">
-        <div className="container">
+        <div className="container shadow-sm p-3 my-5 bg-white rounded">
           <div className="row">
             <div className="col-lg-12 text-center">
               <h2>Contact</h2>
@@ -346,7 +346,7 @@ export default function Homepage() {
           </div>
 
           <div className="row">
-            <div className="col-lg-6">
+            <div className="col-lg-6 ">
               <h3>Address</h3>
               <p>
                 <strong>NORCROSS </strong> <br />
@@ -383,7 +383,7 @@ export default function Homepage() {
       <footer className="mt-3 ">
         <div className="">
           <div className="row">
-            <div className="col-lg-12">
+            <div className="col-lg-12 ">
               <ul className="d-flex list-unstyled justify-content-around ">
                 <li>
                   <a href="#">Home</a>
