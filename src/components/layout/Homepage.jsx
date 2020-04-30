@@ -35,7 +35,7 @@ export default function Homepage() {
           <div className="row">
             <div className="col-lg-6">
               <img
-                src="/teacher.jpg"
+                src="https://lh3.googleusercontent.com/x3WpwDvsZ3-y6Hzb7-ISu16V5-fMaBLFCwiE6kKc7djWnJfx7FnmUwruNJavBe090L1e2v3DOo6n7uaqmacW53Hz9kDeVL0dGAkr1FmHj2CIx_EnOK2e6aVnetNauvzK61NBD7SG5-dq5FFVCdLfxoY9FRkvaUz0joUnzEAF_A8rZ8-5Er8D4XYOoQGJv1Zt8m2lhVfSKM3tIrpMWLd62r78ovEnfvm6u5hgBHd_CLFdK56spm48j3GFUnoWRrnNyfusACyqkNdhutISv-cTt-bPV6PDr3jCuXOCyQHEDt9_AoCflsGHvcVdL999DzFWilJFyEWDVz_Tptut5nx3TljysuJbT1HKlua6dKIF9NZrVCXo6S333St7owbWnOuJVR_wcp79zYgYmuE_XI0ERig1lRYCw00p-hVWerGVD2uJ9k2XWSYGNxQ8C7xpJiL9AxpIejhiVESnt6j4jrv6qMclvuWNOdmy5BJdV6AACvLadlPzmX-wq75lR9mrSreKSy2RSBgclsf9BCOzstF0jT_CpXvVMs9uu8clDnO6VsVzz6pDVuyJ9D3gtD1NFCGrOAHnW1B6ofeuqdzSolplDCF3PW4nZfVYrk5JFifqVaO9eBCiThNWbfiSeDDA2vWmdXAxNUpBYeTWjDGry-Pl5HYU1k8Np1XnMcCgclVHPmtdAfQf0xoejXqwlhW8KQ=w984-h736-no"
                 className="img-responsive img-fluid"
                 alt=""
               />
@@ -71,6 +71,119 @@ export default function Homepage() {
                 activity for your child or as aprofession, Doremi Music will
                 help guide you along the way.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="information">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 text-center mb-4">
+              <h2>Why Choose Doremi Music?</h2>
+              <hr className="star-primary" />
+            </div>
+          </div>
+
+          <div className="row mb-5">
+            <div className="col-lg-3 ">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://lh3.googleusercontent.com/1Nl18ES7GRq3RQOk6SungxIo_UM3gjyT_B1SxrLU1gn6jsehFIlsKKKeZQWtQpHD8BC3zLurXbPAj1z1HVjhni6HlqHl2zvFEFH8YR7PhC6wsHZsALxBvN2Wo9Vs1N-3amvcPixn6eryHrppxGBHeVvV_MnzAq9AGshuKJR3X0QozRHf9uvY-KLaook6hd1QOoCqIO7I724cag-yVXsv5yLw-8qoAmSbNz65eBV8sSqd8OA7tbxzyasDMOKyvRcwjUb-fuuVOBcxzMKLG-Azv8hGhu20xDciklLyskPqPCxsCP9YUvjxU9I4rLlf1dyJw1oQG8ABDHdyWDjZcTLKLoFSjMvB-IaAJw5oEp-02WH-YOi2o7yy84gyJcv-tdMVZseHgMT67GY4kodw3mAuTjGq-j8-yJqHRj5wOTVWSJuqJlk-mNNI_-puYI9mKDfHfbfPS5VGcOst7qLofWY0YxT0Vo2pTrqfH5E5GZ_xgLXdpE9Cf9YUCVW6T3ThoP8aDT0K0ca-xZ4w5TxG4K7yHL6tF8tFMWwls74qjMryIN1BbgCuxuQ6zyDJijriePf5mKFCvnrDqAkdymoD86wuOLeCnkUAJwQNhzDtVMzpK1Cyokc-m4--9BZOPa2XQHbAXBC9zALB-W3whyduWjvzpRS3ET7WsfBKivzW20sXWaJ0QrZeJ8lDx3siiBPbCw=w984-h657-no"
+                  alt="Card image cap"
+                />
+
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a>CURRICULUM</a>
+                  </h4>
+                  <p class="card-text">
+                    Our curriculum includes theory, application, and
+                    performance. We believe that a solid foundation of basic
+                    music theory is very important for any musician. With the
+                    solid foundation of music theory, students can effectively
+                    apply what they’ve learned to musical pieces ranging from
+                    classical to contemporary. We offer many different teaching
+                    techniques and will use the method that is most effective
+                    and fun for our students.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://lh3.googleusercontent.com/JcSm8JIQ5hx-6599SAY4JK2ZXNI2Cssbfe1_Ud4kkaVv0ELB7Uqd3SAgJWVca9Kx9mLOe-q5893goFOBeiwtu9Qe81XL6rYvN8dfQnied3znTXBon7f3_dyRo_rH4PhECdwZJf3W1M_EdLIV5_f2JoB1OHdc8gOp579kQUaijg1ZZWM_t7wVBd4Qspvpwct5GIHPXI1cRTf-wOBJz33etE1KF7aslRQqSVnZqf1jhb0SzaEKG7LSJ2TovqvX9CSRIvaxfG6xfiu_8DMbIY_useros1btquYnLqazxkNfjN4ictCghCszYrvlbcgbIE5dKrcJ0tN5gxksRKhkxqxSAS8-Rb6_p2Mnc6J8wdZfYjMG9icB95FHbwWtQCKLlR3JLon0FZexoPOK3pVFBe6MDI4NQm60UEOveu3m53GUG72DsvY9hTtT2S1FDXVnjwj9RUNl_a1XhqQxBtg4GHMQvvqIfTn2ErEmXayJyv_FWP4XLJxLLmO22u1dmoaPhzJpQ0U_IqMgPFzgpAvMwcfT4HahroOAHl0OAUKQCORoiHYQxbOrzsCJQL3OLDXYVj8fuG3YN5VKOagFaG2D7PyftYJ8phtmMXtWMkx_UOHSYPODaVlXoTm5TFhsTLSKn7iJlZ-QdtQTv7y0xhkYfnhRSDIUlhlxYNdjH6lqewU4cR2LjExKNPcxzWPcEpWFxQ=w600-h399-no"
+                  alt="Card image cap"
+                />
+
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a>TEACHERS</a>
+                  </h4>
+                  <p class="card-text">
+                    Our professionally trained staffs are graduates from music
+                    institutions such as Georgia State University, University of
+                    Georgia, The Atlanta Institute of Music, and The Saigon
+                    Music Conservatory. Our teachers are also bilingual and are
+                    fluent in Vietnamese, English, and Spanish to better aid in
+                    student, teacher, and parent communication. Our teachers are
+                    also trained in the pedagogy of beginners as well as
+                    advanced students.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://lh3.googleusercontent.com/u96OAC9ytUp1ncldZncURBvbkd1q0dDFUBhdo8XS9kR2fyLNO-RihodNmTUkNLY3Xuz9F5bYlRrIXitBOz9pRIFzjk22NfQP9nvYEUUNLo1TKvfQptlybZMJXBeWxe8yHPUsZNfIs0lbo87mCJOTQJWRyU-2HihyZKt65JfntmheramyKWOz3QTza8OGdWBhGW_Yh8wzPmV3vlyDo6Xn-0A1dZoRmqjs06QI8HVkFAB2gWERN6ogfRj1PVEMewc0eTO6dmdqBUIUN4HX2m6g_j7-hp1YmnbOJ_jv7EnDCaDpk_h6xSIcagZQAuNRczFAgGX1e1dlOwW2gSWsdH7Q3zEYy2aAQr4giJfOBEDUrRPyMu77PxoFGaCqA_UmFIa_RRIXCBrjMcalSMt30kMnbnfQKP3jQHr5GoeEcYeO35dG8RqWB15JybIbLeydwyViK7tYsCv8NHxhqmCcoHh937R0V4VKAngPEUzu8cBgZODIqabgTRxhUxVQSbYpegRT6iSL8oTwAni_H2SqIGRtkugsw6gP4b7PU7SHoueij8hkzPi8SQzEmjLC3BguH646wPf6bohc58P4lUlxit2VDZFI2UglUdDP6uXku4D0-NyQClVgBJeHSTOCzabLhR2L-OtZ9MS8krB1MI15tK3E-_FMzNn0iZhFySzoG_rA9jajbVPzsFWLBlj1ekqNFQ=w600-h400-no"
+                  alt="Card image cap"
+                />
+
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a>FACILITY</a>
+                  </h4>
+                  <p class="card-text">
+                    Our studio rooms are very spacious while offering an
+                    effective private one-on-one learning experience for our
+                    students. Each room is equipped with video surveillance
+                    cameras that can be seen from the lobby to insure that all
+                    of our students are in a safe and secure learning
+                    environment. Our teaching studios also offer most musical
+                    instruments for students to use during their lesson, such as
+                    pianos, guitars, and drums.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://lh3.googleusercontent.com/nFTC9TV9vBYJ_TkIK53Qypqht5dlKxZt75WtUh9NQnQHXnGp9Z7v8AIPFnV5ekiDA1P6sKzOX2mh0Sypbd_s4XNZmPhILh7LsbcDURp-C6hqX-3zVznYPiQH8DovdNAjV65MbCwefVg84TGzEzov29MVCPq6p54XxGIUqNKWp69jJtn_28AabVS77k6rzQgDfWdbkxqmA06oaLadXZ6_QazlxK5Y36Q0VOOn7umWqbEyZHS9FPPcwuLNODtHIt2j6aR0duR-llcCuQhT-Fvri7Mp8YBBfqHCA5fkzIx_BKGqjxDJsaCGUDg32dE-tNqWfX7MFI7THHSe1f_DbXT2ACA6GyxqOYF-zm3iMT_TuEVHqJ1arF4UYKWNsYXXp8_frZmJgMEJ40acT9F7oFwKsMErpNsX5yP2NldCVDfmGKPQhJ19zJ2SvMHHH6GcnpbbPiLEWMhClQ3H2TVejqUv0SgL4annB3vEzoIlMRur_4K09e9snSIyUrcvjnC4rbgFVX8-ipd92DxQTT1AHt_UhDqJ39d3PPhe1fCN6ADAqLkbEzE6OuKXMdcXkQxDOEdzkOmASJVNIoo4AcFWE8KRhwWQItZNzv149RlpcXFmYdUrHZO_BRJylPl6m-Kk7DkdnC0p-sI5YdODVvq8nu7bgRkuNwToM6JtT1OF_0AzOkmEAnnZbNHj9WYyPdLnaQ=w984-h656-no"
+                  alt="Card image cap"
+                />
+
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a>PERFORMANCES</a>
+                  </h4>
+                  <p class="card-text">
+                    The students will also get a chance to perform for faculty
+                    and parents at our seasonal student recitals. Students will
+                    get to experience the gratification of being able to perform
+                    in front of an audience of teachers, parents, and peers. We
+                    also host an annual concert, in which students can enjoy the
+                    experience of performing under the bright lights, in a big
+                    venue, and hearing the applause of a big audience at our
+                    most spectacular show of the year.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -391,6 +504,9 @@ export default function Homepage() {
                 </li>
                 <li>
                   <a href="#about">About</a>
+                </li>
+                <li>
+                  <a href="#information">Info</a>
                 </li>
                 <li>
                   <a href="#portfolio">Media</a>
