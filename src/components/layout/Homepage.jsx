@@ -131,7 +131,7 @@ export default function Homepage() {
                 </div>
               </div>
 
-              <a>
+              <a className="img-zoom">
                 <img
                   className="img-fluid z-depth-1 btn"
                   src="video1.jpg"
@@ -193,7 +193,7 @@ export default function Homepage() {
                 </div>
               </div>
 
-              <a>
+              <a className="img-zoom">
                 <img
                   className="img-fluid z-depth-1 btn"
                   src="video2.jpg"
@@ -255,13 +255,14 @@ export default function Homepage() {
                 </div>
               </div>
 
-              <a>
+              <a className="img-zoom">
                 <img
                   className="img-fluid z-depth-1 btn"
                   src="video3.jpg"
                   alt="video"
                   data-toggle="modal"
                   data-target="#modal4"
+                  width="600"
                 />
               </a>
             </div>
@@ -383,7 +384,7 @@ export default function Homepage() {
       <footer className="mt-3 ">
         <div className="">
           <div className="row">
-            <div className="col-lg-12 ">
+            <div className="col-lg-12">
               <ul className="d-flex list-unstyled justify-content-around ">
                 <li>
                   <a href="#">Home</a>
