@@ -52,7 +52,7 @@ class Clients extends Component {
                 <i className="fas fa-users" /> Client{""}
               </h2>
               <button
-                className="btn btn-outline-dark mb-1"
+                className="btn btn-outline-dark mb-1 mr-2"
                 type="button"
                 data-toggle="collapse"
                 data-target="#collapseExample"
@@ -61,11 +61,8 @@ class Clients extends Component {
               >
                 <small> Total Report</small>
               </button>
-              <button>
-                <Link
-                  to="/client/add"
-                  className="btn btn-success btn-inline-block"
-                >
+              <button className="btn btn-outline-dark mb-1" type="button">
+                <Link to="/client/add">
                   <i className="fas fa-plus"> New</i>
                 </Link>
               </button>

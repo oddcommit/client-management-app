@@ -5,19 +5,19 @@ export default function Homepage() {
   return (
     <div className="homepageBG">
       <header className=" jumbotron jumbotron-fluid mb-0 bg-overlay ">
-        <div className="container row">
-          <div className="col-lg-12">
-            <div className="intro-text">
+        <div className=" row d-flex justify-content-center">
+          <div className=" col-lg-12  ">
+            <div className=" container intro-text ">
               <span className="naslov text-center ">
                 doremi - Music Lessons
               </span>
               <hr className="bg-white " />
 
-              <h4 className="tekst text-center">
+              <h4 className="tekst text-center ">
                 We offer music lessons for Piano, Guitar, Drums, Violin, Viola,
                 Cello and Bass.
               </h4>
-              <hr className="bg-white" />
+              <hr className="bg-white " />
             </div>
           </div>
         </div>
@@ -380,11 +380,11 @@ export default function Homepage() {
         </div>
       </section>
 
-      <footer className="mt-3">
-        <div className="container">
+      <footer className="mt-3 ">
+        <div className="">
           <div className="row">
             <div className="col-lg-12">
-              <ul className="d-flex  justify-content-around">
+              <ul className="d-flex list-unstyled justify-content-around ">
                 <li>
                   <a href="#">Home</a>
                 </li>

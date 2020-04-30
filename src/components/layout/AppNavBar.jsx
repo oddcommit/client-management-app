@@ -33,7 +33,10 @@ class AppNavBar extends Component {
     const { auth } = this.props;
     const { allowRegistration } = this.props.settings;
     return (
-      <nav className="navbar navbar-expand-md navbar-dark bg-info ">
+      <nav
+        className="navbar navbar-expand-md navbar-light  "
+        style={{ backgroundColor: "#ddeeff" }}
+      >
         <div className="container">
           <Link to="/" className="navbar-brand">
             <div className="btn circle">
@@ -42,7 +45,7 @@ class AppNavBar extends Component {
                 width="2em"
                 height="2em"
                 viewBox="0 0 16 16"
-                fill="white"
+                fill="gray"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13c0-1.104 1.12-2 2.5-2s2.5.896 2.5 2zm9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z" />
