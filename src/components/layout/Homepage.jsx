@@ -11,13 +11,13 @@ export default function Homepage() {
               <span className="naslov text-center ">
                 <img className="img-fluid" src="logo1.png" alt="" />{" "}
               </span>
-              <hr className="bg-white " />
+              <hr className="bg-danger " />
 
               <h4 className="tekst text-center ">
                 We offer music lessons for Piano, Guitar, Drums, Violin, Viola,
                 Cello and Bass.
               </h4>
-              <hr className="bg-white " />
+              <hr className="bg-danger " />
             </div>
           </div>
         </div>
@@ -28,7 +28,6 @@ export default function Homepage() {
           <div className="row">
             <div className="col-lg-12 text-center">
               <h2>About</h2>
-              <hr className="star-primary" />
             </div>
           </div>
 
@@ -81,7 +80,6 @@ export default function Homepage() {
           <div className="row">
             <div className="col-lg-12 text-center mb-4">
               <h2>Why Choose Doremi Music?</h2>
-              <hr className="star-primary" />
             </div>
           </div>
 
@@ -385,7 +383,6 @@ export default function Homepage() {
           <div className="row">
             <div className="col-lg-12 text-center">
               <h2>Media</h2>
-              <hr className="star-primary" />
             </div>
           </div>
           <div
@@ -456,7 +453,6 @@ export default function Homepage() {
           <div className="row">
             <div className="col-lg-12 text-center">
               <h2>Contact</h2>
-              <hr className="star-primary" />
             </div>
           </div>
 
