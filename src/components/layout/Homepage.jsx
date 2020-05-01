@@ -76,9 +76,9 @@ export default function Homepage() {
         </div>
       </section>
       <section id="information">
-        <div className="container">
+        <div className="container my-5">
           <div className="row">
-            <div className="col-lg-12 text-center mb-4">
+            <div className="col-lg-12 text-center ">
               <h2 className="h2Ttitle">Why Choose Doremi Music?</h2>
             </div>
           </div>
@@ -189,9 +189,9 @@ export default function Homepage() {
       </section>
 
       <section id="portfolio">
-        <div className="container">
+        <div className="container my-5">
           <div className="row">
-            <div className="col-lg-4 col-md-12 mb-4">
+            <div className="col-lg-4 col-md-12">
               <div
                 className="modal fade"
                 id="modal1"
@@ -520,7 +520,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      <footer className="mt-3 ">
+      <footer className="mt-5 ">
         <div className="">
           <div className="row">
             <div className="col-lg-12">
