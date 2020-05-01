@@ -23,7 +23,7 @@ export default function Homepage() {
         </div>
       </header>
 
-      <section id="about  ">
+      <section id="about">
         <div className="container shadow p-3 my-5 bg-white rounded">
           <div className="row">
             <div className="col-lg-12 text-center">

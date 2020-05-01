@@ -1,6 +1,6 @@
 .jumbotron {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
-    url("../../images/background1.jpeg");
+    url("../../images/sky1.jpg");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
@@ -13,30 +13,30 @@ header .container {
   text-shadow: 2px 2px 0px rgba(150, 150, 150, 1);
 }
 
-header .btn {
+/* header .btn {
   border-color: #1f6ea9;
   background-color: white;
   text-shadow: none;
-}
+} */
 
 .intro-text .naslov {
   display: block;
-  font-family: "Luckiest Guy", cursive;
-  font-size: 70px;
-  color: white;
-  text-shadow: 2px 2px black;
+  /* font-family: "Luckiest Guy", cursive; */
+  /* font-size: 70px; */
+  /* color: white; */
+  /* text-shadow: 2px 2px black; */
 }
 
 h2 {
   font-family: "Luckiest Guy", cursive;
   font-size: 50px;
-  color: #1f6ea9;
+  color: grey;
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
 .infotext {
-  color: #1f6ea9;
+  color: grey;
 }
 .ikonica {
   font-size: 50px;
