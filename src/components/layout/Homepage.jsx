@@ -27,7 +27,7 @@ export default function Homepage() {
         <div className="container shadow p-3 my-5 bg-white rounded">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2>About</h2>
+              <h2 className="h2Ttitle">About</h2>
             </div>
           </div>
 
@@ -79,7 +79,7 @@ export default function Homepage() {
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center mb-4">
-              <h2>Why Choose Doremi Music?</h2>
+              <h2 className="h2Ttitle">Why Choose Doremi Music?</h2>
             </div>
           </div>
 
@@ -421,34 +421,38 @@ export default function Homepage() {
         <div className="container shadow-sm p-3 my-5 bg-white rounded">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2>Contact</h2>
+              <h2 className="h2Ttitle">Contact</h2>
             </div>
           </div>
 
           <div className="row">
             <div className="col-lg-6 ">
-              <div class="my-auto">
-                <h3>Address</h3>{" "}
-                <ul class="fa-ul mb-4 ml-0">
+              <div className="my-auto">
+                <h2 className="text-center">Address</h2>{" "}
+                <ul className="fa-ul mb-4 ml-0">
                   <li id="mail-address">
                     <a>
-                      <i class="fas fa-envelope-open mr-2 contact-icons"></i>
+                      <i className="fas fa-envelope-open mr-2 mb-3 contact-icons"></i>
                       TNdoremi@gmail.com
                     </a>
                   </li>
                   <li>
-                    <i class="fas fa-mobile-alt mr-2 mb-2 contact-icons"></i>
+                    <i className="fas fa-mobile-alt mr-2 mb-4 contact-icons"></i>
                     678-343-1534
                   </li>
                   <li>
-                    <i class="fas fa-map-marker-alt mr-2 contact-icons"></i>
-                    <strong>NORCROSS </strong> <br />
-                    5430 Jimmy Carter Blvd #112, Norcross, GA 30093
+                    <i className="fas fa-map-marker-alt mr-2 contact-icons"></i>
+                    <strong>NORCROSS </strong> <br />{" "}
+                    <p className="ml-3">
+                      5430 Jimmy Carter Blvd #112, Norcross, GA 30093
+                    </p>
                   </li>
                   <li>
-                    <i class="fas fa-map-marker-alt mr-2 contact-icons"></i>
+                    <i className="fas fa-map-marker-alt mr-2 contact-icons"></i>
                     <strong>SUWANEE </strong> <br />
-                    302 Satellite Blvd Ste C225, Suwanee, GA 30024
+                    <p className="ml-3">
+                      302 Satellite Blvd Ste C225, Suwanee, GA 30024
+                    </p>
                   </li>
                 </ul>
               </div>
@@ -474,9 +478,7 @@ export default function Homepage() {
 
               <form
                 class="contact-form d-flex flex-column align-items-center"
-                action="https://formspree.io/TNdoremi@gmail.com
-
-                    "
+                action="https://formspree.io/TNdoremi@gmail.com "
                 method="POST"
               >
                 <div class="form-group w-75">

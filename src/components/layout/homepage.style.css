@@ -27,7 +27,7 @@ header .container {
   /* text-shadow: 2px 2px black; */
 }
 
-h2 {
+.h2Ttitle {
   font-family: "Luckiest Guy", cursive;
   font-size: 50px;
   color: grey;
