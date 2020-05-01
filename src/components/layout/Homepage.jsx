@@ -9,7 +9,7 @@ export default function Homepage() {
           <div className=" col-lg-12  ">
             <div className=" container intro-text ">
               <span className="naslov text-center ">
-                <img className="img-fluid" src="logo2.png" alt="" />{" "}
+                <img className="img-fluid" src="logo1.png" alt="" />{" "}
               </span>
               <hr className="bg-white " />
 
