@@ -215,21 +215,6 @@ export default function Homepage() {
 
                     <div className="modal-footer justify-content-center">
                       <span className="mr-4">Spread the word!</span>
-                      <a type="button" className="btn-floating btn-sm btn-fb">
-                        <i className="fab fa-facebook-f"></i>
-                      </a>
-                      <a type="button" className="btn-floating btn-sm btn-tw">
-                        <i className="fab fa-twitter"></i>
-                      </a>
-                      <a
-                        type="button"
-                        className="btn-floating btn-sm btn-gplus"
-                      >
-                        <i className="fab fa-google-plus-g"></i>
-                      </a>
-                      <a type="button" className="btn-floating btn-sm btn-ins">
-                        <i className="fab fa-linkedin-in"></i>
-                      </a>
 
                       <button
                         type="button"
@@ -277,21 +262,6 @@ export default function Homepage() {
 
                     <div className="modal-footer justify-content-center">
                       <span className="mr-4">Spread the word!</span>
-                      <a type="button" className="btn-floating btn-sm btn-fb">
-                        <i className="fab fa-facebook-f"></i>
-                      </a>
-                      <a type="button" className="btn-floating btn-sm btn-tw">
-                        <i className="fab fa-twitter"></i>
-                      </a>
-                      <a
-                        type="button"
-                        className="btn-floating btn-sm btn-gplus"
-                      >
-                        <i className="fab fa-google-plus-g"></i>
-                      </a>
-                      <a type="button" className="btn-floating btn-sm btn-ins">
-                        <i className="fab fa-linkedin-in"></i>
-                      </a>
 
                       <button
                         type="button"
@@ -339,21 +309,6 @@ export default function Homepage() {
 
                     <div className="modal-footer justify-content-center">
                       <span className="mr-4">Spread the word!</span>
-                      <a type="button" className="btn-floating btn-sm btn-fb">
-                        <i className="fab fa-facebook-f"></i>
-                      </a>
-                      <a type="button" className="btn-floating btn-sm btn-tw">
-                        <i className="fab fa-twitter"></i>
-                      </a>
-                      <a
-                        type="button"
-                        className="btn-floating btn-sm btn-gplus"
-                      >
-                        <i className="fab fa-google-plus-g"></i>
-                      </a>
-                      <a type="button" className="btn-floating btn-sm btn-ins">
-                        <i className="fab fa-linkedin-in"></i>
-                      </a>
 
                       <button
                         type="button"
@@ -382,9 +337,23 @@ export default function Homepage() {
 
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2>Media</h2>
+              <h3 className="infotext">
+                Videos{" "}
+                <span className="text-primary">
+                  <a href="https://www.youtube.com/user/TNdoremi/featured">
+                    {" "}
+                    <i
+                      className="fab fa-youtube fa-2x"
+                      style={{ color: "red" }}
+                    ></i>
+                  </a>
+                </span>
+              </h3>
+              <hr className="bg-danger " />
+              <h3 className="infotext">Sideshow</h3>
             </div>
           </div>
+
           <div
             id="carouselExampleControls"
             className="carousel slide"
