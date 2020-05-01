@@ -421,7 +421,7 @@ export default function Homepage() {
         <div className="container shadow-sm p-3 my-5 bg-white rounded">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="h2Ttitle">Contact</h2>
+              <h2 className="h2Ttitle">Contact Us</h2>
             </div>
           </div>
 
