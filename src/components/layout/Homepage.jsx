@@ -9,7 +9,7 @@ export default function Homepage() {
           <div className=" col-lg-12  ">
             <div className=" container intro-text ">
               <span className="naslov text-center ">
-                doremi - Music Lessons
+                <img className="img-fluid" src="logo2.png" alt="" />{" "}
               </span>
               <hr className="bg-white " />
 
@@ -43,6 +43,7 @@ export default function Homepage() {
             <div className="col-lg-6">
               <p>
                 <strong>Doremi Music</strong>
+
                 <br />
                 <small>We provide quality music lessons, founded 2011.</small>
                 <br />
