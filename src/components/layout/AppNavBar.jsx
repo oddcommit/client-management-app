@@ -34,7 +34,7 @@ class AppNavBar extends Component {
     const { allowRegistration } = this.props.settings;
     return (
       <nav
-        className="navbar navbar-expand-md navbar-light  "
+        className="navbar navbar-expand-md navbar-light bg-light "
         style={{ backgroundColor: "#ddeeff" }}
       >
         <div className="container">

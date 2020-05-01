@@ -1,6 +1,6 @@
 .jumbotron {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
-    url("https://lh3.googleusercontent.com/2PENcpvjIx5mx47Y3d5Bn2YYjQ4wSzUt3rvTY-APAXoGs_pG_Xp3vu1Z5uSYZE2zl3HWKr7XyHFX9aTgYN4jjJOStwKWr39rAoRyNhABOtWVQpEEJ1mIWdp_EKjTkE9yAqtq7OwhCpb5ALc_gD3t9XuKmRySlDFKHUPmYpmAVJlGzXcr8tLQHKL39z7Z40ekhQ_XB-CLaVDbuTLMMph-_H_QyNwrc3HjN5SWK1YqFbyAWzrC1AVenSr-D0SrYCdWf4ZVHgOzBAOb3CXhqXRf40zZ-bYtDaf6m_XqLL_TZ3d4kgr3JI_IGeISHlk8eGMni4nkV9FcSMHCX70z1t3irmGvReZ73J-2iFZnyw-NAAQIM71vpVNy2QaCNTMTRBfryRtD7wFPwOweSbHlEToZR1qw1suzD4IQL2OrvNro7DSOEpSpGCESURubzG8-qt-ZAZZICyjolfVGC1RhO5LiOmJoEJGR-69mK_Sy7_9jVTWfL4aeHI-vhkfaGpxKHbC-InU89h0IpJFMNM9IXfWTOrfhfPQkd1vRYYGMaEVUnIz_854OzQNmSU6WGtLRqn5YILIOT-fe10pAvyxXctvj1qQefvCBt67Hgu_zNIYqowfFJ2Bgu0gyxbMWVXRJC16Tit9nPOoobaRtozrAoW0AXyb8ZR3NyBU8AEEUPPJNWcfvfWf7ozhyPK5mKcd0dA=w984-h1312-no");
+    url("../../images/background1.jpeg");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
@@ -72,7 +72,7 @@ h2 {
 
 footer,
 #portfolio {
-  background-color: rgb(221, 238, 255);
+  background-color: white;
 
   padding: 30px 0;
 }
