@@ -93,7 +93,7 @@ export default function Homepage() {
                 />
 
                 <div class="card-body">
-                  <h4 class="card-title">
+                  <h4 class="card-title infotext">
                     <a>CURRICULUM</a>
                   </h4>
                   <p class="card-text">
@@ -118,7 +118,7 @@ export default function Homepage() {
                 />
 
                 <div class="card-body">
-                  <h4 class="card-title">
+                  <h4 class="card-title infotext">
                     <a>TEACHERS</a>
                   </h4>
                   <p class="card-text">
@@ -143,7 +143,7 @@ export default function Homepage() {
                 />
 
                 <div class="card-body">
-                  <h4 class="card-title">
+                  <h4 class="card-title infotext">
                     <a>FACILITY</a>
                   </h4>
                   <p class="card-text">
@@ -168,7 +168,7 @@ export default function Homepage() {
                 />
 
                 <div class="card-body">
-                  <h4 class="card-title">
+                  <h4 class="card-title infotext">
                     <a>PERFORMANCES</a>
                   </h4>
                   <p class="card-text">

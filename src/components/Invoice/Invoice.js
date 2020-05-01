@@ -154,7 +154,7 @@ class Invoice extends Component {
 
     if (client) {
       return (
-        <div>
+        <div className="container">
           <div className="row mb-6">
             <div className="col-sm-5">
               <h5 className="mb-1">From:</h5>

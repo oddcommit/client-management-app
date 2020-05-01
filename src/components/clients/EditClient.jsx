@@ -78,7 +78,7 @@ class EditClient extends Component {
 
     if (client) {
       return (
-        <div>
+        <div className="container">
           <div className="row">
             <div className="col-md-6"></div>
             <Link to="/" className="btn btn-link">

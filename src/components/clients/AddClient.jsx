@@ -66,7 +66,7 @@ class AddClient extends Component {
   render() {
     const { disableBalanceOnAdd } = this.props.settings;
     return (
-      <div>
+      <div className="container">
         <div className="row">
           <div className="col-md-6"></div>
           <Link to="/" className="btn btn-link">
