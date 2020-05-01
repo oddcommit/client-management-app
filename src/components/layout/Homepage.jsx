@@ -427,22 +427,31 @@ export default function Homepage() {
 
           <div className="row">
             <div className="col-lg-6 ">
-              <h3>Address</h3>
-              <p>
-                <strong>NORCROSS </strong> <br />
-                5430 Jimmy Carter Blvd #112, Norcross, GA 30093
-              </p>
-              <h3>Phone</h3>
-              <p>678-343-1534</p>
-              <h3>Email</h3>
-              <p>TNdoremi@gmail.com</p>
-              <hr />
-              <p>
-                <strong>SUWANEE </strong> <br />
-                302 Satellite Blvd Ste C225, Suwanee, GA 30024
-              </p>
-              <h3>Phone</h3>
-              <p>678-343-1534</p>
+              <div class="my-auto">
+                <h3>Address</h3>{" "}
+                <ul class="fa-ul mb-4 ml-0">
+                  <li id="mail-address">
+                    <a>
+                      <i class="fas fa-envelope-open mr-2 contact-icons"></i>
+                      TNdoremi@gmail.com
+                    </a>
+                  </li>
+                  <li>
+                    <i class="fas fa-mobile-alt mr-2 mb-2 contact-icons"></i>
+                    678-343-1534
+                  </li>
+                  <li>
+                    <i class="fas fa-map-marker-alt mr-2 contact-icons"></i>
+                    <strong>NORCROSS </strong> <br />
+                    5430 Jimmy Carter Blvd #112, Norcross, GA 30093
+                  </li>
+                  <li>
+                    <i class="fas fa-map-marker-alt mr-2 contact-icons"></i>
+                    <strong>SUWANEE </strong> <br />
+                    302 Satellite Blvd Ste C225, Suwanee, GA 30024
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <div className="col-lg-6">
@@ -455,6 +464,55 @@ export default function Homepage() {
                   allowfullscreen
                 ></iframe>
               </div>
+            </div>
+            <div className="col-lg-12">
+              <p className="mt-5">
+                If you have any questions, comments or concerns, please email us
+                your comments and we will get back to you ASAP. Thank you for
+                visiting Doremi Music!
+              </p>
+
+              <form
+                class="contact-form d-flex flex-column align-items-center"
+                action="https://formspree.io/TNdoremi@gmail.com
+
+                    "
+                method="POST"
+              >
+                <div class="form-group w-75">
+                  <input
+                    type="name"
+                    class="form-control"
+                    placeholder="Name"
+                    name="name"
+                    required
+                  />
+                </div>
+                <div class="form-group w-75">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Email"
+                    name="name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group w-75">
+                  <textarea
+                    class="form-control"
+                    type="text"
+                    placeholder="Message"
+                    rows="7"
+                    name="name"
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-submit btn-info w-75">
+                  Submit
+                </button>
+              </form>
             </div>
           </div>
         </div>
