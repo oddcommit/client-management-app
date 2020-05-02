@@ -70,7 +70,7 @@ class EditClient extends Component {
     //update the firestore
     firestore
       .update({ collection: "clients", doc: client.id }, updClient)
-      .then(this.props.history.push("/"));
+      .then(this.props.history.push("/dashboard"));
   };
   render() {
     const { client } = this.props;
@@ -81,7 +81,7 @@ class EditClient extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-6"></div>
-            <Link to="/" className="btn btn-link">
+            <Link to="/dashboard" className="btn btn-link">
               <i className="fas fa-arrow-circle-left"></i> Back to Dashboard
             </Link>
           </div>

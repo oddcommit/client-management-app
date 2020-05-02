@@ -34,7 +34,7 @@ class ClientDetails extends Component {
     const { client, firestore } = this.props;
     firestore
       .delete({ collection: "clients", doc: client.id })
-      .then(() => this.props.history.push("/"));
+      .then(() => this.props.history.push("/dashboard"));
   };
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
@@ -100,7 +100,7 @@ class ClientDetails extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <Link to="/" className="btn btn-link">
+              <Link to="/dashboard" className="btn btn-link">
                 <i className="fas fa-arrow-circle-left">Back to Dashboard</i>
               </Link>
             </div>

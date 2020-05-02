@@ -9,27 +9,27 @@ import Alert from "../layout/Alert";
 class Login extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
   };
 
   componentWillMount() {
     const { allowRegistration } = this.props.settings;
     if (!allowRegistration) {
-      this.props.history.push("/");
+      this.props.history.push("/dashboard");
     }
   }
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     const { firebase, notifyUser } = this.props;
     const { email, password } = this.state;
     //register with firebase
     firebase
       .createUser({ email, password })
-      .catch(err => notifyUser("That User Already Exists", "error"));
+      .catch((err) => notifyUser("That User Already Exists", "error"));
   };
 
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
+  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
   render() {
     const { message, messageType } = this.props.notify;
@@ -88,7 +88,7 @@ class Login extends Component {
 Login.propTypes = {
   firebase: PropTypes.object.isRequired,
   notify: PropTypes.object.isRequired,
-  notifyUser: PropTypes.func.isRequired
+  notifyUser: PropTypes.func.isRequired,
 };
 
 export default compose(
@@ -96,7 +96,7 @@ export default compose(
   connect(
     (state, props) => ({
       notify: state.notify,
-      settings: state.settings
+      settings: state.settings,
     }),
     { notifyUser }
   )

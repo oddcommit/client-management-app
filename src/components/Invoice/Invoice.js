@@ -23,6 +23,7 @@ class Invoice extends Component {
     dateArray: [],
     totalPrice: 0,
     userPay: false,
+    cashCheck: null,
     credit: 0,
     book: 0,
     lineItems: [
@@ -97,6 +98,10 @@ class Invoice extends Component {
 
   handleBootstrapSwith = (checked) => {
     this.setState({ userPay: checked });
+  };
+
+  handleCashCheckSwith = (checked) => {
+    this.setState({ cashCheck: checked });
   };
 
   formatCurrency = (amount) => {
@@ -216,13 +221,6 @@ class Invoice extends Component {
           <hr className=" bg-primary" />
 
           <div className="d-flex flex-column bd-highlight mb-3 align-items-end">
-            <button
-              className={` btn btn-circle btn-primary hide-on-print mb-3 `}
-              onClick={this.handleSaveButtonClick}
-            >
-              Save
-            </button>
-
             <div className="hide-on-print mb-3">
               Student Pay:{" "}
               <BootstrapSwitchButton
@@ -234,6 +232,25 @@ class Invoice extends Component {
                 onChange={this.handleBootstrapSwith}
               />
             </div>
+            <div className='hide-on-print mb-3"'>
+              Cash/Check:{" "}
+              <BootstrapSwitchButton
+                checked={client.invoice.cashCheck}
+                onlabel="Cash"
+                offlabel="Check"
+                size="sm"
+                onstyle="outline-success"
+                offstyle="outline-primary"
+                onChange={this.handleCashCheckSwith}
+              />
+            </div>
+
+            <button
+              className={` btn btn-circle btn-primary hide-on-print mb-3 `}
+              onClick={this.handleSaveButtonClick}
+            >
+              Save
+            </button>
 
             <div className={styles.totalContainer}>
               <p></p>

@@ -31,6 +31,14 @@ class AddClient extends Component {
     teacher: "",
     active: "true",
     price: "",
+    invoice: {
+      userPay: false,
+      book: 0,
+      credit: 0,
+      totalPriceL: 0,
+      dateArray: [],
+      lineItems: [],
+    },
   };
 
   onChange = (e) => {
@@ -60,7 +68,7 @@ class AddClient extends Component {
 
     firestore
       .add({ collection: "clients" }, newClient)
-      .then(() => this.props.history.push("/"));
+      .then(() => this.props.history.push("/dashboard"));
   };
 
   render() {
@@ -69,7 +77,7 @@ class AddClient extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-6"></div>
-          <Link to="/" className="btn btn-link">
+          <Link to="/dashboard" className="btn btn-link">
             <i className="fas fa-arrow-circle-left"></i> Back to Dashboard
           </Link>
         </div>

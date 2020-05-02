@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import {
   setAllowRegistration,
   setDisableBalanceOnAdd,
-  setDisableBalanceOnEdit
+  setDisableBalanceOnEdit,
 } from "../../actions/settingAction";
 class Setting extends Component {
   disableBalanceOnAddChange = () => {
@@ -24,11 +24,11 @@ class Setting extends Component {
     const {
       disableBalanceOnAdd,
       allowRegistration,
-      disableBalanceOnEdit
+      disableBalanceOnEdit,
     } = this.props.settings;
 
     return (
-      <div>
+      <div className="container">
         <div className="row">
           <div className="col-md-6">
             <Link to="/" className="btn btn-lin">
@@ -79,12 +79,12 @@ Setting.propTypes = {
   settings: PropTypes.object.isRequired,
   setDisableBalanceOnAdd: PropTypes.func.isRequired,
   setDisableBalanceOnEdit: PropTypes.func.isRequired,
-  setAllowRegistration: PropTypes.func.isRequired
+  setAllowRegistration: PropTypes.func.isRequired,
 };
 export default connect(
   (state, props) => ({
     auth: state.firebase.auth,
-    settings: state.settings
+    settings: state.settings,
   }),
   { setAllowRegistration, setDisableBalanceOnAdd, setDisableBalanceOnEdit }
 )(Setting);

@@ -5,7 +5,6 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 
 import Spinner from "../layout/Spinner";
-import BootstrapSwitchButton from "bootstrap-switch-button-react";
 
 import { firestoreConnect } from "react-redux-firebase";
 
@@ -34,9 +33,6 @@ class Clients extends Component {
     }
     return null;
   }
-  handleBootstrapSwith = (checked) => {
-    this.setState({ cashCheck: checked });
-  };
 
   render() {
     const { clients } = this.props;
@@ -46,7 +42,7 @@ class Clients extends Component {
       return (
         <div className="container">
           <div className="row">
-            <div className="col-md-9">
+            <div className="col-md-6">
               <h2>
                 {" "}
                 <i className="fas fa-users" /> Client{""}
@@ -68,20 +64,33 @@ class Clients extends Component {
               </button>
             </div>
 
-            <div className="col-md-3 collapse my-0 py-0 " id="collapseExample">
-              <h5 className="text-right text-secondary my-0 py-0 ">
-                Total Still In Class:{" "}
-                <span className="text-primary ">{count}</span>
-              </h5>
-              <h5 className="text-right text-secondary my-0 py-0 ">
-                Total Cash: <span className="text-primary">{count}</span>
-              </h5>
-              <h5 className="text-right text-secondary my-0 py-0 ">
-                Total check: <span className="text-primary">{count}</span>
-              </h5>
-              <h5 className="text-right text-secondary my-0 py-0 ">
-                Pay: <span className="text-primary">{count}</span>
-              </h5>
+            <div className="col-md-6 collapse my-0 py-0 " id="collapseExample">
+              <ul className="list-group ">
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  Total Still In Class:{" "}
+                  <span className="badge badge-primary badge-pill">
+                    {count}
+                  </span>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  Total Cash:
+                  <span className="badge badge-primary badge-pill">
+                    {count}
+                  </span>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  Total check:
+                  <span className="badge badge-primary badge-pill">
+                    {count}
+                  </span>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  Pay:
+                  <span className="badge badge-primary badge-pill">
+                    {count}
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
           <table className="  table table-responsive-md  table-bordered table-hover table-striped">
@@ -153,15 +162,11 @@ class Clients extends Component {
                     )}
                   </td>
                   <td>
-                    <BootstrapSwitchButton
-                      checked={this.state.userPay}
-                      onlabel="Cash"
-                      offlabel="Check"
-                      size="sm"
-                      onstyle="outline-success"
-                      offstyle="outline-primary"
-                      onChange={this.handleBootstrapSwith}
-                    />
+                    {client.invoice.cashCheck ? (
+                      <p className="text-success">Cash</p>
+                    ) : (
+                      <p className="text-primary">Check</p>
+                    )}
                   </td>
                   <td>
                     <Link
