@@ -13,17 +13,32 @@ class Clients extends Component {
     totalDeposit: null,
     searchResult: "",
     count: null,
-    cashCheck: "",
+    tallyCheck: null,
+    tallyCash: null,
+    tallyPay: null,
   };
 
   static getDerivedStateFromProps(props, state) {
     const { clients } = props;
     if (clients) {
+      let tallyCheck = clients.filter((client) => {
+        return client.invoice.cashCheck === "check";
+      });
+      let tallyCash = clients.filter((client) => {
+        return client.invoice.cashCheck === "cash";
+      });
+      let tallyPay = clients.filter((client) => {
+        return client.invoice.userPay === "yes";
+      });
       let count = clients.filter((client) => {
         return client.active === "true";
       });
+
       return {
         count: count.length,
+        tallyCheck: tallyCheck.length,
+        tallyCash: tallyCash.length,
+        tallyPay: tallyPay.length,
       };
     }
     return null;
@@ -31,31 +46,9 @@ class Clients extends Component {
 
   render() {
     const { clients } = this.props;
-    const { totalDeposit, count } = this.state;
+    const { totalDeposit, count, tallyCheck, tallyCash, tallyPay } = this.state;
 
     if (clients) {
-      let tallyCheck = clients.reduce((tally, currentClient) => {
-        if (currentClient.invoice.cashCheck === "check") {
-          return tally + 1;
-        } else {
-          return tally + 0;
-        }
-      }, 0);
-
-      let tallyCash = clients.reduce((tally, currentClient) => {
-        if (currentClient.invoice.cashCheck === "cash") {
-          return tally + 1;
-        } else {
-          return tally + 0;
-        }
-      }, 0);
-      let tallyPay = clients.reduce((tally, currentClient) => {
-        if (currentClient.invoice.userPay === "yes") {
-          return tally + 1;
-        } else {
-          return tally + 0;
-        }
-      }, 0);
       return (
         <div className="container">
           <div className="row">
