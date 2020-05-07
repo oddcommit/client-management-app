@@ -39,6 +39,14 @@ class Clients extends Component {
     const { totalDeposit, count } = this.state;
 
     if (clients) {
+      let tallyCheck = clients.reduce((tally, currentClient) => {
+        if (currentClient.invoice.cashCheck === "check") {
+          return tally + 1;
+        } else {
+          return tally + 0;
+        }
+      }, 0);
+
       return (
         <div className="container">
           <div className="row">
@@ -81,7 +89,7 @@ class Clients extends Component {
                 <li className="list-group-item d-flex justify-content-between align-items-center">
                   Total check:
                   <span className="badge badge-primary badge-pill">
-                    {count}
+                    {tallyCheck}
                   </span>
                 </li>
                 <li className="list-group-item d-flex justify-content-between align-items-center">
