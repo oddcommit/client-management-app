@@ -22,7 +22,7 @@ class Invoice extends Component {
   state = {
     dateArray: [],
     totalPrice: 0,
-    userPay: false,
+    userPay: null,
     cashCheck: null,
     credit: 0,
     book: 0,
@@ -97,7 +97,15 @@ class Invoice extends Component {
   };
 
   handleBootstrapSwith = (checked) => {
-    this.setState({ userPay: checked });
+    let myCheck = "";
+    if (checked) {
+      myCheck = "true";
+    } else if (!checked) {
+      myCheck = "false";
+    } else {
+      myCheck = "null";
+    }
+    this.setState({ userPay: myCheck });
   };
 
   handleCashCheckSwith = (checked) => {
@@ -152,6 +160,10 @@ class Invoice extends Component {
     let total = this.calcLineItemsTotal() + client.price * client.quantity * 4;
 
     return total;
+  };
+
+  onChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render = () => {
@@ -223,26 +235,40 @@ class Invoice extends Component {
           <div className="d-flex flex-column bd-highlight mb-3 align-items-end">
             <div className="hide-on-print mb-3">
               Student Pay:{" "}
-              <BootstrapSwitchButton
-                checked={client.invoice.userPay}
-                onlabel="Yes"
-                offlabel="No"
-                onstyle="outline-success"
-                offstyle="outline-danger"
-                onChange={this.handleBootstrapSwith}
-              />
+              <form>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect2">Pay by:</label>
+                  <select
+                    multiple
+                    class="form-control"
+                    id="userPay"
+                    name="userPay"
+                    onChange={this.onChange}
+                  >
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    <option value="none">None</option>
+                  </select>
+                </div>
+              </form>
             </div>
             <div className='hide-on-print mb-3"'>
-              Cash/Check:{" "}
-              <BootstrapSwitchButton
-                checked={client.invoice.cashCheck}
-                onlabel="Cash"
-                offlabel="Check"
-                size="sm"
-                onstyle="outline-success"
-                offstyle="outline-primary"
-                onChange={this.handleCashCheckSwith}
-              />
+              <form>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect2">Pay by:</label>
+                  <select
+                    multiple
+                    class="form-control"
+                    id="cashCheck"
+                    name="cashCheck"
+                    onChange={this.onChange}
+                  >
+                    <option value="cash">Cash</option>
+                    <option value="check">Check</option>
+                    <option value="none">None</option>
+                  </select>
+                </div>
+              </form>
             </div>
 
             <button

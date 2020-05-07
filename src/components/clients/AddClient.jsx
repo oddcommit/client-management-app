@@ -32,10 +32,11 @@ class AddClient extends Component {
     active: "true",
     price: "",
     invoice: {
-      userPay: false,
+      userPay: "none",
+      cashCheck: "none",
       book: 0,
       credit: 0,
-      totalPriceL: 0,
+      totalPrice: 0,
       dateArray: [],
       lineItems: [],
     },

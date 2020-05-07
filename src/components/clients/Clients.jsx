@@ -155,17 +155,25 @@ class Clients extends Component {
                       client.gender.slice(1)}
                   </td>
                   <td>
-                    {client.invoice.userPay ? (
-                      <p className="text-success">YES</p>
+                    {client.invoice.userPay !== "none" ? (
+                      client.invoice.userPay === "yes" ? (
+                        <p className="text-success">YES</p>
+                      ) : (
+                        <p className="text-danger">NO</p>
+                      )
                     ) : (
-                      <p className="text-danger">NO</p>
+                      <p className="text-info">None</p>
                     )}
                   </td>
                   <td>
-                    {client.invoice.cashCheck ? (
-                      <p className="text-success">Cash</p>
+                    {client.invoice.cashCheck !== "none" ? (
+                      client.invoice.cashCheck === "cash" ? (
+                        <p className="text-success">Cash</p>
+                      ) : (
+                        <p className="text-primary">Check</p>
+                      )
                     ) : (
-                      <p className="text-primary">Check</p>
+                      <p className="text-info">None</p>
                     )}
                   </td>
                   <td>
