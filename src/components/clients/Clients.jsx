@@ -11,7 +11,7 @@ import { firestoreConnect } from "react-redux-firebase";
 class Clients extends Component {
   state = {
     totalDeposit: null,
-    searchResult: "",
+    searchField: "",
     count: null,
     tallyCheck: null,
     tallyCash: null,
@@ -44,11 +44,26 @@ class Clients extends Component {
     return null;
   }
 
+  handleChange = (e) => {
+    this.setState({ searchField: e.target.value });
+  };
+
   render() {
     const { clients } = this.props;
-    const { totalDeposit, count, tallyCheck, tallyCash, tallyPay } = this.state;
+    const {
+      totalDeposit,
+      count,
+      tallyCheck,
+      tallyCash,
+      tallyPay,
+      searchField,
+    } = this.state;
 
     if (clients) {
+      const filterClients = clients.filter((client) =>
+        client.lastName.toLowerCase().includes(searchField.toLowerCase())
+      );
+      console.log(filterClients);
       return (
         <div className="container">
           <div className="row">
@@ -129,15 +144,16 @@ class Clients extends Component {
                     <input
                       class="form-control form-control-sm ml-3 w-75"
                       type="text"
-                      placeholder="Search"
+                      placeholder="Last Name Search"
                       aria-label="Search"
+                      onChange={this.handleChange}
                     />
                   </form>
                 </th>
               </tr>
             </thead>
             <tbody>
-              {clients.map((client) => (
+              {filterClients.map((client) => (
                 <tr key={client.id}>
                   <td>
                     {client.firstName.charAt(0).toUpperCase() +
