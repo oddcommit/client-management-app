@@ -9,7 +9,6 @@ import Spinner from "../layout/Spinner";
 import uuid from "react-uuid";
 import * as moment from "moment";
 import "moment-recur";
-import BootstrapSwitchButton from "bootstrap-switch-button-react";
 
 import styles from "./Invoice.module.scss";
 
