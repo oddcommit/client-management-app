@@ -19,11 +19,6 @@ class Clients extends Component {
   static getDerivedStateFromProps(props, state) {
     const { clients } = props;
     if (clients) {
-      //add the deposits
-      // const total = clients.reduce((total, client) => {
-      //   return total + parseFloat(client.deposit.toString());
-      // }, 0);
-      // return { totalDeposit: total };
       let count = clients.filter((client) => {
         return client.active === "true";
       });
@@ -47,6 +42,20 @@ class Clients extends Component {
         }
       }, 0);
 
+      let tallyCash = clients.reduce((tally, currentClient) => {
+        if (currentClient.invoice.cashCheck === "cash") {
+          return tally + 1;
+        } else {
+          return tally + 0;
+        }
+      }, 0);
+      let tallyPay = clients.reduce((tally, currentClient) => {
+        if (currentClient.invoice.userPay === "yes") {
+          return tally + 1;
+        } else {
+          return tally + 0;
+        }
+      }, 0);
       return (
         <div className="container">
           <div className="row">
@@ -83,11 +92,11 @@ class Clients extends Component {
                 <li className="list-group-item d-flex justify-content-between align-items-center">
                   Total Cash:
                   <span className="badge badge-primary badge-pill">
-                    {count}
+                    {tallyCash}
                   </span>
                 </li>
                 <li className="list-group-item d-flex justify-content-between align-items-center">
-                  Total check:
+                  Total Check:
                   <span className="badge badge-primary badge-pill">
                     {tallyCheck}
                   </span>
@@ -95,7 +104,7 @@ class Clients extends Component {
                 <li className="list-group-item d-flex justify-content-between align-items-center">
                   Pay:
                   <span className="badge badge-primary badge-pill">
-                    {count}
+                    {tallyPay}
                   </span>
                 </li>
               </ul>
