@@ -68,12 +68,14 @@ class Clients extends Component {
     if (clients) {
       const filterClients = clients.filter((client) => {
         if (activeFilter) {
-          return client.active === "true";
-        } else {
-          return client.lastName
-            .toLowerCase()
-            .includes(searchField.toLowerCase());
+          return (
+            client.active === "true" &&
+            client.lastName.toLowerCase().includes(searchField.toLowerCase())
+          );
         }
+        return client.lastName
+          .toLowerCase()
+          .includes(searchField.toLowerCase());
       });
       return (
         <div className="container">
@@ -139,7 +141,15 @@ class Clients extends Component {
                 </th>
                 <th>Qty</th>
                 <th className="hoverPointer" onClick={this.activeChange}>
-                  Active <i className="fas fa-arrows-alt-v"></i>
+                  {activeFilter ? (
+                    <span className="text-success">
+                      Active <i className="fas fa-arrows-alt-v "></i>
+                    </span>
+                  ) : (
+                    <span className="text-danger">
+                      Active <i className="fas fa-arrows-alt-v "></i>
+                    </span>
+                  )}
                 </th>
                 <th>Gender</th>
                 <th>Pay</th>
