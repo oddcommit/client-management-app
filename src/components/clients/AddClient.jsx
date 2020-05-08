@@ -137,7 +137,7 @@ class AddClient extends Component {
                     name="instrument"
                     onChange={this.onChange}
                   >
-                    <option defaultValue="">Choose...</option>
+                    <option defaultValue=" ">Choose...</option>
                     <option value="piano">Piano</option>
                     <option value="drums">Drums</option>
                     <option value="guitar">Guitar</option>
@@ -260,12 +260,13 @@ class AddClient extends Component {
                     Class Day
                   </label>
                   <select
+                    aria-required="true"
                     className="custom-select mr-sm-2"
                     id="classDay"
                     name="classDay"
                     onChange={this.onChange}
                   >
-                    <option defaultValue="">Choose...</option>
+                    <option>Choose...</option>
                     <option value="monday">Monday</option>
                     <option value="tuesday">Tuesday</option>
                     <option value="wednesday">Wednesday</option>

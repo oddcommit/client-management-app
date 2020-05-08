@@ -182,6 +182,8 @@ class ClientDetails extends Component {
                   {" "}
                   Class Day: {client.classDay.toUpperCase()}
                 </li>
+                <li className="list-group-item"> Time: {client.time}</li>
+                <li className="list-group-item"> Teacher: {client.teacher}</li>
                 <li className="list-group-item">
                   {" "}
                   Sign Up: {client.signUpDate}
@@ -189,6 +191,27 @@ class ClientDetails extends Component {
                 <li className="list-group-item">
                   {" "}
                   Total Days: {datediff(client.signUpDate)}
+                </li>
+                <li className="list-group-item">
+                  {" "}
+                  Know About Us: {client.knowAboutUs}
+                </li>
+              </ul>
+              <hr className="bg-primary" />
+
+              <ul className="list-group">
+                <li className="list-group-item">
+                  {" "}
+                  Price: ${client.invoice.price}
+                </li>
+                <li className="list-group-item">
+                  {" "}
+                  credit: {client.invoice.credit}
+                </li>
+
+                <li className="list-group-item">
+                  {" "}
+                  Pay: {client.invoice.userPay}
                 </li>
               </ul>
 

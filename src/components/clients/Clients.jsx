@@ -111,13 +111,17 @@ class Clients extends Component {
                   </span>
                 </li>
                 <li className="list-group-item d-flex justify-content-between align-items-center">
-                  Total Cash:
+                  Total Cash:{" "}
+                  <small className="text-success"> $ total cash </small>{" "}
                   <span className="badge badge-primary badge-pill">
                     {tallyCash}
                   </span>
                 </li>
                 <li className="list-group-item d-flex justify-content-between align-items-center">
                   Total Check:
+                  <small className="text-success">
+                    $ total cash for Check{" "}
+                  </small>{" "}
                   <span className="badge badge-primary badge-pill">
                     {tallyCheck}
                   </span>
