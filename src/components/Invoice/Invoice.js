@@ -19,7 +19,7 @@ class Invoice extends Component {
   currency = "USD";
 
   state = {
-    dateArray: [],
+    // dateArray: [],
     totalPrice: 0,
     userPay: null,
     cashCheck: null,
@@ -126,25 +126,25 @@ class Invoice extends Component {
 
     //set the date
     let firstDay = new Date();
-    if (client) {
-      let nextMonth = new Date(
-        firstDay.getFullYear(),
-        firstDay.getMonth(),
-        firstDay.getDate()
-      );
-      let events = moment(nextMonth)
-        .recur()
-        .every(client.classDay)
-        .daysOfWeek()
-        .weeksOfMonthByDay();
+    // if (client) {
+    //   let nextMonth = new Date(
+    //     firstDay.getFullYear(),
+    //     firstDay.getMonth(),
+    //     firstDay.getDate()
+    //   );
+    //   let events = moment(nextMonth)
+    //     .recur()
+    //     .every(client.classDay)
+    //     .daysOfWeek()
+    //     .weeksOfMonthByDay();
 
-      let dateArray = events.next(4, "MM/DD/YYYY");
-      let newDateState = [dateArray];
-      this.setState({
-        dateArray: newDateState[0],
-        totalPrice: client.price * client.quantity * 4,
-      });
-    }
+    //   let dateArray = events.next(4, "MM/DD/YYYY");
+    //   let newDateState = [dateArray];
+    //   this.setState({
+    //     dateArray: newDateState[0],
+    //     totalPrice: client.price * client.quantity * 4,
+    //   });
+    // }
   }
 
   calcLineItemsTotal = () => {

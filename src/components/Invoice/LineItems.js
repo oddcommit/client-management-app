@@ -35,7 +35,7 @@ class LineItems extends Component {
               </tr>
             </thead>
             <tbody>
-              {client ? (
+              {/* {client ? (
                 state.dateArray.map((date, index) => {
                   return (
                     <LineItemDate
@@ -58,7 +58,7 @@ class LineItems extends Component {
                 })
               ) : (
                 <Spinner />
-              )}
+              )} */}
               {this.props.items.map((item, i) => (
                 <LineItem
                   style={{ color: "red" }}

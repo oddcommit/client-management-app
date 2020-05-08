@@ -8,7 +8,7 @@ class LineItem extends Component {
 
     return (
       <tr>
-        <th scope="row">{index + 5}</th>
+        <th scope="row">{index + 1}</th>
         <th scope="row">
           <input
             name="name"
