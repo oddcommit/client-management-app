@@ -10,8 +10,8 @@ import { firestoreConnect } from "react-redux-firebase";
 
 class Clients extends Component {
   state = {
-    totalDeposit: null,
     searchField: "",
+    activeFilter: true,
     count: null,
     tallyCheck: null,
     tallyCash: null,
@@ -48,22 +48,33 @@ class Clients extends Component {
     this.setState({ searchField: e.target.value });
   };
 
+  activeChange = () => {
+    const currentState = this.state.activeFilter;
+    this.setState({ activeFilter: !currentState });
+  };
+
   render() {
     const { clients } = this.props;
     const {
-      totalDeposit,
       count,
       tallyCheck,
       tallyCash,
       tallyPay,
       searchField,
+      activeFilter,
     } = this.state;
+    console.log(activeFilter);
 
     if (clients) {
-      const filterClients = clients.filter((client) =>
-        client.lastName.toLowerCase().includes(searchField.toLowerCase())
-      );
-      console.log(filterClients);
+      const filterClients = clients.filter((client) => {
+        if (activeFilter) {
+          return client.active === "true";
+        } else {
+          return client.lastName
+            .toLowerCase()
+            .includes(searchField.toLowerCase());
+        }
+      });
       return (
         <div className="container">
           <div className="row">
@@ -127,7 +138,9 @@ class Clients extends Component {
                   <small>Class Day & Time</small>
                 </th>
                 <th>Qty</th>
-                <th>Active</th>
+                <th className="hoverPointer" onClick={this.activeChange}>
+                  Active <i className="fas fa-arrows-alt-v"></i>
+                </th>
                 <th>Gender</th>
                 <th>Pay</th>
 
@@ -140,7 +153,7 @@ class Clients extends Component {
                 </th>
                 <th>
                   <form class="form-inline active-purple-3 active-purple-4">
-                    <i class="fas fa-search" aria-hidden="true"></i>
+                    {/* <i class="fas fa-search" aria-hidden="true"></i> */}
                     <input
                       class="form-control form-control-sm ml-3 w-75"
                       type="text"
