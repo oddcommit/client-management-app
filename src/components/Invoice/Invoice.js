@@ -58,6 +58,9 @@ class Invoice extends Component {
   };
 
   handleRemoveLineItem = (elementIndex) => (event) => {
+    // const { client, firestore } = this.props;
+    // firestore.doc(event.target.value).delete();
+
     this.setState({
       lineItems: this.state.lineItems.filter((item, i) => {
         return elementIndex !== i;
@@ -156,7 +159,8 @@ class Invoice extends Component {
 
   calcGrandTotal = () => {
     const { client } = this.props;
-    let total = this.calcLineItemsTotal() + client.price * client.quantity * 4;
+    let total = this.calcLineItemsTotal();
+    // + client.price * client.quantity * 4;
 
     return total;
   };
