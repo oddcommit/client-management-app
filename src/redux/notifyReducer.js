@@ -1,17 +1,17 @@
-import { NOTIFY_USER } from "../actions/type";
+import { NOTIFY_USER } from "./actions/type";
 
 const initialState = {
   message: null,
-  messageType: null
+  messageType: null,
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case NOTIFY_USER:
       return {
         ...state,
         message: action.message,
-        messageType: action.messageType
+        messageType: action.messageType,
       };
     default:
       return state;
