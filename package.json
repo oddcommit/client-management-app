@@ -9,7 +9,7 @@
     "firebase": "^7.14.1",
     "moment": "^2.24.0",
     "moment-recur": "^1.0.7",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.13.1",
@@ -21,7 +21,8 @@
     "react-uuid": "^1.0.2",
     "redux": "^4.0.5",
     "redux-auth-wrapper": "^3.0.0",
-    "redux-firestore": "^0.13.0"
+    "redux-firestore": "^0.13.0",
+    "redux-persist": "^6.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

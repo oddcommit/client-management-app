@@ -6,8 +6,8 @@ import { firebaseReducer } from "react-redux-firebase";
 import { createFirestoreInstance, firestoreReducer } from "redux-firestore";
 //reducers
 
-import notifyReducer from "./reducers/notifyReducer";
-import settingReducer from "./reducers/settingReducer";
+import notifyReducer from "./redux/notifyReducer";
+import settingReducer from "./redux/settingReducer";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBY02a75-x4cbWJPLkrYeBGxgH0WyMHrTw",
