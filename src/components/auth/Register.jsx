@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firebaseConnect } from "react-redux-firebase";
-import { notifyUser } from "../../actions/notifyActions";
+import { notifyUser } from "../../redux/actions/notifyActions";
 import Alert from "../layout/Alert";
 class Login extends Component {
   state = {

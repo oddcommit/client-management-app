@@ -6,7 +6,7 @@ import {
   setAllowRegistration,
   setDisableBalanceOnAdd,
   setDisableBalanceOnEdit,
-} from "../../actions/settingAction";
+} from "../../redux/actions/settingAction";
 class Setting extends Component {
   disableBalanceOnAddChange = () => {
     const { setDisableBalanceOnAdd } = this.props;
