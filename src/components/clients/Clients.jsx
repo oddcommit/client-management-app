@@ -9,14 +9,18 @@ import Spinner from "../layout/Spinner";
 import { firestoreConnect } from "react-redux-firebase";
 
 class Clients extends Component {
-  state = {
-    searchField: "",
-    activeFilter: true,
-    count: null,
-    tallyCheck: null,
-    tallyCash: null,
-    tallyPay: null,
-  };
+  userData;
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchField: "",
+      activeFilter: true,
+      count: null,
+      tallyCheck: null,
+      tallyCash: null,
+      tallyPay: null,
+    };
+  }
 
   static getDerivedStateFromProps(props, state) {
     const { clients } = props;
@@ -43,6 +47,22 @@ class Clients extends Component {
     }
     return null;
   }
+  componentDidMount() {
+    this.userData = JSON.parse(localStorage.getItem("user"));
+
+    if (localStorage.getItem("user")) {
+      this.setState({
+        activeFilter: this.userData.activeFilter,
+      });
+    } else {
+      this.setState({
+        activeFilter: true,
+      });
+    }
+  }
+  componentWillUpdate(nextProps, nextState) {
+    window.localStorage.setItem("user", JSON.stringify(nextState));
+  }
 
   handleChange = (e) => {
     this.setState({ searchField: e.target.value });
@@ -63,7 +83,8 @@ class Clients extends Component {
       searchField,
       activeFilter,
     } = this.state;
-    console.log(activeFilter);
+
+    console.log(localStorage);
 
     if (clients) {
       const filterClients = clients.filter((client) => {
