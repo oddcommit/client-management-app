@@ -100,52 +100,56 @@ class Clients extends Component {
       });
       return (
         <div className="container">
-          <div class="row my-3">
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-inverse card-info">
-                <div class="card-block bg-info">
-                  <div class="rotate">
-                    <i class="fa fa-user fa-5x"></i>
+          <div className="row my-3">
+            <div className="col-xl-3 col-lg-6">
+              <div className="card card-inverse card-info">
+                <div className="card-block bg-info">
+                  <div className="rotate">
+                    <i className="fa fa-user fa-8x"></i>
                   </div>
-                  <h6 class="text-uppercase text-center mt-4 ">
+                  <h6 className="text-uppercase text-center mt-4 text-white">
                     Students in class
                   </h6>
-                  <h1 class="display-1 text-center"> {count}</h1>
+                  <h1 className="display-1 text-center text-white"> {count}</h1>
                 </div>
               </div>
             </div>
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-inverse card-success">
-                <div class="card-block bg-success">
-                  <div class="rotate">
-                    <i class="fa fa-dollar-sign fa-5x"></i>
+            <div className="col-xl-3 col-lg-6">
+              <div className="card card-inverse card-success">
+                <div className="card-block bg-success">
+                  <div className="rotate">
+                    <i className="fa fa-dollar-sign fa-8x "></i>
                   </div>
-                  <h6 class="text-uppercase text-center mt-4 ">Total Cash</h6>
-                  <h4 class="display-1 text-center"> $1000</h4>
+                  <h6 className="text-uppercase text-center mt-4 text-white">
+                    Total Cash
+                  </h6>
+                  <h4 className="display-1 text-center text-white"> $1000</h4>
                 </div>
               </div>
             </div>
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-inverse card-success">
-                <div class="card-block bg-primary text-dark">
-                  <div class="rotate">
-                    <i class="fa fa-check-circle fa-5x"></i>
+            <div className="col-xl-3 col-lg-6">
+              <div className="card card-inverse card-success">
+                <div className="card-block bg-primary text-dark">
+                  <div className="rotate">
+                    <i className="fa fa-check-circle fa-8x"></i>
                   </div>
-                  <h6 class=" text-center mt-4 text-light">
+                  <h6 className=" text-center mt-4 text-light">
                     Invoice: Fullfilled
                   </h6>
-                  <h4 class="display-1 text-center text-light"> 0</h4>
+                  <h4 className="display-1 text-center text-light"> 0</h4>
                 </div>
               </div>
             </div>
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-inverse card-danger">
-                <div class="card-block bg-danger text-dark">
-                  <div class="rotate">
-                    <i class="fa fa-clock fa-5x"></i>
+            <div className="col-xl-3 col-lg-6">
+              <div className="card card-inverse card-danger">
+                <div className="card-block bg-danger text-dark">
+                  <div className="rotate">
+                    <i className="fa fa-clock fa-8x"></i>
                   </div>
-                  <h6 class=" text-center mt-4 text-light">Invoice: Pending</h6>
-                  <h4 class="display-1 text-center text-light"> 10</h4>
+                  <h6 className=" text-center mt-4 text-light">
+                    Invoice: Pending
+                  </h6>
+                  <h4 className="display-1 text-center text-light"> 10</h4>
                 </div>
               </div>
             </div>
@@ -173,7 +177,7 @@ class Clients extends Component {
                 <th>Name</th>
                 <th>Teacher</th>
                 <th>
-                  <small>Class Day & Time</small>
+                  <small>ClassName Day & Time</small>
                 </th>
                 <th>Qty</th>
                 <th className="hoverPointer" onClick={this.activeChange}>
@@ -198,10 +202,10 @@ class Clients extends Component {
                   </small>
                 </th>
                 <th>
-                  <form class="form-inline active-purple-3 active-purple-4">
-                    {/* <i class="fas fa-search" aria-hidden="true"></i> */}
+                  <form className="form-inline active-purple-3 active-purple-4">
+                    {/* <i className="fas fa-search" aria-hidden="true"></i> */}
                     <input
-                      class="form-control form-control-sm ml-3 w-75"
+                      className="form-control form-control-sm ml-3 w-75"
                       type="text"
                       placeholder="Last Name Search"
                       aria-label="Search"
@@ -230,7 +234,7 @@ class Clients extends Component {
                   <td>{client.quantity}</td>
                   <td>
                     {client.active === "true" ? (
-                      <span className="text-success">Still in Class</span>
+                      <span className="text-success">Still in ClassName</span>
                     ) : (
                       <span className="text-danger">Withdrew</span>
                     )}
@@ -284,7 +288,7 @@ class Clients extends Component {
             <div className="col-md-6">
               <h2>
                 {" "}
-                <i class="fas fa-file-invoice-dollar"></i> Recent Invoices
+                <i className="fas fa-file-invoice-dollar"></i> Recent Invoices
                 {""}
               </h2>
               <button
@@ -295,8 +299,8 @@ class Clients extends Component {
                 aria-expanded="false"
                 aria-controls="collapseExample"
               >
-                <Link to="/client/invoice">
-                  <i class="fas fa-file-alt"></i> View All{" "}
+                <Link to="/client/invoices">
+                  <i className="fas fa-file-alt"></i> View All{" "}
                 </Link>
               </button>
             </div>
@@ -332,15 +336,15 @@ class Clients extends Component {
                   <td>Pending</td>
 
                   <td>
-                    <ul class="nav nav-list">
+                    <ul className="nav nav-list">
                       <li
-                        class="nav-header"
+                        className="nav-header"
                         data-toggle="collapse"
                         data-target="#test"
                       >
                         {" "}
-                        <i class="fas fa-ellipsis-v hoverPointer"></i>
-                        <ul class="collapse list-unstyled" id="test">
+                        <i className="fas fa-ellipsis-v hoverPointer"></i>
+                        <ul className="collapse list-unstyled" id="test">
                           <li>
                             <button
                               href="/ticket_list.cfm"

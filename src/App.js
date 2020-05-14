@@ -13,6 +13,7 @@ import Homepage from "./components/layout/Homepage";
 import AddClient from "./components/clients/AddClient";
 import ClientDetails from "./components/clients/ClientDetails";
 import Invoice from "./components/invoice/Invoice";
+import InvoicesPage from "./components/invoice/InvoicePage";
 import EditClient from "./components/clients/EditClient";
 import Login from "./components/auth/Login";
 import Setting from "./components/settings/Setting";
@@ -40,6 +41,11 @@ class App extends React.Component {
                   exact
                   path="/client/add"
                   component={UserIsAuthenticated(AddClient)}
+                />
+                <Route
+                  exact
+                  path="/client/invoices"
+                  component={UserIsAuthenticated(InvoicesPage)}
                 />
                 <Route
                   exact
