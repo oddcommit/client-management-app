@@ -166,41 +166,8 @@ class Clients extends Component {
                 </Link>
               </button>
             </div>
-
-            <div className="col-md-6 collapse my-0 py-0 " id="collapseExample">
-              <ul className="list-group ">
-                <li className="list-group-item d-flex justify-content-between align-items-center">
-                  Total Still In Class:{" "}
-                  <span className="badge badge-primary badge-pill">
-                    {count}
-                  </span>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-center">
-                  Total Cash:{" "}
-                  <small className="text-success"> $ total cash </small>{" "}
-                  <span className="badge badge-primary badge-pill">
-                    {tallyCash}
-                  </span>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-center">
-                  Total Check:
-                  <small className="text-success">
-                    $ total cash for Check{" "}
-                  </small>{" "}
-                  <span className="badge badge-primary badge-pill">
-                    {tallyCheck}
-                  </span>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-center">
-                  Pay:
-                  <span className="badge badge-primary badge-pill">
-                    {tallyPay}
-                  </span>
-                </li>
-              </ul>
-            </div>
           </div>
-          <table className="  table table-responsive-md  table-bordered table-hover table-striped">
+          <table className="table table-responsive-md  table-bordered table-hover table-striped">
             <thead className="thead-inverse  thead-dark ">
               <tr>
                 <th>Name</th>
@@ -328,12 +295,82 @@ class Clients extends Component {
                 aria-expanded="false"
                 aria-controls="collapseExample"
               >
-                <small className="text-primary">
-                  <i class="fas fa-file-alt"></i> View All
-                </small>
+                <Link to="/client/invoice">
+                  <i class="fas fa-file-alt"></i> View All{" "}
+                </Link>
               </button>
             </div>
+            {/* recent invoices */}
           </div>
+          <table className="  table table-responsive-md  table-bordered table-hover table-striped">
+            <thead className="thead-inverse  thead-dark ">
+              <tr>
+                <th>No.</th>
+                <th>Date</th>
+
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Status</th>
+
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {filterClients.map((client) => (
+                <tr key={client.id}>
+                  <td>{client.id} </td>
+                  <td>
+                    {client.classDay.toUpperCase()} - {client.time}
+                  </td>
+                  <td>
+                    {client.firstName.charAt(0).toUpperCase() +
+                      client.firstName.slice(1)}{" "}
+                    {client.lastName.charAt(0).toUpperCase() +
+                      client.lastName.slice(1)}
+                  </td>
+                  <td>{client.invoice.totalPrice}</td>
+                  <td>Pending</td>
+
+                  <td>
+                    <ul class="nav nav-list">
+                      <li
+                        class="nav-header"
+                        data-toggle="collapse"
+                        data-target="#test"
+                      >
+                        {" "}
+                        <i class="fas fa-ellipsis-v hoverPointer"></i>
+                        <ul class="collapse list-unstyled" id="test">
+                          <li>
+                            <button
+                              href="/ticket_list.cfm"
+                              title="Show list of tickets"
+                              className="bg-danger mb-1"
+                            >
+                              <small>Delete Invoice</small>
+                            </button>
+                          </li>
+                          <li>
+                            <button href="#" title="Edit user accounts">
+                              {false ? (
+                                <small className="text-danger">
+                                  Mark as Pending
+                                </small>
+                              ) : (
+                                <small className="text-success">
+                                  Mark as Paid
+                                </small>
+                              )}
+                            </button>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       );
     } else {
