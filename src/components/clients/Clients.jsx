@@ -100,22 +100,66 @@ class Clients extends Component {
       });
       return (
         <div className="container">
+          <div class="row my-3">
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-inverse card-info">
+                <div class="card-block bg-info">
+                  <div class="rotate">
+                    <i class="fa fa-user fa-5x"></i>
+                  </div>
+                  <h6 class="text-uppercase text-center mt-4 ">
+                    Students in class
+                  </h6>
+                  <h1 class="display-1 text-center"> {count}</h1>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-inverse card-success">
+                <div class="card-block bg-success">
+                  <div class="rotate">
+                    <i class="fa fa-dollar-sign fa-5x"></i>
+                  </div>
+                  <h6 class="text-uppercase text-center mt-4 ">Total Cash</h6>
+                  <h4 class="display-1 text-center"> $1000</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-inverse card-success">
+                <div class="card-block bg-primary text-dark">
+                  <div class="rotate">
+                    <i class="fa fa-check-circle fa-5x"></i>
+                  </div>
+                  <h6 class=" text-center mt-4 text-light">
+                    Invoice: Fullfilled
+                  </h6>
+                  <h4 class="display-1 text-center text-light"> 0</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-inverse card-danger">
+                <div class="card-block bg-danger text-dark">
+                  <div class="rotate">
+                    <i class="fa fa-clock fa-5x"></i>
+                  </div>
+                  <h6 class=" text-center mt-4 text-light">Invoice: Pending</h6>
+                  <h4 class="display-1 text-center text-light"> 10</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
           <div className="row">
             <div className="col-md-6">
               <h2>
                 {" "}
-                <i className="fas fa-users" /> Client{""}
+                <i className="fas fa-users" /> Clients{""}
               </h2>
-              <button
-                className="btn btn-outline-dark mb-1 mr-2"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseExample"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <small> Total Report</small>
-              </button>
+
               <button className="btn btn-outline-dark mb-1" type="button">
                 <Link to="/client/add">
                   <i className="fas fa-plus"> New</i>
@@ -268,6 +312,28 @@ class Clients extends Component {
               ))}
             </tbody>
           </table>
+          <hr />
+          <div className="row">
+            <div className="col-md-6">
+              <h2>
+                {" "}
+                <i class="fas fa-file-invoice-dollar"></i> Recent Invoices
+                {""}
+              </h2>
+              <button
+                className="btn btn-outline-dark mb-1 mr-2"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseExample"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+                <small className="text-primary">
+                  <i class="fas fa-file-alt"></i> View All
+                </small>
+              </button>
+            </div>
+          </div>
         </div>
       );
     } else {
