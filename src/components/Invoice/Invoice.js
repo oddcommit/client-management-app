@@ -27,7 +27,7 @@ class Invoice extends Component {
     book: 0,
     lineItems: [
       {
-        id: "initial", // react-beautiful-dnd unique key
+        id: " ", // react-beautiful-dnd unique key
         name: "",
         description: "",
         quantity: 0,
