@@ -1,4 +1,4 @@
-import history from "../../others/history";
+// import history from "../../others/history";
 
 // copy from billy
 
@@ -28,7 +28,7 @@ export const createInvoice = (invoiceDetails) => (
     })
     .then((res) => {
       dispatch({ type: "CREATE_INVOICE", payload: invoiceDetails });
-      history.push(`/invoice/${path}`);
+      // history.push(`/invoice/${path}`);
     })
     .catch((err) => {
       dispatch({ type: "CREATE_INVOICE_ERROR", err });
@@ -56,9 +56,9 @@ export const deleteInovice = (invoiceId) => (
       dispatch({ type: "DELETE_SUCCESS_BAR" });
     })
     .catch((err) => dispatch({ type: "WENTWRONG_BAR" }));
-  if (history.location.pathname !== "/") {
-    history.push("/invoices");
-  }
+  // if (history.location.pathname !== "/") {
+  //   history.push("/invoices");
+  // }
 };
 
 /* **************** Change Payment Status *************** */

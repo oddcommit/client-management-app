@@ -84,8 +84,6 @@ class Clients extends Component {
       activeFilter,
     } = this.state;
 
-    console.log(localStorage);
-
     if (clients) {
       const filterClients = clients.filter((client) => {
         if (activeFilter) {

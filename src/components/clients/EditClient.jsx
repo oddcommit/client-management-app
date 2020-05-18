@@ -32,7 +32,6 @@ class EditClient extends Component {
     this.cityInput = React.createRef();
     this.stateInput = React.createRef();
     this.postalCodeInput = React.createRef();
-    console.log(this.genderInput, this.activeInput);
   }
 
   onSubmit = (e) => {

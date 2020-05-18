@@ -30,7 +30,7 @@ class AddClient extends Component {
     quantity: "",
     teacher: "",
     active: "true",
-    price: "",
+    // price: "",
     invoice: {
       userPay: "none",
       cashCheck: "none",

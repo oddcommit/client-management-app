@@ -2,19 +2,16 @@ import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
-import { firebaseReducer } from "react-redux-firebase";
+import { firebaseReducer, getFirebase } from "react-redux-firebase";
 import {
   createFirestoreInstance,
   firestoreReducer,
   reduxFirestore,
 } from "redux-firestore";
 
-// import thunk from "redux-thunk";
-// import rootReducer from "./reducers/rootReducers";
+import thunk from "redux-thunk";
+import rootReducer from "./redux/rootReducers";
 //reducers
-
-import notifyReducer from "./redux/notifyReducer";
-import settingReducer from "./redux/settingReducer";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
@@ -35,16 +32,11 @@ const rrfConfig = {
 
 //init firebase instance
 firebase.initializeApp(firebaseConfig);
+// firebase.firestore();
+
 //init firestore
 
 const firestore = firebase.firestore();
-
-const rootReducer = combineReducers({
-  firebase: firebaseReducer,
-  firestore: firestoreReducer,
-  notify: notifyReducer,
-  settings: settingReducer,
-});
 
 //check for settings in localStorage
 if (localStorage.getItem("settings") == null) {
@@ -67,7 +59,9 @@ export const store = createStore(
   rootReducer,
   initialState,
   compose(
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    applyMiddleware(thunk.withExtraArgument({ getFirebase })),
+    reduxFirestore(firebase, firebaseConfig)
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
 export const rrfProps = {
