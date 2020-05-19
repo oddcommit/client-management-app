@@ -15,7 +15,7 @@ import Homepage from "./components/layout/Homepage";
 import AddClient from "./components/clients/AddClient";
 import ClientDetails from "./components/clients/ClientDetails";
 import Invoice from "./components/invoice/Invoice";
-import InvoicesPage from "./components/invoice/InvoicePage";
+import NewInvoice from "./components/invoice/create/NewInvoice";
 import EditClient from "./components/clients/EditClient";
 import Login from "./components/auth/Login";
 import Setting from "./components/settings/Setting";
@@ -59,19 +59,19 @@ function App() {
           />
           <Route
             exact
-            path="/client/invoices"
-            component={UserIsAuthenticated(InvoicesPage)}
+            path="/invoice/:id"
+            component={UserIsAuthenticated(NewInvoice)}
           />
           <Route
             exact
             path="/client/:id"
             component={UserIsAuthenticated(ClientDetails)}
           />
-          <Route
+          {/* <Route
             exact
             path="/invoice/:id"
             component={UserIsAuthenticated(Invoice)}
-          />
+          /> */}
           <Route
             exact
             path="/client/edit/:id"

@@ -4,7 +4,7 @@
 
 /* ******************* Create Invoice ******************* */
 
-export const createInvoice = (invoiceDetails) => (
+export const createInvoice = (invoiceDetails, urlId) => (
   dispatch,
   getState,
   { getFirebase }
@@ -15,9 +15,9 @@ export const createInvoice = (invoiceDetails) => (
   const firestore = getFirebase().firestore();
   let path = "";
   firestore
-    .collection("users")
-    .doc(uid)
-    .collection("invoices")
+    .collection("clients") //clients collection
+    .doc(urlId) //client id
+    .collection("invoices") //create the invoices
     .add({ ...invoiceDetails })
     .then((res) => {
       path = res.id;

@@ -7,7 +7,7 @@ import settingReducer from "./settingReducer";
 
 // import authReducer from './authReducer';
 import invoiceReducer from "./invoiceReducer";
-// import loadingStateReducer from './loadingStateReducer';
+import loadingStateReducer from "./loadingStateReducer";
 // import alertReducer from './alertReducer';
 // import snackbarReducer from './snackbarReducer';
 
@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
   invoice: invoiceReducer,
   notify: notifyReducer,
   settings: settingReducer,
-  // loadingState: loadingStateReducer,
+  loadingState: loadingStateReducer,
   // alertState: alertReducer,
   // snackbar: snackbarReducer
 });
