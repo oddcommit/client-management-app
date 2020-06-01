@@ -1,38 +1,38 @@
-// import history from "../../others/history";
-
-// copy from billy
+import history from "../../others/history";
 
 /* ******************* Create Invoice ******************* */
 
-export const createInvoice = (invoiceDetails, urlId) => (
+export const createInvoice = (invoiceDetails) => (
   dispatch,
   getState,
   { getFirebase }
 ) => {
   dispatch({ type: "CREATE_BUTTON", payload: true });
   const uid = getState().firebase.auth.uid;
-  const currInvoice = getState().firebase.profile.currentInvoice;
+  console.log("create invoice uid", uid);
+  // console.log(" invoice detail", getFirebase().firestore());
+
+  const currInvoice = getState().firebase.profile.invoices;
+
   const firestore = getFirebase().firestore();
+  console.log("currInvoice", currInvoice);
   let path = "";
   firestore
-    .collection("clients") //clients collection
-    .doc(urlId) //client id
-    .collection("invoices") //create the invoices
+    .collection("invoices")
+    // .doc(uid)
+    // .collection("invoices")
     .add({ ...invoiceDetails })
     .then((res) => {
       path = res.id;
-      firestore
-        .collection("users")
-        .doc(uid)
-        .update({ currentInvoice: currInvoice + 1 });
+      firestore.collection("invoices").doc(path).update({ invoiceNum: 1 });
     })
     .then((res) => {
       dispatch({ type: "CREATE_INVOICE", payload: invoiceDetails });
+      history.push(`/invoice/${path}`);
       // history.push(`/invoice/${path}`);
     })
     .catch((err) => {
-      dispatch({ type: "CREATE_INVOICE_ERROR", err });
-      dispatch({ type: "WENTWRONG_BAR" });
+      alert("invoiceAction create", err);
     })
     .finally(() => dispatch({ type: "CREATE_BUTTON", payload: false }));
 };
@@ -46,19 +46,20 @@ export const deleteInovice = (invoiceId) => (
 ) => {
   const uid = getState().firebase.auth.uid;
   const firestore = getFirebase().firestore();
+
   firestore
-    .collection("users")
-    .doc(uid)
+    // .collection("users")
+    // .doc(uid)
     .collection("invoices")
     .doc(invoiceId)
     .delete()
     .then(() => {
       dispatch({ type: "DELETE_SUCCESS_BAR" });
     })
-    .catch((err) => dispatch({ type: "WENTWRONG_BAR" }));
-  // if (history.location.pathname !== "/") {
-  //   history.push("/invoices");
-  // }
+    .catch((err) => alert("invoiceAction delete", err));
+  if (history.location.pathname !== "/") {
+    history.push("/invoices");
+  }
 };
 
 /* **************** Change Payment Status *************** */
@@ -79,48 +80,48 @@ export const updatePaymentStatus = (invoiceId, status) => (
     .then(() => {
       dispatch({ type: "UPDATE_PAYMENT_STATUS" });
     })
-    .catch((err) => dispatch({ type: "WENTWRONG_BAR" }));
+    .catch((err) => alert("invoiceAction updatepayment", err));
 };
 
 /* ************* Send Email Invoice Reminder ************ */
 
-export const sendInvoiceMail = (id) => (
-  dispatch,
-  getState,
-  { getFirebase }
-) => {
-  dispatch({ type: "EMAILSEND_BUTTON", payload: true });
+// export const sendInvoiceMail = (id) => (
+//   dispatch,
+//   getState,
+//   { getFirebase }
+// ) => {
+//   dispatch({ type: "EMAILSEND_BUTTON", payload: true });
 
-  const lastReminder = getState()
-    .firestore.data.invoices[id].remindedAt.toDate()
-    .setHours(0, 0, 0, 0);
-  const today = new Date().setHours(0, 0, 0, 0);
+//   const lastReminder = getState()
+//     .firestore.data.invoices[id].remindedAt.toDate()
+//     .setHours(0, 0, 0, 0);
+//   const today = new Date().setHours(0, 0, 0, 0);
 
-  const diff = Math.floor(Math.abs(today - lastReminder) / 1000 / 60 / 60 / 24);
+//   const diff = Math.floor(Math.abs(today - lastReminder) / 1000 / 60 / 60 / 24);
 
-  // Stop Function if Reminded on same Day
-  if (diff === 0) {
-    dispatch({ type: "EMAILSEND_BUTTON", payload: false });
-    return dispatch({ type: "EMAILMAXLIMIT_BAR" });
-  }
+//   // Stop Function if Reminded on same Day
+//   if (diff === 0) {
+//     dispatch({ type: "EMAILSEND_BUTTON", payload: false });
+//     return dispatch({ type: "EMAILMAXLIMIT_BAR" });
+//   }
 
-  var invoiceRemindMail = getFirebase()
-    .functions()
-    .httpsCallable("invoiceRemindMail");
-  invoiceRemindMail(id)
-    .then((res) => {
-      const firestore = getFirebase().firestore();
-      const uid = getState().firebase.auth.uid;
-      firestore
-        .collection("users")
-        .doc(uid)
-        .collection("invoices")
-        .doc(id)
-        .update({ remindedAt: new Date() });
-    })
-    .then(() => {
-      dispatch({ type: "EMAIL_SUCCESS_BAR" });
-      dispatch({ type: "EMAILSEND_BUTTON", payload: false });
-    })
-    .catch((err) => dispatch({ type: "WENTWRONG_BAR" }));
-};
+//   var invoiceRemindMail = getFirebase()
+//     .functions()
+//     .httpsCallable("invoiceRemindMail");
+//   invoiceRemindMail(id)
+//     .then((res) => {
+//       const firestore = getFirebase().firestore();
+//       const uid = getState().firebase.auth.uid;
+//       firestore
+//         .collection("users")
+//         .doc(uid)
+//         .collection("invoices")
+//         .doc(id)
+//         .update({ remindedAt: new Date() });
+//     })
+//     .then(() => {
+//       dispatch({ type: "EMAIL_SUCCESS_BAR" });
+//       dispatch({ type: "EMAILSEND_BUTTON", payload: false });
+//     })
+//     .catch((err) => alert("invoiceAction email", err));
+// };

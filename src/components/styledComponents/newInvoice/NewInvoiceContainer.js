@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const InvoiceContainer = styled.div`
   max-width: 1140px;

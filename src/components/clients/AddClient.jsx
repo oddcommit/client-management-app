@@ -30,16 +30,7 @@ class AddClient extends Component {
     quantity: "",
     teacher: "",
     active: "true",
-    // price: "",
-    invoice: {
-      userPay: "none",
-      cashCheck: "none",
-      book: 0,
-      credit: 0,
-      totalPrice: 0,
-      dateArray: [],
-      lineItems: [],
-    },
+    cashCheck: "none",
   };
 
   onChange = (e) => {

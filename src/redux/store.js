@@ -1,16 +1,14 @@
-import { createStore, combineReducers, compose, applyMiddleware } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
-import { firebaseReducer, getFirebase } from "react-redux-firebase";
-import {
-  createFirestoreInstance,
-  firestoreReducer,
-  reduxFirestore,
-} from "redux-firestore";
+import "firebase/functions";
+import "firebase/firebase-analytics";
+import { getFirebase } from "react-redux-firebase";
+import { createFirestoreInstance, reduxFirestore } from "redux-firestore";
 
 import thunk from "redux-thunk";
-import rootReducer from "./redux/rootReducers";
+import rootReducer from "./reducers/rootReducers";
 //reducers
 
 const firebaseConfig = {
@@ -24,19 +22,20 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_GOOGLE_MEASUREMENT_ID,
 };
 
+//init firebase instance
+firebase.initializeApp(firebaseConfig);
+firebase.firestore();
+firebase.functions();
+firebase.analytics();
+
 //react-redux-firebase config
 const rrfConfig = {
   userProfile: "users",
   useFirestoreForProfile: true,
 };
-
-//init firebase instance
-firebase.initializeApp(firebaseConfig);
-// firebase.firestore();
-
 //init firestore
 
-const firestore = firebase.firestore();
+export const firestore = firebase.firestore();
 
 //check for settings in localStorage
 if (localStorage.getItem("settings") == null) {

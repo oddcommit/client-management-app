@@ -5,6 +5,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 
 import Spinner from "../layout/Spinner";
+import InvoiceDetails from "../pages/view/InvoiceDetails";
 
 import { firestoreConnect } from "react-redux-firebase";
 
@@ -18,7 +19,6 @@ class Clients extends Component {
       count: null,
       tallyCheck: null,
       tallyCash: null,
-      tallyPay: null,
     };
   }
 
@@ -26,14 +26,12 @@ class Clients extends Component {
     const { clients } = props;
     if (clients) {
       let tallyCheck = clients.filter((client) => {
-        return client.invoice.cashCheck === "check";
+        return client.cashCheck === "check";
       });
       let tallyCash = clients.filter((client) => {
-        return client.invoice.cashCheck === "cash";
+        return client.cashCheck === "cash";
       });
-      let tallyPay = clients.filter((client) => {
-        return client.invoice.userPay === "yes";
-      });
+
       let count = clients.filter((client) => {
         return client.active === "true";
       });
@@ -42,7 +40,6 @@ class Clients extends Component {
         count: count.length,
         tallyCheck: tallyCheck.length,
         tallyCash: tallyCash.length,
-        tallyPay: tallyPay.length,
       };
     }
     return null;
@@ -74,16 +71,17 @@ class Clients extends Component {
   };
 
   render() {
-    const { clients } = this.props;
+    const { clients, invoices } = this.props;
+    console.log("clients", clients);
+    console.log("invoices", invoices);
     const {
       count,
       tallyCheck,
       tallyCash,
-      tallyPay,
       searchField,
       activeFilter,
     } = this.state;
-
+    //filter 10
     if (clients) {
       const filterClients = clients.filter((client) => {
         if (activeFilter) {
@@ -190,7 +188,6 @@ class Clients extends Component {
                   )}
                 </th>
                 <th>Gender</th>
-                <th>Pay</th>
 
                 <th>
                   {" "}
@@ -241,20 +238,10 @@ class Clients extends Component {
                     {client.gender.charAt(0).toUpperCase() +
                       client.gender.slice(1)}
                   </td>
+
                   <td>
-                    {client.invoice.userPay !== "none" ? (
-                      client.invoice.userPay === "yes" ? (
-                        <p className="text-success">YES</p>
-                      ) : (
-                        <p className="text-danger">NO</p>
-                      )
-                    ) : (
-                      <p className="text-info">None</p>
-                    )}
-                  </td>
-                  <td>
-                    {client.invoice.cashCheck !== "none" ? (
-                      client.invoice.cashCheck === "cash" ? (
+                    {client.cashCheck !== "none" ? (
+                      client.cashCheck === "cash" ? (
                         <p className="text-success">Cash</p>
                       ) : (
                         <p className="text-primary">Check</p>
@@ -271,7 +258,7 @@ class Clients extends Component {
                       <i className="fas fa-arrow-circle-right " /> Details
                     </Link>{" "}
                     <Link
-                      to={`/invoice/${client.id}`}
+                      to={`/createinvoice/${client.id}`}
                       className="btn btn-primary btn-sm"
                     >
                       <i className="fas fa-arrow-circle-right " /> Invoice
@@ -283,7 +270,7 @@ class Clients extends Component {
           </table>
           <hr />
           <div className="row">
-            <div className="col-md-6">
+            {/* <div className="col-md-6">
               <h2>
                 {" "}
                 <i className="fas fa-file-invoice-dollar"></i> Recent Invoices
@@ -301,77 +288,11 @@ class Clients extends Component {
                   <i className="fas fa-file-alt"></i> View All{" "}
                 </Link>
               </button>
-            </div>
+            </div> */}
             {/* recent invoices */}
           </div>
           <table className="  table table-responsive-md  table-bordered table-hover table-striped">
-            <thead className="thead-inverse  thead-dark ">
-              <tr>
-                <th>No.</th>
-                <th>Date</th>
-
-                <th>Name</th>
-                <th>Amount</th>
-                <th>Status</th>
-
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {filterClients.map((client) => (
-                <tr key={client.id}>
-                  <td>{client.id} </td>
-                  <td>
-                    {client.classDay.toUpperCase()} - {client.time}
-                  </td>
-                  <td>
-                    {client.firstName.charAt(0).toUpperCase() +
-                      client.firstName.slice(1)}{" "}
-                    {client.lastName.charAt(0).toUpperCase() +
-                      client.lastName.slice(1)}
-                  </td>
-                  <td>{client.invoice.totalPrice}</td>
-                  <td>Pending</td>
-
-                  <td>
-                    <ul className="nav nav-list">
-                      <li
-                        className="nav-header"
-                        data-toggle="collapse"
-                        data-target="#test"
-                      >
-                        {" "}
-                        <i className="fas fa-ellipsis-v hoverPointer"></i>
-                        <ul className="collapse list-unstyled" id="test">
-                          <li>
-                            <button
-                              href="/ticket_list.cfm"
-                              title="Show list of tickets"
-                              className="bg-danger mb-1"
-                            >
-                              <small>Delete Invoice</small>
-                            </button>
-                          </li>
-                          <li>
-                            <button href="#" title="Edit user accounts">
-                              {false ? (
-                                <small className="text-danger">
-                                  Mark as Pending
-                                </small>
-                              ) : (
-                                <small className="text-success">
-                                  Mark as Paid
-                                </small>
-                              )}
-                            </button>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
+            {/* <InvoiceDetails invoices={invoices} /> */}
           </table>
         </div>
       );
@@ -384,11 +305,13 @@ class Clients extends Component {
 Clients.propTypes = {
   firestore: PropTypes.object.isRequired,
   clients: PropTypes.array,
+  invoices: PropTypes.array,
 };
 
 export default compose(
-  firestoreConnect([{ collection: "clients" }]),
+  firestoreConnect([{ collection: "clients" }, { collection: "invoices" }]),
   connect((state, props) => ({
     clients: state.firestore.ordered.clients,
+    invoices: state.firestore.ordered.invoices,
   }))
 )(Clients);

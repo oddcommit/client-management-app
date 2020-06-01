@@ -12,6 +12,7 @@ import { InvoiceTable } from "../../styledComponents/newInvoice/InvoiceTable";
 function ProductList(props) {
   const [items, setItems] = useState([]);
   const [showAddItemForm, toggleAddItemForm] = useToggle(true);
+  // console.log("productlist props", props);
 
   // ADD, DELETE, EDIT
   const handleAdd = (newItem) => {
@@ -64,13 +65,13 @@ function ProductList(props) {
           key={item.id}
           item={item}
           handleDelete={handleDelete}
-          // currency={props.invoiceMeta.currency}
+          currency={props.invoiceMeta.currency}
           handleEdit={handleEdit}
         />
       ))}
       {showAddItemForm && (
         <ProductAddItem
-          // currency={props.invoiceMeta.currency}
+          currency={props.invoiceMeta.currency}
           handleAdd={handleAdd}
         ></ProductAddItem>
       )}
@@ -81,7 +82,7 @@ function ProductList(props) {
         <TotalAmount
           handleItemsData={handleItemsData}
           items={items}
-          // invoiceMeta={props.invoiceMeta}
+          invoiceMeta={props.invoiceMeta}
         />
       )}
     </InvoiceTable>

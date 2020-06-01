@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-const activeClassName = 'active';
+const activeClassName = "active";
 
 const SideNavLink = styled(NavLink).attrs({
-  activeClassName: activeClassName
+  activeClassName: activeClassName,
 })`
   display: inline-block;
   border-radius: 50px;
@@ -16,7 +16,7 @@ const SideNavLink = styled(NavLink).attrs({
     color: #6b7c93;
   }
   > span {
-    color: ${props => props.color};
+    color: ${(props) => props.color};
     font-size: 1.3rem;
     line-height: 1.3rem;
     vertical-align: middle;
@@ -39,12 +39,12 @@ const SideNavLink = styled(NavLink).attrs({
 
   &:hover,
   &.${activeClassName} {
-    box-shadow: 3px 3px 12px ${props => props.color + 26};
+    box-shadow: 3px 3px 12px ${(props) => props.color + 26};
     > span {
-      background-color: ${props => props.color + 26};
+      background-color: ${(props) => props.color + 26};
     }
     > p {
-      color: ${props => props.color};
+      color: ${(props) => props.color};
     }
   }
 `;

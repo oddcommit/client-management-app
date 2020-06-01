@@ -212,7 +212,7 @@ class ClientDetails extends Component {
               </ul>
               <hr className="bg-primary" />
 
-              <ul className="list-group">
+              {/* <ul className="list-group">
                 <li className="list-group-item">
                   {" "}
                   Price: ${client.invoice.price}
@@ -226,7 +226,7 @@ class ClientDetails extends Component {
                   {" "}
                   Pay: {client.invoice.userPay}
                 </li>
-              </ul>
+              </ul> */}
 
               <hr className="bg-success" />
               <div className="container">

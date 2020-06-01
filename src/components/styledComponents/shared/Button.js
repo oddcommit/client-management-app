@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 // Base Button
 const BaseButton = styled.button`
@@ -15,22 +15,22 @@ const BaseButton = styled.button`
 `;
 // Primary Button
 const Button = styled(BaseButton)`
-  background-color: ${props => (props.secondary ? '#24B47E' : '#6772e5')};
-  background-color: ${props => props.color && props.color};
+  background-color: ${(props) => (props.secondary ? "#24B47E" : "#6772e5")};
+  background-color: ${(props) => props.color && props.color};
   color: #fff;
   box-shadow: rgba(50, 50, 93, 0.11) 0px 4px 6px 0px,
     rgba(0, 0, 0, 0.08) 0px 1px 3px 0px;
 
   &:hover {
-    background-color: ${props => (props.secondary ? '#27CF90' : '#7795f8')};
-    background-color: ${props => props.color && props.color};
+    background-color: ${(props) => (props.secondary ? "#27CF90" : "#7795f8")};
+    background-color: ${(props) => props.color && props.color};
     transform: translateY(-2px);
     box-shadow: rgba(50, 50, 93, 0.18) 0px 4px 12px 0px,
       rgba(0, 0, 0, 0.08) 0px 1px 6px 0px;
   }
   &:active {
-    background-color: ${props => (props.secondary ? '#1FA774' : '#555abf')};
-    background-color: ${props => props.color && props.color};
+    background-color: ${(props) => (props.secondary ? "#1FA774" : "#555abf")};
+    background-color: ${(props) => props.color && props.color};
     transform: translateY(0);
     box-shadow: rgba(22, 22, 41, 0.15) 0px 4px 8px 4px,
       rgba(0, 0, 0, 0.1) 0px 1px 6px 2px;
@@ -45,7 +45,7 @@ const Button = styled(BaseButton)`
       rgba(0, 0, 0, 0.08) 0px 1px 3px 0px;
     overflow: hidden;
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       right: 0;
@@ -58,39 +58,4 @@ const Button = styled(BaseButton)`
   }
 `;
 
-// Secondary Button
-const FlatButton = styled(BaseButton)`
-  color: ${props => (props.secondary ? '#24B47E' : '#6772e5')};
-  background-color: #fff;
-  &:hover {
-    background-color: #f8f8f8;
-    color: ${props => (props.secondary ? '#27CF90' : '#7795f8')};
-  }
-  &:active {
-    color: ${props => (props.secondary ? '#1FA774' : '#555abf')};
-  }
-`;
-
-// Secondary Button With Hover
-const SecondaryButton = styled(BaseButton)`
-  color: ${props => (props.secondary ? '#24B47E' : '#6772e5')};
-  background-color: #fff;
-  box-shadow: rgba(50, 50, 93, 0.11) 0px 4px 6px 0px,
-    rgba(0, 0, 0, 0.08) 0px 1px 3px 0px;
-  &:hover {
-    background-color: #f8f8f8;
-    color: ${props => (props.secondary ? '#27CF90' : '#7795f8')};
-    transform: translateY(-2px);
-    box-shadow: rgba(50, 50, 93, 0.18) 0px 4px 12px 0px,
-      rgba(0, 0, 0, 0.08) 0px 1px 6px 0px;
-  }
-  &:active {
-    color: ${props => (props.secondary ? '#1FA774' : '#555abf')};
-    transform: translateY(0);
-    box-shadow: rgba(22, 22, 41, 0.15) 0px 4px 8px 4px,
-      rgba(0, 0, 0, 0.1) 0px 1px 6px 2px;
-    outline: none;
-  }
-`;
-
-export { Button, SecondaryButton, FlatButton, BaseButton };
+export { Button };
