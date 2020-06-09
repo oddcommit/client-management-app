@@ -29,6 +29,7 @@ export const createInvoice = (invoiceDetails) => (
     .then((res) => {
       dispatch({ type: "CREATE_INVOICE", payload: invoiceDetails });
       history.push(`/invoice/${path}`);
+
       // history.push(`/invoice/${path}`);
     })
     .catch((err) => {

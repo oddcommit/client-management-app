@@ -5,6 +5,7 @@ import { UserIsAuthenticated, UserIsNotAuthenticated } from "./helper/auth";
 
 import AppNavBar from "./components/layout/AppNavBar";
 import Client from "./components/clients/Clients";
+import Test from "./components/pages/view/InvoiceDetails"; //fdsf
 import Homepage from "./components/layout/Homepage";
 import AddClient from "./components/clients/AddClient";
 import ClientDetails from "./components/clients/ClientDetails";
@@ -28,12 +29,11 @@ import InvoicePdf from "./components/pages/view/InvoicePDF";
 
 function App() {
   const auth = useSelector((state) => state.firebase.auth);
-  console.log("app auth", auth.uid);
 
   useFirestoreConnect([
     {
       collection: "invoices",
-      doc: auth.uid || " ",
+      // doc: auth.uid || " ",
       // subcollections: [
       //   { collection: "invoices", orderBy: ["invoiceDate", "desc"] },
       // ],
@@ -61,11 +61,7 @@ function App() {
           path="/createinvoice/:id"
           component={UserIsAuthenticated(NewInvoice)}
         />
-        {/* <Route
-          exact
-          path="/invoice/:id"
-          component={UserIsAuthenticated(Invoice)}
-        /> */}
+        <Route exact path="/test/:id" component={UserIsAuthenticated(Test)} />
         <Route
           exact
           path="/client/:id"

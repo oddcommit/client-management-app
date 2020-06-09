@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 
 import Spinner from "../layout/Spinner";
 import InvoiceDetails from "../pages/view/InvoiceDetails";
+import testInvoiceClient from "./testinvoiceClient";
 
 import { firestoreConnect } from "react-redux-firebase";
 
@@ -270,7 +271,7 @@ class Clients extends Component {
           </table>
           <hr />
           <div className="row">
-            {/* <div className="col-md-6">
+            <div className="col-md-6">
               <h2>
                 {" "}
                 <i className="fas fa-file-invoice-dollar"></i> Recent Invoices
@@ -288,11 +289,28 @@ class Clients extends Component {
                   <i className="fas fa-file-alt"></i> View All{" "}
                 </Link>
               </button>
-            </div> */}
+            </div>
             {/* recent invoices */}
           </div>
           <table className="  table table-responsive-md  table-bordered table-hover table-striped">
-            {/* <InvoiceDetails invoices={invoices} /> */}
+            <thead className="thead-inverse  thead-dark ">
+              <tr>
+                <th>No.</th>
+                <th>Date</th>
+
+                <th>Name</th>
+
+                <th>Amount</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            {/* {invoices
+              ? invoices.map((invoice) => (
+                  <testInvoiceClient invoices={invoices} />
+                ))
+              : console.log("none")} */}
+            <testInvoiceClient />
           </table>
         </div>
       );

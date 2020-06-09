@@ -16,6 +16,14 @@ import {
   // sendInvoiceMail,
   updatePaymentStatus,
 } from "../../../redux/actions/invoiceActions";
+
+import {
+  getFormattedDate,
+  checkInteger,
+  addInCollection,
+  getDocument,
+  readCollection,
+} from "../../../utils";
 import AppLoader from "../../loaders/app/AppLoader";
 
 // Component
@@ -27,7 +35,9 @@ function InvoiceDetails() {
     (state) =>
       state.firestore.data.invoices && state.firestore.data.invoices[id]
   );
-  // console.log("invoice invoiceDetail", invoice);
+
+  console.log("invoice", invoice);
+
   const loadingState = useSelector((state) => state.loadingState.emailSendBtn);
 
   if (!isLoaded(invoice)) return <AppLoader />;
