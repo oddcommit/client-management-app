@@ -57,7 +57,7 @@ export const deleteInovice = (invoiceId) => (
     })
     .catch((err) => alert("invoiceAction delete", err));
   if (history.location.pathname !== "/") {
-    history.push("/invoices");
+    history.push("/dashboard");
   }
 };
 

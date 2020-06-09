@@ -44,10 +44,6 @@ function InvoiceDetails() {
     dispatch(deleteInovice(id));
   };
 
-  // const handleEmailInvoice = () => {
-  //   dispatch(sendInvoiceMail(id));
-  // };
-
   const handlePaymentStatus = () => {
     dispatch(updatePaymentStatus(id, !invoice.paidStatus));
   };
@@ -72,13 +68,6 @@ function InvoiceDetails() {
           {invoice.paidStatus ? "Mark Pending" : "Mark Paid"}
           {loadingState && <i className="tio-sync spin-load"></i>}
         </Button>
-
-        {/* <Button
-          onClick={handleEmailInvoice}
-          disabled={invoice.paidStatus || loadingState}
-        >
-          <i className="tio-send"></i> Send Email
-        </Button> */}
 
         <Button
           as={PDFDownloadLink}
