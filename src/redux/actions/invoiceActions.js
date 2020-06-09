@@ -9,8 +9,6 @@ export const createInvoice = (invoiceDetails) => (
 ) => {
   dispatch({ type: "CREATE_BUTTON", payload: true });
   const uid = getState().firebase.auth.uid;
-  console.log("create invoice uid", uid);
-  // console.log(" invoice detail", getFirebase().firestore());
 
   const currInvoice = getState().firebase.profile.invoices;
 
@@ -73,8 +71,8 @@ export const updatePaymentStatus = (invoiceId, status) => (
   const uid = getState().firebase.auth.uid;
   const firestore = getFirebase().firestore();
   firestore
-    .collection("users")
-    .doc(uid)
+    // .collection("users")
+    // .doc(uid)
     .collection("invoices")
     .doc(invoiceId)
     .update({ paidStatus: status })
@@ -83,46 +81,3 @@ export const updatePaymentStatus = (invoiceId, status) => (
     })
     .catch((err) => alert("invoiceAction updatepayment", err));
 };
-
-/* ************* Send Email Invoice Reminder ************ */
-
-// export const sendInvoiceMail = (id) => (
-//   dispatch,
-//   getState,
-//   { getFirebase }
-// ) => {
-//   dispatch({ type: "EMAILSEND_BUTTON", payload: true });
-
-//   const lastReminder = getState()
-//     .firestore.data.invoices[id].remindedAt.toDate()
-//     .setHours(0, 0, 0, 0);
-//   const today = new Date().setHours(0, 0, 0, 0);
-
-//   const diff = Math.floor(Math.abs(today - lastReminder) / 1000 / 60 / 60 / 24);
-
-//   // Stop Function if Reminded on same Day
-//   if (diff === 0) {
-//     dispatch({ type: "EMAILSEND_BUTTON", payload: false });
-//     return dispatch({ type: "EMAILMAXLIMIT_BAR" });
-//   }
-
-//   var invoiceRemindMail = getFirebase()
-//     .functions()
-//     .httpsCallable("invoiceRemindMail");
-//   invoiceRemindMail(id)
-//     .then((res) => {
-//       const firestore = getFirebase().firestore();
-//       const uid = getState().firebase.auth.uid;
-//       firestore
-//         .collection("users")
-//         .doc(uid)
-//         .collection("invoices")
-//         .doc(id)
-//         .update({ remindedAt: new Date() });
-//     })
-//     .then(() => {
-//       dispatch({ type: "EMAIL_SUCCESS_BAR" });
-//       dispatch({ type: "EMAILSEND_BUTTON", payload: false });
-//     })
-//     .catch((err) => alert("invoiceAction email", err));
-// };

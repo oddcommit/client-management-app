@@ -59,12 +59,12 @@ const BillDataNum = styled.p`
 
 function InvoicePDF(props) {
   const {
-    companyName,
-    gstNumber,
-    companyAddress,
-    customerName,
-    customerAddress,
-    email,
+    // companyName,
+    // gstNumber,
+    // companyAddress,
+    // customerName,
+    // customerAddress,
+    // email,
     invoiceDate,
     dueDate,
     invoiceNum,
@@ -79,6 +79,7 @@ function InvoicePDF(props) {
     totalWithExclusiveTax,
     paidStatus,
   } = props.invoice;
+  console.log("props", props.invoice);
   const currencySign = "$";
   const itemList = items.map(({ itemName, rate, qty, disc, amount, id }, i) => (
     <BillRow key={id}>
@@ -96,9 +97,9 @@ function InvoicePDF(props) {
       <BillPage>
         <BillDetails>
           <BillColumn>
-            <h2>{companyName}</h2>
-            <p>{companyAddress}</p>
-            <InvoiceNumber>{gstNumber && `GSTIN: ${gstNumber}`}</InvoiceNumber>
+            <h2>Doremi Music</h2>
+            <p>5430 Jimmy Carter Blvd #112, Norcross, GA 30093</p>
+            {/* <InvoiceNumber>{gstNumber && `GSTIN: ${gstNumber}`}</InvoiceNumber> */}
             <Date>
               <p>
                 Invoice Date :{" "}
@@ -122,7 +123,7 @@ function InvoicePDF(props) {
             <p>Bill To</p>
             <h2>No Name yet</h2>
             <p>NO customer Address</p>
-            <p>Email : {email}</p>
+            {/* <p>Email : {email}</p> */}
           </BillColumn>
         </BillDetails>
         <BillHead>

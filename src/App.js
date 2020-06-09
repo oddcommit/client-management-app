@@ -5,7 +5,7 @@ import { UserIsAuthenticated, UserIsNotAuthenticated } from "./helper/auth";
 
 import AppNavBar from "./components/layout/AppNavBar";
 import Client from "./components/clients/Clients";
-import Test from "./components/pages/view/InvoiceDetails"; //fdsf
+// import Test from "./components/pages/view/InvoiceDetails"; //fdsf
 import Homepage from "./components/layout/Homepage";
 import AddClient from "./components/clients/AddClient";
 import ClientDetails from "./components/clients/ClientDetails";
@@ -25,6 +25,7 @@ import { useSelector } from "react-redux";
 // Pages Components
 import NewInvoice from "./components/pages/create/NewInvoice";
 import Invoices from "./components/pages/invoices/Invoices";
+import InvoiceDetails from "./components/pages/view/InvoiceDetails";
 import InvoicePdf from "./components/pages/view/InvoicePDF";
 
 function App() {
@@ -61,7 +62,7 @@ function App() {
           path="/createinvoice/:id"
           component={UserIsAuthenticated(NewInvoice)}
         />
-        <Route exact path="/test/:id" component={UserIsAuthenticated(Test)} />
+        {/* <Route exact path="/test/:id" component={UserIsAuthenticated(Test)} /> */}
         <Route
           exact
           path="/client/:id"
@@ -70,7 +71,7 @@ function App() {
         <Route
           exact
           path="/invoice/:id"
-          component={UserIsAuthenticated(InvoicePdf)}
+          component={UserIsAuthenticated(InvoiceDetails)}
         />
         <Route
           exact

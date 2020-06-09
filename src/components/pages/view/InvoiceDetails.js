@@ -36,8 +36,6 @@ function InvoiceDetails() {
       state.firestore.data.invoices && state.firestore.data.invoices[id]
   );
 
-  console.log("invoice", invoice);
-
   const loadingState = useSelector((state) => state.loadingState.emailSendBtn);
 
   if (!isLoaded(invoice)) return <AppLoader />;
