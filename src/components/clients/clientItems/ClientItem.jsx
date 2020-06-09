@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import history from "../../../others/history";
+import IconButton from "@material-ui/core/IconButton";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
 function ClientItem({ client }) {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleOptionOpen = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleOptionClose = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    setAnchorEl(null);
+  };
   const handleClick = (e) => {
     history.push(`/client/${client.id}`);
+    setAnchorEl(null);
+  };
+  const handleCreateInvoice = (e) => {
+    history.push(`/createinvoice/${client.id}`);
   };
   return (
     <tr key={client.id} onClick={handleClick} style={{ cursor: "pointer" }}>
@@ -40,13 +62,50 @@ function ClientItem({ client }) {
           <p className="text-info">None</p>
         )}
       </td>
-      <td>
+      {/* <td>
         <Link
           to={`/createinvoice/${client.id}`}
           className="btn btn-primary btn-sm"
         >
           <i className="fas fa-arrow-circle-right " /> Create New Invoice
         </Link>
+      </td> */}
+
+      <td>
+        <IconButton
+          aria-label="more"
+          aria-controls="long-menu"
+          aria-haspopup="true"
+          onClick={handleOptionOpen}
+          tabIndex={1}
+        >
+          <MoreVertIcon />
+        </IconButton>
+        <Menu
+          id="long-menu"
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          keepMounted
+          open={open}
+          onClose={handleOptionClose}
+        >
+          <MenuItem>
+            <Link
+              to={`/createinvoice/${client.id}`}
+              // className="btn btn-primary btn-sm"
+            >
+              <i className="fas fa-arrow-circle-right " /> Create New Invoice
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            {/* onClick={togglePaymentStatus} change this to toggle cash or check */}
+            <p>Mark as cash or check </p>
+            {/* {invoice.paidStatus ? <p>Mark as Pending</p> : <p>Mark as Paid</p>} */}
+          </MenuItem>
+        </Menu>
       </td>
     </tr>
   );

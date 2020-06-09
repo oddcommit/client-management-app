@@ -21,7 +21,6 @@ function InvoiceListItem(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const dispatch = useDispatch();
   const open = Boolean(anchorEl);
-  console.log("invoice in InvoiceListItems", invoice.invoiceNum);
 
   const currencySign = "$";
 
