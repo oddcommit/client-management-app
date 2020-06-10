@@ -11,29 +11,36 @@ function ClientItem({ client }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
-  const handleOptionOpen = (event) => {
-    event.stopPropagation();
-    event.preventDefault();
-    setAnchorEl(event.currentTarget);
+  const handleOptionOpen = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setAnchorEl(e.currentTarget);
   };
 
-  const handleOptionClose = (event) => {
-    event.stopPropagation();
-    event.preventDefault();
+  const handleOptionClose = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
     setAnchorEl(null);
   };
-  const handleClick = (e) => {
-    history.push(`/client/${client.id}`);
-    setAnchorEl(null);
-  };
-  const handleCreateInvoice = (e) => {
-    history.push(`/createinvoice/${client.id}`);
-  };
+
+  // const handleCreateInvoice = (e) => {
+  //   e.stopPropagation();
+  //   e.preventDefault();
+
+  //   history.push(`/createinvoice/${client.id}`);
+  //   setAnchorEl(null);
+  // };
+
   return (
-    <tr key={client.id} onClick={handleClick} style={{ cursor: "pointer" }}>
+    <tr key={client.id}>
       <td>
-        {client.firstName.charAt(0).toUpperCase() + client.firstName.slice(1)}{" "}
-        {client.lastName.charAt(0).toUpperCase() + client.lastName.slice(1)}
+        <Link
+          to={`/client/${client.id}`}
+          // className="btn btn-primary btn-sm"
+        >
+          {client.firstName.charAt(0).toUpperCase() + client.firstName.slice(1)}{" "}
+          {client.lastName.charAt(0).toUpperCase() + client.lastName.slice(1)}
+        </Link>
       </td>
       <td>
         {client.teacher.charAt(0).toUpperCase() + client.teacher.slice(1)}
