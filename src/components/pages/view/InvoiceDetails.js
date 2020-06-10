@@ -43,7 +43,6 @@ function InvoiceDetails() {
 
   return (
     <div>
-      {/* <Header title={'Invoice Details'} /> */}
       <InvoicePD invoice={invoice} />
       <ButtonDiv>
         <Button

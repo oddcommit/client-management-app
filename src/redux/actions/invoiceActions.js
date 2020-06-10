@@ -2,7 +2,7 @@ import history from "../../others/history";
 
 /* ******************* Create Invoice ******************* */
 
-export const createInvoice = (invoiceDetails) => (
+export const createInvoice = (invoiceDetails, invNum) => (
   dispatch,
   getState,
   { getFirebase }
@@ -10,10 +10,9 @@ export const createInvoice = (invoiceDetails) => (
   dispatch({ type: "CREATE_BUTTON", payload: true });
   const uid = getState().firebase.auth.uid;
 
-  const currInvoice = getState().firebase.profile.invoices;
+  // const currInvoice = getState().firebase.profile.invoices;
 
   const firestore = getFirebase().firestore();
-  console.log("currInvoice", currInvoice);
   let path = "";
   firestore
     .collection("invoices")
@@ -22,7 +21,7 @@ export const createInvoice = (invoiceDetails) => (
     .add({ ...invoiceDetails })
     .then((res) => {
       path = res.id;
-      firestore.collection("invoices").doc(path).update({ invoiceNum: 1 });
+      firestore.collection("invoices").doc(path).update({ invoiceNum: invNum });
     })
     .then((res) => {
       dispatch({ type: "CREATE_INVOICE", payload: invoiceDetails });

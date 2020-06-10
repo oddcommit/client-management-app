@@ -83,7 +83,7 @@ function InvoicePDF(props) {
       <BillDataNum>${amount.toFixed(2)}</BillDataNum>
     </BillRow>
   ));
-  console.log("props.invoicePD", props);
+  console.log("props.invoicePD", invoiceNum);
   return (
     <BillDocument>
       <BillPage>

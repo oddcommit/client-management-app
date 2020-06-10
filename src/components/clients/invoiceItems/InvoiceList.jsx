@@ -30,25 +30,26 @@ class InvoiceList extends React.Component {
                 </Link>
               </button>
             </div>
-            {/* recent invoices */}
-            <table className="  table table-responsive-md  table-bordered table-hover table-striped">
-              <thead className="thead-inverse  thead-dark ">
-                <tr>
-                  <th>No.</th>
-                  <th>Date</th>
-
-                  <th>Name</th>
-
-                  <th>Amount</th>
-                  <th>Status</th>
-                  <th></th>
-                </tr>
-              </thead>
-              {invoices.map((invoice) => {
-                return <InvoiceItem invoice={invoice} />;
-              })}
-            </table>
           </div>
+          {/* recent invoices */}
+          <table className="  table table-responsive-md  table-bordered table-hover table-striped">
+            <thead className="thead-inverse  thead-dark ">
+              <tr>
+                <th>No.</th>
+                <th>Date</th>
+
+                <th>Name</th>
+
+                <th>Amount</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+
+            {invoices.map((invoice) => {
+              return <InvoiceItem invoice={invoice} />;
+            })}
+          </table>
         </div>
       );
     } else {

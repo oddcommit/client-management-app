@@ -13,6 +13,7 @@ import { isLoaded } from "react-redux-firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import Spinner from "../../layout/Spinner";
+import { readCollection } from "../../../utils";
 
 // Custom
 // import Header from "../../header/Header";
@@ -22,6 +23,7 @@ import { createInvoice } from "../../../redux/actions/invoiceActions";
 
 // Component
 function NewInvoice(props) {
+  const [invNum, setNum] = useState("");
   const { id } = useParams();
   const { handleSubmit, errors } = useForm();
   const dispatch = useDispatch();
@@ -29,13 +31,24 @@ function NewInvoice(props) {
   const client = useSelector(
     (state) => state.firestore.data.clients && state.firestore.data.clients[id]
   );
+  const invoiceLength = readCollection("invoices")
+    .get()
+    .then((res) => {
+      return res.docs.length;
+    });
 
   //Format Invoice Num and Append Zeros to is
-  let invNum = id.slice(0, 6);
   let address = "";
   let name = "";
   let email = "";
   let phone = "";
+
+  if (invoiceLength) {
+    invoiceLength.then((res) => {
+      setNum(res + 1);
+    });
+  }
+  // console.log(invNum);
 
   const [invoiceMeta, setInvoiceMeta] = useState({
     invoiceDate: new Date(),
@@ -87,7 +100,7 @@ function NewInvoice(props) {
         phone: phone,
         email: email,
       };
-      dispatch(createInvoice(finalObj));
+      dispatch(createInvoice(finalObj, invNum));
     };
 
     handleSubmit(handleDataSubmit)();
