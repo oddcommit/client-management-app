@@ -39,6 +39,7 @@ function NewInvoice(props) {
 
   //Format Invoice Num and Append Zeros to is
   let address = "";
+  let idNum = id;
   let name = "";
   let email = "";
   let phone = "";
@@ -66,7 +67,12 @@ function NewInvoice(props) {
       client.state +
       ", " +
       client.postalCode;
-    name = client.firstName + " " + client.lastName;
+    name =
+      client.firstName.charAt(0).toUpperCase() +
+      client.firstName.slice(1) +
+      " " +
+      client.lastName.charAt(0).toUpperCase() +
+      client.lastName.slice(1);
     email = client.email;
     phone = client.phone;
   } else {
@@ -92,10 +98,11 @@ function NewInvoice(props) {
         dueDate: invoiceMeta.dueDate,
         invoiceDate: invoiceMeta.invoiceDate,
         paidStatus: false,
-        remindedAt: new Date(),
+        clientId: idNum,
+
+        // remindedAt: new Date(),
         invoiceNum: invNum,
         clientName: name,
-        clientId: "",
         address: address,
         phone: phone,
         email: email,

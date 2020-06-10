@@ -59,9 +59,10 @@ const BillDataNum = styled.p`
 
 function InvoicePDF(props) {
   const {
-    name,
     address,
     email,
+    clientId,
+    clientName,
     invoiceDate,
     dueDate,
     invoiceNum,
@@ -71,8 +72,7 @@ function InvoicePDF(props) {
     totalAmount,
     paidStatus,
   } = props.invoice;
-  console.log("props", props.invoice);
-  const currencySign = "$";
+  // console.log("props", props.invoice);
   const itemList = items.map(({ itemName, rate, qty, disc, amount, id }, i) => (
     <BillRow key={id}>
       <BillDataNum>{i + 1}</BillDataNum>
@@ -83,7 +83,7 @@ function InvoicePDF(props) {
       <BillDataNum>${amount.toFixed(2)}</BillDataNum>
     </BillRow>
   ));
-  console.log("props.invoicePD", invoiceNum);
+  // console.log("props.invoicePD", invoiceNum);
   return (
     <BillDocument>
       <BillPage>
@@ -91,7 +91,6 @@ function InvoicePDF(props) {
           <BillColumn>
             <h2>Doremi Music</h2>
             <p>5430 Jimmy Carter Blvd #112, Norcross, GA 30093</p>
-            {/* <InvoiceNumber>{gstNumber && `GSTIN: ${gstNumber}`}</InvoiceNumber> */}
             <Date>
               <p>
                 Invoice Date :{" "}
@@ -110,12 +109,13 @@ function InvoicePDF(props) {
           </BillColumn>
 
           <BillColumn style={{ textAlign: "right" }}>
-            <InvoiceHeading>INVOICE</InvoiceHeading>
-            <InvoiceNumber># Inv: {invoiceNum}</InvoiceNumber>
+            <InvoiceHeading>INVOICE: #{invoiceNum}</InvoiceHeading>
+            <InvoiceNumber>ID: {clientId}</InvoiceNumber>
             <p>Bill To</p>
-            <h2>{name}</h2>
+            <h2>{clientName}</h2>
             <p>{address}</p>
-            {/* <p>Email : {email}</p> */}
+            <p>Email : {email}</p>
+            <p>Phone : {phone}</p>
           </BillColumn>
         </BillDetails>
         <BillHead>

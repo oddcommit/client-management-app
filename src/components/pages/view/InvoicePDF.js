@@ -96,25 +96,18 @@ const BillTotal = styled(BillColumnRight)`
 
 function InvoicePDF(props) {
   const {
-    companyName,
-    gstNumber,
-    companyAddress,
-    customerName,
-    customerAddress,
+    clientName,
+    clientId,
+    address,
+    phone,
     email,
     invoiceDate,
     dueDate,
     invoiceNum,
     billableType,
     note,
-    taxEnable,
-    taxType,
-    taxPercent,
     items,
     totalAmount,
-    totalExclusiveTax,
-    totalInclusiveTax,
-    totalWithExclusiveTax,
   } = props.invoice;
   const currencySign = "$";
   const itemList = items.map(({ itemName, rate, qty, disc, amount, id }, i) => (
@@ -133,9 +126,8 @@ function InvoicePDF(props) {
       <BillPage>
         <BillDetails>
           <BillColumnLeft>
-            <Textt>{companyName}</Textt>
-            <Details>{companyAddress}</Details>
-            <InvoiceNumber>{gstNumber && `GSTIN: ${gstNumber}`}</InvoiceNumber>
+            <Textt>Doremi Music</Textt>
+            <Details>5430 Jimmy Carter Blvd #112, Norcross, GA 30093</Details>
             <Details style={{ marginTop: "40px" }}>
               Invoice Date : {moment(invoiceDate.toDate()).format("DD-MM-YYYY")}
             </Details>
@@ -146,12 +138,13 @@ function InvoicePDF(props) {
             <Textt></Textt>
           </BillColumnLeft>
           <BillColumnRight>
-            <InvoiceHeading>INVOICE</InvoiceHeading>
-            <InvoiceNumber># Inv/{invoiceNum}</InvoiceNumber>
+            <InvoiceHeading>INVOICE: #{invoiceNum}</InvoiceHeading>
+            <InvoiceNumber>ID: {clientId}</InvoiceNumber>
             <Details style={{ marginTop: "20px" }}>Bill To</Details>
-            <Textt>{customerName}</Textt>
-            <Details>{customerAddress}</Details>
+            <Textt>{clientName}</Textt>
+            <Details>{address}</Details>
             <Details>Email: {email}</Details>
+            <Details>Phone: {phone}</Details>
           </BillColumnRight>
         </BillDetails>
         <BillTable>
@@ -176,71 +169,16 @@ function InvoicePDF(props) {
           <BillColumnRight>
             <BillDetails>
               <BillTotal>
-                <Details>Sub Total:</Details>
-                {taxType === "exc" && <Details> GST {taxPercent}% : </Details>}
-
-                <Details>Total: </Details>
-
-                {taxEnable === "true" && taxType === "inc" && (
-                  <Details style={{ marginLeft: "-50%" }}>
-                    Includes GST {taxPercent}%:{" "}
-                  </Details>
-                )}
+                <Details> Total:</Details>
               </BillTotal>
               <BillTotal>
                 <Details>
-                  {currencySign}{" "}
+                  {currencySign}
                   {totalAmount.toLocaleString("en-US", {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
                   })}
                 </Details>
-                {taxType === "exc" && (
-                  <>
-                    <Details>
-                      {totalExclusiveTax.toLocaleString("en-US", {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })}
-                    </Details>
-                    <Details>
-                      {currencySign}{" "}
-                      {totalWithExclusiveTax.toLocaleString("en-US", {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })}
-                    </Details>
-                  </>
-                )}
-
-                {taxEnable === "true" && taxType === "inc" && (
-                  <>
-                    <Details>
-                      {currencySign}{" "}
-                      {totalAmount.toLocaleString("en-US", {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })}
-                    </Details>
-
-                    <Details>
-                      {currencySign}{" "}
-                      {totalInclusiveTax.toLocaleString("en-US", {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })}
-                    </Details>
-                  </>
-                )}
-                {taxEnable === "false" && (
-                  <Details>
-                    {currencySign}{" "}
-                    {totalAmount.toLocaleString("en-US", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
-                  </Details>
-                )}
               </BillTotal>
             </BillDetails>
           </BillColumnRight>
