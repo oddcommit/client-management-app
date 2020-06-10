@@ -33,12 +33,15 @@ function App() {
 
   useFirestoreConnect([
     {
-      collection: "invoices",
+      collection: "clients",
       // doc: auth.uid || " ",
       // subcollections: [
       //   { collection: "invoices", orderBy: ["invoiceDate", "desc"] },
       // ],
       // storeAs: "invoices",
+    },
+    {
+      collection: "invoices",
     },
   ]);
   return (

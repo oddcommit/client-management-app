@@ -17,14 +17,7 @@ import {
   updatePaymentStatus,
 } from "../../../redux/actions/invoiceActions";
 
-import {
-  getFormattedDate,
-  checkInteger,
-  addInCollection,
-  getDocument,
-  readCollection,
-} from "../../../utils";
-import AppLoader from "../../loaders/app/AppLoader";
+import Spinner from "../../layout/Spinner";
 
 // Component
 function InvoiceDetails() {
@@ -38,7 +31,7 @@ function InvoiceDetails() {
 
   const loadingState = useSelector((state) => state.loadingState.emailSendBtn);
 
-  if (!isLoaded(invoice)) return <AppLoader />;
+  if (!isLoaded(invoice)) return <Spinner />;
 
   const handleDeleteInvoice = () => {
     dispatch(deleteInovice(id));

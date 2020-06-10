@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-function Cards({ state }) {
+function Cards({ state, invoices }) {
   const { count } = state;
   const pendingInvoices = useSelector(
     (state) =>
@@ -14,6 +14,15 @@ function Cards({ state }) {
       state.firestore.ordered.invoices &&
       state.firestore.ordered.invoices.filter((invoice) => invoice.paidStatus)
         .length
+  );
+  // const totalAmount = invoices.reduce((acc, curr) => curr.totalAmount + acc, 0);
+  const totalAmount = useSelector(
+    (state) =>
+      state.firestore.ordered.invoices &&
+      state.firestore.ordered.invoices.reduce(
+        (acc, curr) => curr.totalAmount + acc,
+        0
+      )
   );
   return (
     <div className="container">
@@ -40,7 +49,10 @@ function Cards({ state }) {
               <h6 className="text-uppercase text-center mt-4 text-white">
                 Total Cash
               </h6>
-              <h4 className="display-1 text-center text-white"> $1000</h4>
+              <h4 className="display-1 text-center text-white">
+                {" "}
+                {totalAmount}
+              </h4>
             </div>
           </div>
         </div>

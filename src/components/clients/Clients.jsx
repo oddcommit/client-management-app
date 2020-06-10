@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { compose } from "redux";
 import { connect } from "react-redux";
 
-import Spinner from "../layout/Spinner";
-import InvoiceDetails from "../pages/view/InvoiceDetails";
 import ClientList from "./clientItems/ClientList";
 import InvoiceList from "./invoiceItems/InvoiceList";
 import Cards from "./clientItems/Cards";
@@ -22,8 +19,6 @@ class Clients extends Component {
       count: null,
       tallyCheck: null,
       tallyCash: null,
-      // pendingStatus: 0,
-      // fullFillStatus: 0,
     };
   }
 
@@ -79,7 +74,7 @@ class Clients extends Component {
     const { clients, invoices } = this.props;
     return (
       <>
-        <Cards state={this.state} />
+        <Cards invoices={invoices} state={this.state} />
         <ClientList
           clients={clients}
           state={this.state}

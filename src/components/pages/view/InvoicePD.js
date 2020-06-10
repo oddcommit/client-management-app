@@ -59,24 +59,16 @@ const BillDataNum = styled.p`
 
 function InvoicePDF(props) {
   const {
-    // companyName,
-    // gstNumber,
-    // companyAddress,
-    // customerName,
-    // customerAddress,
-    // email,
+    name,
+    address,
+    email,
     invoiceDate,
     dueDate,
     invoiceNum,
     note,
-    taxEnable,
-    taxType,
-    taxPercent,
+    phone,
     items,
     totalAmount,
-    totalExclusiveTax,
-    totalInclusiveTax,
-    totalWithExclusiveTax,
     paidStatus,
   } = props.invoice;
   console.log("props", props.invoice);
@@ -121,8 +113,8 @@ function InvoicePDF(props) {
             <InvoiceHeading>INVOICE</InvoiceHeading>
             <InvoiceNumber># Inv: {invoiceNum}</InvoiceNumber>
             <p>Bill To</p>
-            <h2>No Name yet</h2>
-            <p>NO customer Address</p>
+            <h2>{name}</h2>
+            <p>{address}</p>
             {/* <p>Email : {email}</p> */}
           </BillColumn>
         </BillDetails>

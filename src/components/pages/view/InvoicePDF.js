@@ -96,12 +96,15 @@ const BillTotal = styled(BillColumnRight)`
 
 function InvoicePDF(props) {
   const {
-    // customerName,
-    // customerAddress,
-    // email,
+    companyName,
+    gstNumber,
+    companyAddress,
+    customerName,
+    customerAddress,
+    email,
     invoiceDate,
     dueDate,
-    invoiceNumber,
+    invoiceNum,
     billableType,
     note,
     taxEnable,
@@ -130,9 +133,9 @@ function InvoicePDF(props) {
       <BillPage>
         <BillDetails>
           <BillColumnLeft>
-            <Textt>Doremi Music</Textt>
-            <Details>5430 Jimmy Carter Blvd #112, Norcross, GA 30093</Details>
-            {/* <InvoiceNumber>{gstNumber && `GSTIN: ${gstNumber}`}</InvoiceNumber> */}
+            <Textt>{companyName}</Textt>
+            <Details>{companyAddress}</Details>
+            <InvoiceNumber>{gstNumber && `GSTIN: ${gstNumber}`}</InvoiceNumber>
             <Details style={{ marginTop: "40px" }}>
               Invoice Date : {moment(invoiceDate.toDate()).format("DD-MM-YYYY")}
             </Details>
@@ -144,11 +147,11 @@ function InvoicePDF(props) {
           </BillColumnLeft>
           <BillColumnRight>
             <InvoiceHeading>INVOICE</InvoiceHeading>
-            <InvoiceNumber># Inv/{invoiceNumber}</InvoiceNumber>
+            <InvoiceNumber># Inv/{invoiceNum}</InvoiceNumber>
             <Details style={{ marginTop: "20px" }}>Bill To</Details>
-            {/* <Textt>{customerName}</Textt> */}
-            {/* <Details>{customerAddress}</Details> */}
-            {/* <Details>Email: {email}</Details> */}
+            <Textt>{customerName}</Textt>
+            <Details>{customerAddress}</Details>
+            <Details>Email: {email}</Details>
           </BillColumnRight>
         </BillDetails>
         <BillTable>

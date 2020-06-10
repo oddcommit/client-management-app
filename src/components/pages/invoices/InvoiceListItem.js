@@ -8,7 +8,6 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 // Custom
-import { InvoiceListItem as InvoiceList } from "../../styledComponents/invoices/invoiceTables";
 import {
   deleteInovice,
   updatePaymentStatus,

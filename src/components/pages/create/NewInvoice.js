@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 //Vendor
 // import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
@@ -10,6 +12,7 @@ import {
 import { isLoaded } from "react-redux-firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
+import Spinner from "../../layout/Spinner";
 
 // Custom
 // import Header from "../../header/Header";
@@ -19,18 +22,20 @@ import { createInvoice } from "../../../redux/actions/invoiceActions";
 
 // Component
 function NewInvoice(props) {
+  const { id } = useParams();
   const { handleSubmit, errors } = useForm();
   const dispatch = useDispatch();
 
-  // const invoiceNum = useSelector(
-  //   (state) => state.firebase.profile && state.firebase.profile.currentInvoice
-  // );
+  const client = useSelector(
+    (state) => state.firestore.data.clients && state.firestore.data.clients[id]
+  );
 
   //Format Invoice Num and Append Zeros to is
-  const invNum = 0;
-  // invoiceNum && invoiceNum.toString().length < 4
-  //   ? "0".repeat(4 - invoiceNum.toString().length) + invoiceNum
-  //   : invoiceNum;
+  let invNum = id.slice(0, 6);
+  let address = "";
+  let name = "";
+  let email = "";
+  let phone = "";
 
   const [invoiceMeta, setInvoiceMeta] = useState({
     invoiceDate: new Date(),
@@ -39,10 +44,25 @@ function NewInvoice(props) {
     companyName: "Doremi Music",
   });
 
+  if (client) {
+    address =
+      client.streetAddress +
+      ", " +
+      client.city +
+      ", " +
+      client.state +
+      ", " +
+      client.postalCode;
+    name = client.firstName + " " + client.lastName;
+    email = client.email;
+    phone = client.phone;
+  } else {
+    return <Spinner />;
+  }
   // Controlling Some Inputs
-  const handleInvoiceMeta = (e) => {
-    setInvoiceMeta({ ...invoiceMeta, [e.target.name]: e.target.value });
-  };
+  // const handleInvoiceMeta = (e) => {
+  //   setInvoiceMeta({ ...invoiceMeta, [e.target.name]: e.target.value });
+  // };
   const handleDueDateChange = (e) => {
     setInvoiceMeta({ ...invoiceMeta, dueDate: e._d });
   };
@@ -61,8 +81,11 @@ function NewInvoice(props) {
         paidStatus: false,
         remindedAt: new Date(),
         invoiceNum: invNum,
-        clientName: "",
+        clientName: name,
         clientId: "",
+        address: address,
+        phone: phone,
+        email: email,
       };
       dispatch(createInvoice(finalObj));
     };
