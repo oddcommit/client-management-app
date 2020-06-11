@@ -9,7 +9,6 @@ import Client from "./components/pages/clients/Clients";
 import Homepage from "./components/layout/Homepage";
 import AddClient from "./components/pages/clients/AddClient";
 import ClientDetails from "./components/pages/clients/ClientDetails";
-
 import EditClient from "./components/pages/clients/EditClient";
 import Login from "./components/auth/Login";
 import Setting from "./components/settings/Setting";
@@ -24,6 +23,7 @@ import { useSelector } from "react-redux";
 // Pages Components
 import NewInvoice from "./components/pages/create/NewInvoice";
 import InvoiceDetails from "./components/pages/invoices/view/InvoiceDetails";
+import ViewAllInvoices from "./components/pages/invoices/ViewAllInvoices";
 
 function App() {
   const auth = useSelector((state) => state.firebase.auth);
@@ -62,7 +62,11 @@ function App() {
           path="/createinvoice/:id"
           component={UserIsAuthenticated(NewInvoice)}
         />
-        {/* <Route exact path="/test/:id" component={UserIsAuthenticated(Test)} /> */}
+        <Route
+          exact
+          path="/invoices"
+          component={UserIsAuthenticated(ViewAllInvoices)}
+        />
         <Route
           exact
           path="/client/:id"

@@ -25,7 +25,7 @@ class InvoiceList extends React.Component {
                 aria-expanded="false"
                 aria-controls="collapseExample"
               >
-                <Link to="/client/invoices">
+                <Link to="/invoices">
                   <i className="fas fa-file-alt"></i> View All{" "}
                 </Link>
               </button>
