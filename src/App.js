@@ -5,6 +5,7 @@ import { UserIsAuthenticated, UserIsNotAuthenticated } from "./helper/auth";
 
 import AppNavBar from "./components/layout/AppNavBar";
 import Client from "./components/pages/clients/Clients";
+import ViewAllClient from "./components/pages/clients/ViewAllClients";
 // import Test from "./components/pages/view/InvoiceDetails"; //fdsf
 import Homepage from "./components/layout/Homepage";
 import AddClient from "./components/pages/clients/AddClient";
@@ -71,6 +72,11 @@ function App() {
           exact
           path="/client/:id"
           component={UserIsAuthenticated(ClientDetails)}
+        />
+        <Route
+          exact
+          path="/clients"
+          component={UserIsAuthenticated(ViewAllClient)}
         />
         <Route
           exact

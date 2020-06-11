@@ -7,16 +7,16 @@ class ClientList extends React.Component {
   render() {
     const {
       state,
-      handleChange,
-      activeChange,
+      // handleChange,
+      // activeChange,
       clients,
-      componentWillUpdate,
-      invoices,
+      // componentWillUpdate,
+      // invoices,
     } = this.props;
     const {
-      count,
-      tallyCheck,
-      tallyCash,
+      // count,
+      // tallyCheck,
+      // tallyCash,
       searchField,
       activeFilter,
       // pendingStatus,
@@ -40,10 +40,12 @@ class ClientList extends React.Component {
 
           <div className="row">
             <div className="col-md-6">
-              <h2>
-                {" "}
-                <i className="fas fa-users" /> Clients{""}
-              </h2>
+              <Link to="/clients">
+                <h2>
+                  {" "}
+                  <i className="fas fa-users" /> Clients{""}
+                </h2>
+              </Link>
 
               <button className="btn btn-outline-dark mb-1" type="button">
                 <Link to="/client/add">

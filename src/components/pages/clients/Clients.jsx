@@ -72,6 +72,7 @@ class Clients extends Component {
 
   render() {
     const { clients, invoices } = this.props;
+
     return (
       <>
         <Cards invoices={invoices} state={this.state} />

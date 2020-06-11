@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import Spinner from "../../../layout/Spinner";
 import InvoiceItem from "./InvoiceItem";
 class InvoiceList extends React.Component {
+  filterInvoices = (invoices) => {
+    let filterInvoices = invoices.filter((val, i) => i < 10);
+    return filterInvoices;
+  };
   render() {
     const { invoices } = this.props;
 
@@ -45,10 +49,13 @@ class InvoiceList extends React.Component {
                 <th></th>
               </tr>
             </thead>
-
-            {invoices.map((invoice) => {
+            {this.filterInvoices(invoices).map((invoice) => {
               return <InvoiceItem invoice={invoice} />;
             })}
+
+            {/* {invoices.map((invoice) => {
+              return <InvoiceItem invoice={invoice} />;
+            })} */}
           </table>
         </div>
       );

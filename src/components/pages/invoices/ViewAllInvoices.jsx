@@ -4,11 +4,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { isLoaded, isEmpty } from "react-redux-firebase";
 // Custom
-import {
-  InvoiceTable,
-  InvoiceListHead,
-  TableHeading,
-} from "../../styledComponents/invoices/invoiceTables";
+
 import InvoiceListItem from "./InvoiceListItem";
 // import InvoiceListLoader from "../../loaders/dashboard/InvoiceListLoader";
 
