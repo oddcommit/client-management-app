@@ -17,29 +17,18 @@ class Clients extends Component {
       searchField: "",
       activeFilter: true,
       count: null,
-      tallyCheck: null,
-      tallyCash: null,
     };
   }
 
   static getDerivedStateFromProps(props, state) {
     const { clients } = props;
     if (clients) {
-      let tallyCheck = clients.filter((client) => {
-        return client.cashCheck === "check";
-      });
-      let tallyCash = clients.filter((client) => {
-        return client.cashCheck === "cash";
-      });
-
       let count = clients.filter((client) => {
         return client.active === "true";
       });
 
       return {
         count: count.length,
-        tallyCheck: tallyCheck.length,
-        tallyCash: tallyCash.length,
       };
     }
     return null;
@@ -71,7 +60,7 @@ class Clients extends Component {
   };
 
   render() {
-    const { clients, invoices } = this.props;
+    const { clients, invoices, searchField } = this.props;
 
     return (
       <>
@@ -83,6 +72,7 @@ class Clients extends Component {
           handleChange={this.handleChange}
           activeChange={this.activeChange}
           invoices={invoices}
+          searchField={searchField}
         />
         <InvoiceList invoices={invoices} />
       </>

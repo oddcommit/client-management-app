@@ -46,7 +46,7 @@ function ClientItem({ client }) {
       </td>
       <td>{client.gender.charAt(0).toUpperCase() + client.gender.slice(1)}</td>
 
-      <td>
+      {/* <td>
         {client.cashCheck !== "none" ? (
           client.cashCheck === "cash" ? (
             <p className="text-success">Cash</p>
@@ -56,7 +56,7 @@ function ClientItem({ client }) {
         ) : (
           <p className="text-info">None</p>
         )}
-      </td>
+      </td> */}
       {/* <td>
         <Link
           to={`/createinvoice/${client.id}`}
@@ -97,7 +97,7 @@ function ClientItem({ client }) {
           </MenuItem>
           <MenuItem>
             {/* onClick={togglePaymentStatus} change this to toggle cash or check */}
-            <p>Mark as cash or check </p>
+            <p>Mark as active or not </p>
             {/* {invoice.paidStatus ? <p>Mark as Pending</p> : <p>Mark as Paid</p>} */}
           </MenuItem>
         </Menu>

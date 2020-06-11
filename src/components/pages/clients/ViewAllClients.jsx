@@ -112,7 +112,7 @@ class ViewAllClients extends React.Component {
                   <small>ClassName Day & Time</small>
                 </th>
                 <th>Qty</th>
-                <th></th>
+                <th>Active</th>
                 {/* <th className="hoverPointer" onClick={this.activeChange}>
                   {activeFilter ? (
                     <span className="text-success">
@@ -126,13 +126,13 @@ class ViewAllClients extends React.Component {
                 </th> */}
                 <th>Gender</th>
 
-                <th>
+                {/* <th>
                   {" "}
                   <small>
                     <span className="text-success">Cash</span>/
                     <span className="text-primary">Check</span>
                   </small>
-                </th>
+                </th> */}
                 <th>
                   <form className="form-inline active-purple-3 active-purple-4">
                     {/* <i className="fas fa-search" aria-hidden="true"></i> */}

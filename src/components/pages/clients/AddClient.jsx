@@ -30,7 +30,7 @@ class AddClient extends Component {
     quantity: "",
     teacher: "",
     active: "true",
-    cashCheck: "none",
+    // cashCheck: "none",
   };
 
   onChange = (e) => {
