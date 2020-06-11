@@ -4,13 +4,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { UserIsAuthenticated, UserIsNotAuthenticated } from "./helper/auth";
 
 import AppNavBar from "./components/layout/AppNavBar";
-import Client from "./components/clients/Clients";
+import Client from "./components/pages/clients/Clients";
 // import Test from "./components/pages/view/InvoiceDetails"; //fdsf
 import Homepage from "./components/layout/Homepage";
-import AddClient from "./components/clients/AddClient";
-import ClientDetails from "./components/clients/ClientDetails";
+import AddClient from "./components/pages/clients/AddClient";
+import ClientDetails from "./components/pages/clients/ClientDetails";
 
-import EditClient from "./components/clients/EditClient";
+import EditClient from "./components/pages/clients/EditClient";
 import Login from "./components/auth/Login";
 import Setting from "./components/settings/Setting";
 import Register from "./components/auth/Register";
@@ -23,9 +23,7 @@ import { useSelector } from "react-redux";
 
 // Pages Components
 import NewInvoice from "./components/pages/create/NewInvoice";
-import Invoices from "./components/pages/invoices/Invoices";
-import InvoiceDetails from "./components/pages/view/InvoiceDetails";
-import InvoicePdf from "./components/pages/view/InvoicePDF";
+import InvoiceDetails from "./components/pages/invoices/view/InvoiceDetails";
 
 function App() {
   const auth = useSelector((state) => state.firebase.auth);

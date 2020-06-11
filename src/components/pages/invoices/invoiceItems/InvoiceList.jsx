@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Spinner from "../../layout/Spinner";
+import Spinner from "../../../layout/Spinner";
 import InvoiceItem from "./InvoiceItem";
 class InvoiceList extends React.Component {
   render() {

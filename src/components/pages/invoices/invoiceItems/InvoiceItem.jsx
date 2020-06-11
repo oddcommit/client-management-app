@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { isLoaded } from "react-redux-firebase";
 
-import InvoiceListItem from "../../pages/invoices/InvoiceListItem";
+import InvoiceListItem from "../InvoiceListItem";
 
 function InvoiceItem({ invoice }) {
   // const invoices = useSelector((state) =>

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { compose } from "redux";
 import { connect } from "react-redux";
 
-import Spinner from "../layout/Spinner";
+import Spinner from "../../layout/Spinner";
 
 import { firestoreConnect } from "react-redux-firebase";
 

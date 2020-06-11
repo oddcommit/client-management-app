@@ -2,8 +2,8 @@ import React from "react";
 //Vendor
 import moment from "moment";
 import styled from "@react-pdf/styled-components";
-import { Page, Text, View, Document, Font } from "@react-pdf/renderer";
-import Noto from "../../../fonts/NotoSans-Regular.ttf";
+import { Document, Font } from "@react-pdf/renderer";
+import Noto from "../../../../fonts/NotoSans-Regular.ttf";
 
 Font.register({
   family: "Noto Sans",

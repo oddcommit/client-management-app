@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import history from "../../../others/history";
 import IconButton from "@material-ui/core/IconButton";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import { Divider } from "@material-ui/core";
 
 function ClientItem({ client }) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -24,21 +22,10 @@ function ClientItem({ client }) {
     setAnchorEl(null);
   };
 
-  // const handleCreateInvoice = (e) => {
-  //   e.stopPropagation();
-  //   e.preventDefault();
-
-  //   history.push(`/createinvoice/${client.id}`);
-  //   setAnchorEl(null);
-  // };
-
   return (
     <tr key={client.id}>
       <td>
-        <Link
-          to={`/client/${client.id}`}
-          // className="btn btn-primary btn-sm"
-        >
+        <Link to={`/client/${client.id}`}>
           {client.firstName.charAt(0).toUpperCase() + client.firstName.slice(1)}{" "}
           {client.lastName.charAt(0).toUpperCase() + client.lastName.slice(1)}
         </Link>

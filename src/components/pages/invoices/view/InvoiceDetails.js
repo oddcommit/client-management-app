@@ -8,16 +8,16 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 // import Header from '../../header/Header';
 import InvoicePD from "./InvoicePD";
 import InvoicePDF from "./InvoicePDF";
-import { Button } from "../../styledComponents/shared/Button";
-import { ButtonDiv } from "../../styledComponents/incvoiceDetails/InvoiceDetailButtons";
+import { Button } from "../../../styledComponents/shared/Button";
+import { ButtonDiv } from "../../../styledComponents/incvoiceDetails/InvoiceDetailButtons";
 
 import {
   deleteInovice,
   // sendInvoiceMail,
   updatePaymentStatus,
-} from "../../../redux/actions/invoiceActions";
+} from "../../../../redux/actions/invoiceActions";
 
-import Spinner from "../../layout/Spinner";
+import Spinner from "../../../layout/Spinner";
 
 // Component
 function InvoiceDetails() {

@@ -4,7 +4,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 
 import ClientList from "./clientItems/ClientList";
-import InvoiceList from "./invoiceItems/InvoiceList";
+import InvoiceList from "../invoices/invoiceItems/InvoiceList";
 import Cards from "./clientItems/Cards";
 
 import { firestoreConnect } from "react-redux-firebase";
