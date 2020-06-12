@@ -55,9 +55,10 @@ function InvoiceListItem(props) {
   return (
     <tr key={invoice.id} onClick={handleClick} style={{ cursor: "pointer" }}>
       <td>{invoice.invoiceNum}</td>
+      <td>{invoice.clientName}</td>
 
       <td>{moment(invoice.invoiceDate.toDate()).format("MM-DD-YYYY")} </td>
-      <td>{invoice.clientName}</td>
+      <td>{moment(invoice.dueDate.toDate()).format("MM-DD-YYYY")} </td>
 
       <td>
         {" "}

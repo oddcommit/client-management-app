@@ -12,8 +12,6 @@ class ViewAllClients extends React.Component {
     super(props);
     this.state = {
       searchField: "",
-      activeFilter: true,
-      count: null,
       option: null,
     };
   }
@@ -113,26 +111,9 @@ class ViewAllClients extends React.Component {
                 </th>
                 <th>Qty</th>
                 <th>Active</th>
-                {/* <th className="hoverPointer" onClick={this.activeChange}>
-                  {activeFilter ? (
-                    <span className="text-success">
-                      Active <i className="fas fa-arrows-alt-v "></i>
-                    </span>
-                  ) : (
-                    <span className="text-danger">
-                      Active <i className="fas fa-arrows-alt-v "></i>
-                    </span>
-                  )}
-                </th> */}
+
                 <th>Gender</th>
 
-                {/* <th>
-                  {" "}
-                  <small>
-                    <span className="text-success">Cash</span>/
-                    <span className="text-primary">Check</span>
-                  </small>
-                </th> */}
                 <th>
                   <form className="form-inline active-purple-3 active-purple-4">
                     {/* <i className="fas fa-search" aria-hidden="true"></i> */}

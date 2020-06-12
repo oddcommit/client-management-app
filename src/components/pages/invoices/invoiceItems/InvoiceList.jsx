@@ -5,9 +5,16 @@ import Spinner from "../../../layout/Spinner";
 import InvoiceItem from "./InvoiceItem";
 class InvoiceList extends React.Component {
   filterInvoices = (invoices) => {
-    let filterInvoices = invoices.filter((val, i) => i < 10);
-    return filterInvoices;
+    // let filterInvoices = invoices.filter((val, i) => i < 10);
+    // return filterInvoices;
+    const filterInvoices = invoices.filter((invoice) => {
+      return invoice.paidStatus === false;
+    });
+    return filterInvoices.sort((a, b) => {
+      return a.invoiceNum - b.invoiceNum;
+    });
   };
+
   render() {
     const { invoices } = this.props;
 
@@ -36,13 +43,13 @@ class InvoiceList extends React.Component {
             </div>
           </div>
           {/* recent invoices */}
-          <table className="  table table-responsive-md  table-bordered table-hover table-striped">
+          <table className="  table table-sm table-responsive-md  table-bordered table-hover table-striped">
             <thead className="thead-inverse  thead-dark ">
               <tr>
                 <th>No.</th>
-                <th>Date</th>
-
                 <th>Name</th>
+                <th>Date</th>
+                <th>Due Date</th>
 
                 <th>Amount</th>
                 <th>Status</th>

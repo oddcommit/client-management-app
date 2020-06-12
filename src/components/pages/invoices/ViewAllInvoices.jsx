@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 //Vendor
 // import Header from "../../header/Header";
 import { useSelector } from "react-redux";
@@ -10,37 +10,68 @@ import InvoiceListItem from "./InvoiceListItem";
 
 // Component
 function ViewAllInvoices() {
+  const [option, setOption] = useState(null);
+
   const invoices = useSelector((state) => state.firestore.ordered.invoices);
+
+  const handleInputChange = (e) => {
+    setOption(e.target.value);
+  };
+  // const handleSearchField = (e) => {
+  //   this.setSearch(e.target.value);
+  // };
+
+  const handleSoftSearchField = (invoices) => {
+    const filterinvoices = invoices.filter((invoice) => {
+      if (option === "pending") {
+        return invoice.paidStatus === false;
+      } else if (option === "fulfill") {
+        return invoice.paidStatus === true;
+      } else {
+        return invoice;
+      }
+    });
+    return filterinvoices.sort((a, b) => a.dueDate - b.dueDate);
+  };
 
   let tableListItems;
 
   if (isLoaded(invoices)) {
-    tableListItems = invoices.map((invoice) => (
+    tableListItems = handleSoftSearchField(invoices).map((invoice) => (
       <InvoiceListItem invoice={invoice} key={invoice.id} />
     ));
   }
-  // if (!isLoaded(invoices)) {
-  //   tableListItems = Array.from({ length: 10 }).map((invoice) => (
-  //     <InvoiceListLoader />
-  //   ));
-  // }
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6">
           <h2>
-            {" "}
-            <i className="fas fa-users" /> Invoices{""}
+            <i className="fas fa-file-invoice-dollar" /> Invoices
           </h2>
+          <div class="form-group">
+            <label for="option">View By:</label>
+            <select
+              class="form-control"
+              name="option"
+              onChange={handleInputChange}
+            >
+              <option selected>Select One</option>
+
+              <option value="pending">Pending</option>
+              <option value="fulfill">Fulfill</option>
+              <option value="all">All</option>
+            </select>
+          </div>
         </div>
       </div>
       <table className="table table-responsive-md  table-bordered table-hover table-striped">
         <thead className="thead-inverse  thead-dark ">
           <tr>
             <th>No.</th>
-            <th>Date</th>
-
             <th>Name</th>
+            <th>Date</th>
+            <th>Due Date</th>
 
             <th>Amount</th>
             <th>Status</th>

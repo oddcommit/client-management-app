@@ -15,7 +15,6 @@ class Clients extends Component {
     super(props);
     this.state = {
       searchField: "",
-      activeFilter: true,
       count: null,
     };
   }
@@ -33,30 +32,13 @@ class Clients extends Component {
     }
     return null;
   }
-  componentDidMount() {
-    this.userData = JSON.parse(localStorage.getItem("user"));
 
-    if (localStorage.getItem("user")) {
-      this.setState({
-        activeFilter: this.userData.activeFilter,
-      });
-    } else {
-      this.setState({
-        activeFilter: true,
-      });
-    }
-  }
   componentWillUpdate(nextProps, nextState) {
     window.localStorage.setItem("user", JSON.stringify(nextState));
   }
 
   handleChange = (e) => {
     this.setState({ searchField: e.target.value });
-  };
-
-  activeChange = () => {
-    const currentState = this.state.activeFilter;
-    this.setState({ activeFilter: !currentState });
   };
 
   render() {
@@ -70,7 +52,6 @@ class Clients extends Component {
           state={this.state}
           componentWillUpdate={this.componentWillUpdate}
           handleChange={this.handleChange}
-          activeChange={this.activeChange}
           invoices={invoices}
           searchField={searchField}
         />
