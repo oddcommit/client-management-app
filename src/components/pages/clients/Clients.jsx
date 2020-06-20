@@ -14,7 +14,7 @@ class Clients extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchField: "",
+      // searchField: "",
       count: null,
     };
   }
@@ -33,27 +33,27 @@ class Clients extends Component {
     return null;
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    window.localStorage.setItem("user", JSON.stringify(nextState));
-  }
+  // componentWillUpdate(nextProps, nextState) {
+  //   window.localStorage.setItem("user", JSON.stringify(nextState));
+  // }
 
-  handleChange = (e) => {
-    this.setState({ searchField: e.target.value });
-  };
+  // handleChange = (e) => {
+  //   this.setState({ searchField: e.target.value });
+  // };
 
   render() {
-    const { clients, invoices, searchField } = this.props;
+    const { clients, invoices } = this.props;
 
     return (
       <>
-        <Cards invoices={invoices} state={this.state} />
+        <Cards state={this.state} />
         <ClientList
           clients={clients}
           state={this.state}
-          componentWillUpdate={this.componentWillUpdate}
-          handleChange={this.handleChange}
+          // componentWillUpdate={this.componentWillUpdate}
+          // handleChange={this.handleChange}
           invoices={invoices}
-          searchField={searchField}
+          // searchField={searchField}
         />
         <InvoiceList invoices={invoices} />
       </>

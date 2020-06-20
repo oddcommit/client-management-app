@@ -85,18 +85,18 @@ export default function Homepage() {
 
           <div className="row mb-5">
             <div className="card-deck">
-              <div class="card">
+              <div className="card">
                 <img
-                  class="card-img-top"
+                  className="card-img-top"
                   src="piano1.jpg"
                   alt="Card image cap"
                 />
 
-                <div class="card-body">
-                  <h4 class="card-title infotext">
+                <div className="card-body">
+                  <h4 className="card-title infotext">
                     <a>CURRICULUM</a>
                   </h4>
-                  <p class="card-blockquote">
+                  <p className="card-blockquote">
                     Our curriculum includes theory, application, and
                     performance. We believe that a solid foundation of basic
                     music theory is very important for any musician. With the
@@ -108,18 +108,18 @@ export default function Homepage() {
                   </p>
                 </div>
               </div>
-              <div class="card">
+              <div className="card">
                 <img
-                  class="card-img-top"
+                  className="card-img-top"
                   src="teacher2.jpg"
                   alt="Card image cap"
                 />
 
-                <div class="card-body">
-                  <h4 class="card-title infotext">
+                <div className="card-body">
+                  <h4 className="card-title infotext">
                     <a>TEACHERS</a>
                   </h4>
-                  <p class="card-blockquote">
+                  <p className="card-blockquote">
                     Our professionally trained staffs are graduates from music
                     institutions such as Georgia State University, University of
                     Georgia, The Atlanta Institute of Music, and The Saigon
@@ -131,18 +131,18 @@ export default function Homepage() {
                   </p>
                 </div>
               </div>
-              <div class="card">
+              <div className="card">
                 <img
-                  class="card-img-top"
+                  className="card-img-top"
                   src="chair.jpg"
                   alt="Card image cap"
                 />
 
-                <div class="card-body">
-                  <h4 class="card-title infotext">
+                <div className="card-body">
+                  <h4 className="card-title infotext">
                     <a>FACILITY</a>
                   </h4>
-                  <p class="card-blockquote">
+                  <p className="card-blockquote">
                     Our studio rooms are very spacious while offering an
                     effective private one-on-one learning experience for our
                     students. Each room is equipped with video surveillance
@@ -154,18 +154,18 @@ export default function Homepage() {
                   </p>
                 </div>
               </div>
-              <div class="card">
+              <div className="card">
                 <img
-                  class="card-img-top"
+                  className="card-img-top"
                   src="background.jpg"
                   alt="Card image cap"
                 />
 
-                <div class="card-body">
-                  <h4 class="card-title infotext">
+                <div className="card-body">
+                  <h4 className="card-title infotext">
                     <a>PERFORMANCES</a>
                   </h4>
-                  <p class="card-blockquote">
+                  <p className="card-blockquote">
                     The students will also get a chance to perform for faculty
                     and parents at our seasonal student recitals. Students will
                     get to experience the gratification of being able to perform
@@ -471,32 +471,32 @@ export default function Homepage() {
               </p>
 
               <form
-                class="contact-form d-flex flex-column align-items-center"
+                className="contact-form d-flex flex-column align-items-center"
                 action="https://formspree.io/TNdoremi@gmail.com "
                 method="POST"
               >
-                <div class="form-group w-75">
+                <div className="form-group w-75">
                   <input
                     type="name"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Name"
                     name="name"
                     required
                   />
                 </div>
-                <div class="form-group w-75">
+                <div className="form-group w-75">
                   <input
                     type="email"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Email"
                     name="name"
                     required
                   />
                 </div>
 
-                <div class="form-group w-75">
+                <div className="form-group w-75">
                   <textarea
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     placeholder="Message"
                     rows="7"
@@ -505,7 +505,7 @@ export default function Homepage() {
                   ></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-submit btn-info w-75">
+                <button type="submit" className="btn btn-submit btn-info w-75">
                   Submit
                 </button>
               </form>

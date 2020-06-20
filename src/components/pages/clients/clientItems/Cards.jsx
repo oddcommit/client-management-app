@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-function Cards({ state, invoices }) {
+function Cards({ state }) {
   const { count } = state;
   const pendingInvoices = useSelector(
     (state) =>

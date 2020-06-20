@@ -110,7 +110,7 @@ class ClientList extends React.Component {
             </thead>
             <tbody>
               {this.handleSoftSearchField(clients).map((client) => (
-                <ClientItem client={client} />
+                <ClientItem client={client} key={client.id} />
               ))}
             </tbody>
           </table>

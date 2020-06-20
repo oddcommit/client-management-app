@@ -49,10 +49,10 @@ function ViewAllInvoices() {
           <h2>
             <i className="fas fa-file-invoice-dollar" /> Invoices
           </h2>
-          <div class="form-group">
+          <div className="form-group">
             <label for="option">View By:</label>
             <select
-              class="form-control"
+              className="form-control"
               name="option"
               onChange={handleInputChange}
             >

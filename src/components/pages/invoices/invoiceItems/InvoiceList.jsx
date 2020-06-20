@@ -57,7 +57,7 @@ class InvoiceList extends React.Component {
               </tr>
             </thead>
             {this.filterInvoices(invoices).map((invoice) => {
-              return <InvoiceItem invoice={invoice} />;
+              return <InvoiceItem invoice={invoice} key={invoice.id} />;
             })}
 
             {/* {invoices.map((invoice) => {
