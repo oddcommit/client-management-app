@@ -49,7 +49,7 @@ class EditClient extends Component {
           ? 0
           : this.depositInput.current.value,
       quantity:
-        this.quantityInput.current.value == ""
+        this.quantityInput.current.value === ""
           ? 0
           : this.quantityInput.current.value,
       classDay: this.classDayInput.current.value,

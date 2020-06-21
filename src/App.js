@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import { UserIsAuthenticated, UserIsNotAuthenticated } from "./helper/auth";
 
@@ -19,7 +19,6 @@ import "./App.css";
 
 // Firestore
 import { useFirestoreConnect } from "react-redux-firebase";
-import { useSelector } from "react-redux";
 
 // Pages Components
 import NewInvoice from "./components/pages/create/NewInvoice";
@@ -27,7 +26,7 @@ import InvoiceDetails from "./components/pages/invoices/view/InvoiceDetails";
 import ViewAllInvoices from "./components/pages/invoices/ViewAllInvoices";
 
 function App() {
-  const auth = useSelector((state) => state.firebase.auth);
+  // const auth = useSelector((state) => state.firebase.auth);
 
   useFirestoreConnect([
     {

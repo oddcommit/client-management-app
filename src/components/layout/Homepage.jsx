@@ -86,15 +86,11 @@ export default function Homepage() {
           <div className="row mb-5">
             <div className="card-deck">
               <div className="card">
-                <img
-                  className="card-img-top"
-                  src="piano1.jpg"
-                  alt="Card image cap"
-                />
+                <img className="card-img-top" src="piano1.jpg" alt="Card cap" />
 
                 <div className="card-body">
                   <h4 className="card-title infotext">
-                    <a>CURRICULUM</a>
+                    <h4>CURRICULUM</h4>
                   </h4>
                   <p className="card-blockquote">
                     Our curriculum includes theory, application, and
@@ -112,12 +108,12 @@ export default function Homepage() {
                 <img
                   className="card-img-top"
                   src="teacher2.jpg"
-                  alt="Card image cap"
+                  alt="Card cap"
                 />
 
                 <div className="card-body">
                   <h4 className="card-title infotext">
-                    <a>TEACHERS</a>
+                    <h4>TEACHERS</h4>
                   </h4>
                   <p className="card-blockquote">
                     Our professionally trained staffs are graduates from music
@@ -132,15 +128,11 @@ export default function Homepage() {
                 </div>
               </div>
               <div className="card">
-                <img
-                  className="card-img-top"
-                  src="chair.jpg"
-                  alt="Card image cap"
-                />
+                <img className="card-img-top" src="chair.jpg" alt="Card  cap" />
 
                 <div className="card-body">
                   <h4 className="card-title infotext">
-                    <a>FACILITY</a>
+                    <h4>FACILITY</h4>
                   </h4>
                   <p className="card-blockquote">
                     Our studio rooms are very spacious while offering an
@@ -158,12 +150,12 @@ export default function Homepage() {
                 <img
                   className="card-img-top"
                   src="background.jpg"
-                  alt="Card image cap"
+                  alt="Card  cap"
                 />
 
                 <div className="card-body">
                   <h4 className="card-title infotext">
-                    <a>PERFORMANCES</a>
+                    <h4>PERFORMANCES</h4>
                   </h4>
                   <p className="card-blockquote">
                     The students will also get a chance to perform for faculty
@@ -189,19 +181,20 @@ export default function Homepage() {
               <div
                 className="modal fade"
                 id="modal1"
-                tabindex="-1"
+                tabIndex="-1"
                 role="dialog"
                 aria-labelledby="myModalLabel"
-                aria-hidden="true"
+                // aria-hidden="true"
               >
                 <div className="modal-dialog modal-lg" role="document">
                   <div className="modal-content">
                     <div className="modal-body mb-0 p-0">
                       <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
                         <iframe
+                          title="Youtube1"
                           className="embed-responsive-item"
                           src="https://www.youtube.com/embed/5oLwrZANJxw"
-                          allowfullscreen
+                          allowFullScreen
                           picture-in-picture
                         ></iframe>
                       </div>
@@ -222,7 +215,7 @@ export default function Homepage() {
                 </div>
               </div>
 
-              <a className="img-zoom">
+              <a href="/#" className="img-zoom">
                 <img
                   className="img-fluid z-depth-1 btn"
                   src="video1.jpg"
@@ -237,7 +230,7 @@ export default function Homepage() {
               <div
                 className="modal fade"
                 id="modal6"
-                tabindex="-1"
+                tabIndex="-1"
                 role="dialog"
                 aria-labelledby="myModalLabel"
                 aria-hidden="true"
@@ -247,9 +240,10 @@ export default function Homepage() {
                     <div className="modal-body mb-0 p-0">
                       <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
                         <iframe
+                          title="youtube2"
                           className="embed-responsive-item"
                           src="https://www.youtube.com/embed/HOKkOXVZKYs"
-                          allowfullscreen
+                          allowFullScreen
                         ></iframe>
                       </div>
                     </div>
@@ -269,7 +263,7 @@ export default function Homepage() {
                 </div>
               </div>
 
-              <a className="img-zoom">
+              <a href="/#" className="img-zoom">
                 <img
                   className="img-fluid z-depth-1 btn"
                   src="video2.jpg"
@@ -284,7 +278,7 @@ export default function Homepage() {
               <div
                 className="modal fade"
                 id="modal4"
-                tabindex="-1"
+                tabIndex="-1"
                 role="dialog"
                 aria-labelledby="myModalLabel"
                 aria-hidden="true"
@@ -294,9 +288,10 @@ export default function Homepage() {
                     <div className="modal-body mb-0 p-0">
                       <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
                         <iframe
+                          title="youtube3"
                           className="embed-responsive-item"
                           src="https://www.youtube.com/embed/6veYo3CmiZU"
-                          allowfullscreen
+                          allowFullScreen
                         ></iframe>
                       </div>
                     </div>
@@ -316,7 +311,7 @@ export default function Homepage() {
                 </div>
               </div>
 
-              <a className="img-zoom">
+              <a href="/#" className="img-zoom">
                 <img
                   className="img-fluid z-depth-1 btn"
                   src="video3.jpg"
@@ -425,7 +420,7 @@ export default function Homepage() {
                 <h2 className="text-center">Address</h2>{" "}
                 <ul className="fa-ul mb-4 ml-0">
                   <li id="mail-address">
-                    <a>
+                    <a href="/#">
                       <i className="fas fa-envelope-open mr-2 mb-3 contact-icons"></i>
                       TNdoremi@gmail.com
                     </a>
@@ -434,13 +429,13 @@ export default function Homepage() {
                     <i className="fas fa-mobile-alt mr-2 mb-4 contact-icons"></i>
                     678-343-1534
                   </li>
-                  <li>
+                  {/* <li>
                     <i className="fas fa-map-marker-alt mr-2 contact-icons"></i>
                     <strong>NORCROSS </strong> <br />{" "}
                     <p className="ml-3">
                       5430 Jimmy Carter Blvd #112, Norcross, GA 30093
                     </p>
-                  </li>
+                  </li> */}
                   <li>
                     <i className="fas fa-map-marker-alt mr-2 contact-icons"></i>
                     <strong>SUWANEE </strong> <br />
@@ -455,11 +450,12 @@ export default function Homepage() {
             <div className="col-lg-6">
               <div className="embed-responsive embed-responsive-4by3">
                 <iframe
+                  title="google map"
                   className="embed-responsive-item"
                   src="https://www.google.com/maps/d/embed?mid=1yrofSsxqpcT7Q84GTCfj3Pf79MrM8OYr"
-                  frameborder="0"
+                  frameBorder="0"
                   style={{ border: "0" }}
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               </div>
             </div>
@@ -520,7 +516,7 @@ export default function Homepage() {
             <div className="col-lg-12">
               <ul className="d-flex list-unstyled justify-content-around ">
                 <li>
-                  <a href="#">Home</a>
+                  <a href="/#">Home</a>
                 </li>
                 <li>
                   <a href="#about">About</a>

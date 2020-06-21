@@ -41,7 +41,7 @@ class ViewAllClients extends React.Component {
         );
       } else if (option === "currentDay") {
         return (
-          client.classDay.toLowerCase() ==
+          client.classDay.toLowerCase() ===
             moment(new Date()).format("dddd").toLowerCase() &&
           client.active === true &&
           client.lastName.toLowerCase().includes(searchField.toLowerCase())

@@ -20,7 +20,7 @@ function InvoiceListItem(props) {
   const dispatch = useDispatch();
   const open = Boolean(anchorEl);
 
-  const currencySign = "$";
+  // const currencySign = "$";
 
   const handleOptionOpen = (event) => {
     event.stopPropagation();

@@ -29,7 +29,7 @@ class ClientList extends React.Component {
       return (
         client.lastName.toLowerCase().includes(searchField.toLowerCase()) &&
         client.active === true &&
-        client.classDay.toLowerCase() ==
+        client.classDay.toLowerCase() ===
           moment(new Date()).format("dddd").toLowerCase() &&
         client.lastName.toLowerCase().includes(searchField.toLowerCase())
       );

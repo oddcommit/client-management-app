@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
 //Vendor
@@ -9,7 +9,7 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from "@material-ui/pickers";
-import { isLoaded } from "react-redux-firebase";
+// import { isLoaded } from "react-redux-firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import Spinner from "../../layout/Spinner";
@@ -127,7 +127,6 @@ function NewInvoice(props) {
                 margin="dense"
                 id="date-picker-dialog"
                 label="Date"
-                name="Date"
                 error={errors.itemName && true}
                 helperText={errors.itemName && "Invalid Input"}
                 size="small"
@@ -145,7 +144,6 @@ function NewInvoice(props) {
                 margin="dense"
                 id="due-date-picker-dialog"
                 label="Due Date"
-                name="Due Date"
                 size="small"
                 fullWidth
                 inputVariant="outlined"

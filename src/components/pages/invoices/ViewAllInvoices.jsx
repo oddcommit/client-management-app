@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //Vendor
 // import Header from "../../header/Header";
 import { useSelector } from "react-redux";
-import { isLoaded, isEmpty } from "react-redux-firebase";
+import { isLoaded } from "react-redux-firebase";
 // Custom
 
 import InvoiceListItem from "./InvoiceListItem";

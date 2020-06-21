@@ -9,7 +9,6 @@ import { Button } from "../../styledComponents/shared/Button";
 // Components
 function TotalAmount(props) {
   const { register, handleSubmit, errors } = useForm();
-  const { taxType, taxEnable, taxPercent } = props.invoiceMeta;
   const loadingState = useSelector((state) => state.loadingState.createBtn);
 
   // Total Invoice Tax Calculations
