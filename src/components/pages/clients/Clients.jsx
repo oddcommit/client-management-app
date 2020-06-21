@@ -23,7 +23,7 @@ class Clients extends Component {
     const { clients } = props;
     if (clients) {
       let count = clients.filter((client) => {
-        return client.active === "true";
+        return client.active === true;
       });
 
       return {

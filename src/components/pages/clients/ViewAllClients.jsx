@@ -31,19 +31,19 @@ class ViewAllClients extends React.Component {
     const filterClients = clients.filter((client) => {
       if (option === "active") {
         return (
-          client.active === "true" &&
+          client.active === true &&
           client.lastName.toLowerCase().includes(searchField.toLowerCase())
         );
       } else if (option === "notactive") {
         return (
-          client.active === "false" &&
+          client.active === false &&
           client.lastName.toLowerCase().includes(searchField.toLowerCase())
         );
       } else if (option === "currentDay") {
         return (
           client.classDay.toLowerCase() ==
             moment(new Date()).format("dddd").toLowerCase() &&
-          client.active === "true" &&
+          client.active === true &&
           client.lastName.toLowerCase().includes(searchField.toLowerCase())
         );
       } else if (option === "all") {
@@ -51,7 +51,7 @@ class ViewAllClients extends React.Component {
       } else {
         return (
           client.lastName.toLowerCase().includes(searchField.toLowerCase()) &&
-          client.active === "true"
+          client.active === true
         );
       }
     });

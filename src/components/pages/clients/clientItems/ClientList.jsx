@@ -28,7 +28,7 @@ class ClientList extends React.Component {
     const filterClients = clients.filter((client) => {
       return (
         client.lastName.toLowerCase().includes(searchField.toLowerCase()) &&
-        client.active === "true" &&
+        client.active === true &&
         client.classDay.toLowerCase() ==
           moment(new Date()).format("dddd").toLowerCase() &&
         client.lastName.toLowerCase().includes(searchField.toLowerCase())

@@ -166,7 +166,7 @@ class ClientDetails extends Component {
                   {depositForm}
                   <h3 className="pull-right">
                     Active:{" "}
-                    {client.active === "true" ? (
+                    {client.active === true ? (
                       <span className="text-success">Still in Class</span>
                     ) : (
                       <span className="text-danger">Withdrew </span>

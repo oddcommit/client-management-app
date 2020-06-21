@@ -26,7 +26,7 @@ class EditClient extends Component {
     this.dobInput = React.createRef();
     this.instrumentInput = React.createRef();
     this.genderInput = React.createRef();
-    this.activeInput = React.createRef();
+    // this.activeInput = React.createRef();
     this.knowAboutUsInput = React.createRef();
     this.streetAddressInput = React.createRef();
     this.cityInput = React.createRef();
@@ -59,7 +59,7 @@ class EditClient extends Component {
       dob: this.dobInput.current.value,
       instrument: this.instrumentInput.current.value,
       gender: this.genderInput.current.value,
-      active: this.activeInput.current.value,
+      // active: this.activeInput.current.value,
       knowAboutUs: this.knowAboutUsInput.current.value,
       streetAddress: this.streetAddressInput.current.value,
       city: this.cityInput.current.value,
@@ -166,7 +166,7 @@ class EditClient extends Component {
                     </label>
                   </div>
 
-                  <div className="col-sm-3 mt-4 space-between">
+                  {/* <div className="col-sm-3 mt-4 space-between">
                     <label htmlFor="active">
                       Active{" "}
                       <select
@@ -179,7 +179,7 @@ class EditClient extends Component {
                         <option value="false">False</option>
                       </select>
                     </label>
-                  </div>
+                  </div> */}
 
                   <div className="col-sm-6">
                     <label className="mr-sm-2" htmlFor="knowAboutUs">

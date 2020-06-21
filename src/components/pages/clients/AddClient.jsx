@@ -29,7 +29,7 @@ class AddClient extends Component {
     gender: "",
     quantity: "",
     teacher: "",
-    active: "true",
+    active: true,
     // cashCheck: "none",
   };
 

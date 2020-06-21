@@ -5,9 +5,13 @@ import IconButton from "@material-ui/core/IconButton";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import { useDispatch } from "react-redux";
+
+import { updateActiveStatus } from "../../../../redux/actions/clientActions";
 
 function ClientItem({ client }) {
   const [anchorEl, setAnchorEl] = useState(null);
+  const dispatch = useDispatch();
   const open = Boolean(anchorEl);
 
   const handleOptionOpen = (e) => {
@@ -19,6 +23,14 @@ function ClientItem({ client }) {
   const handleOptionClose = (e) => {
     e.stopPropagation();
     e.preventDefault();
+    setAnchorEl(null);
+  };
+
+  const toggleActiveStatus = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    dispatch(updateActiveStatus(client.id, !client.active));
+
     setAnchorEl(null);
   };
 
@@ -38,7 +50,7 @@ function ClientItem({ client }) {
       </td>
       <td>{client.quantity}</td>
       <td>
-        {client.active === "true" ? (
+        {client.active === true ? (
           <span className="text-success">Still in ClassName</span>
         ) : (
           <span className="text-danger">Withdrew</span>
@@ -95,10 +107,9 @@ function ClientItem({ client }) {
               <i className="fas fa-arrow-circle-right " /> Create New Invoice
             </Link>
           </MenuItem>
-          <MenuItem>
-            {/* onClick={togglePaymentStatus} change this to toggle cash or check */}
-            <p>Mark as active or not </p>
-            {/* {invoice.paidStatus ? <p>Mark as Pending</p> : <p>Mark as Paid</p>} */}
+
+          <MenuItem onClick={toggleActiveStatus}>
+            {client.active ? <p>Mark as Withdrew</p> : <p>Mark as Active</p>}
           </MenuItem>
         </Menu>
       </td>
