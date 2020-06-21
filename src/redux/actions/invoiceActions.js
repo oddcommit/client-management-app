@@ -4,7 +4,7 @@ import history from "../../others/history";
 
 export const createInvoice = (invoiceDetails, invNum) => (
   dispatch,
-  // getState,
+  getState,
   { getFirebase }
 ) => {
   dispatch({ type: "CREATE_BUTTON", payload: true });
@@ -39,7 +39,7 @@ export const createInvoice = (invoiceDetails, invNum) => (
 
 export const deleteInovice = (invoiceId) => (
   dispatch,
-  // getState,
+  getState,
   { getFirebase }
 ) => {
   // const uid = getState().firebase.auth.uid;
@@ -64,7 +64,7 @@ export const deleteInovice = (invoiceId) => (
 
 export const updatePaymentStatus = (invoiceId, status) => (
   dispatch,
-  // getState,
+  getState,
   { getFirebase }
 ) => {
   // const uid = getState().firebase.auth.uid;
