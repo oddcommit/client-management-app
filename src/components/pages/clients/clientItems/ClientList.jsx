@@ -64,7 +64,7 @@ class ClientList extends React.Component {
               <Link to="/clients">
                 <h2>
                   {" "}
-                  <i className="fas fa-users" /> Clients{""}
+                  <i className="fas fa-users" /> Students{""}
                 </h2>
               </Link>
 

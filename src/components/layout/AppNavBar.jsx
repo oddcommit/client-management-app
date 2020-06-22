@@ -72,7 +72,7 @@ class AppNavBar extends Component {
               {isAuthenticated ? (
                 <li className="nav-item">
                   <Link to="/dashboard" className="nav-link">
-                    Client Panel
+                    Student Panel
                   </Link>
                 </li>
               ) : null}

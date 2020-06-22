@@ -1,3 +1,38 @@
+# contact-keeper
+
+A music website with student management and invoice generator functions.
+
+#### Features:
+
+- Create and remove student
+- Create and remove invoices for students
+- Calculate the total invoices and the students
+- Login/Logout Functionality
+- Export/Print invoice in PDF
+
+#### Instructions:
+
+- Clone with HTTPS
+
+```
+git clone: https://github.com/VanVDC/client-management-app.git
+```
+
+- `npm install`
+- Create an `.env` file and add your firebase config
+- `npm start`
+- Visit `localhost:3000`
+
+## Demo
+
+- [Demo](https://contacts-keeper-16284.firebaseapp.com/)
+  Login
+
+```
+user: tom@gmail.com
+pass: 123456
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
