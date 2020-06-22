@@ -23,15 +23,23 @@ git clone: https://github.com/VanVDC/client-management-app.git
 - `npm start`
 - Visit `localhost:3000`
 
-## Demo
+#### Demo:
 
 - [Demo](https://contacts-keeper-16284.firebaseapp.com/)
-  Login
+- Login
 
 ```
 user: tom@gmail.com
 pass: 123456
 ```
+
+#### Built With:
+
+- [Create-react-app](https://github.com/facebook/create-react-app)
+- [Bootstrap](https://github.com/twbs/bootstrap)
+- [React](https://github.com/facebook/react/)
+- [Redux](https://github.com/reactjs/redux)
+- [Firebase](https://firebase.google.com/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
