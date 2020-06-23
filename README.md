@@ -23,7 +23,19 @@ git clone: https://github.com/VanVDC/client-management-app.git
 ```
 
 - `npm install`
+- Create a firebase account [Firebase](https://firebase.google.com/)
 - Create an `.env` file and add your firebase config
+
+```
+REACT_APP_GOOGLE_AUTH_DOMAIN=""
+REACT_APP_GOOGLE_DATABASE_URL=""
+REACT_APP_GOOGLE_PROJECT_ID=""
+REACT_APP_GOOGLE_STORAGE_BUCKET=""
+REACT_APP_GOOGLE_MESSAGING_SENDER_ID=""
+REACT_APP_GOOGLE_APP_ID=""
+REACT_APP_GOOGLE_MEASUREMENT_ID=""
+```
+
 - `npm start`
 - Visit `localhost:3000`
 
