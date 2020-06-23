@@ -50,7 +50,7 @@ function ClientItem({ client }) {
       </td>
       <td>{client.quantity}</td>
       <td>
-        {client.active === true ? (
+        {client.active ? (
           <span className="text-success">Still in ClassName</span>
         ) : (
           <span className="text-danger">Withdrew</span>

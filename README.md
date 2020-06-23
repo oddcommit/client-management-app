@@ -9,6 +9,10 @@ A music website with student management and invoice generator functions.
 - Calculate the total invoices and the students
 - Login/Logout Functionality
 - Export/Print invoice in PDF
+  ![Create new student](createStudent.gif)
+  ![Create Invoice](createInvoice.gif)
+  ![Remove items](remove.gif)
+  ![PDF](pdf.gif)
 
 #### Instructions:
 
