@@ -5,13 +5,13 @@ A music website with student management and invoice generator functions.
 #### Features:
 
 - Create and remove student
+  ![Create new student](./public/createStudent.gif)
 - Create and remove invoices for students
+  ![Create Invoice](./public/createInvoice.gif)
+  ![Remove items](./public/remove.gif)
 - Calculate the total invoices and the students
 - Login/Logout Functionality
 - Export/Print invoice in PDF
-  ![Create new student](./public/createStudent.gif)
-  ![Create Invoice](./public/createInvoice.gif)
-  ![Remove items](./public/remove.gif)
   ![PDF](./public/pdf.gif)
 
 #### Instructions:
