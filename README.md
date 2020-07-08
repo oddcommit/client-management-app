@@ -1,4 +1,4 @@
-# Client management for a website 
+# Doremi Music
 
 A music website with student management and invoice generator functions.
 
