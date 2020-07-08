@@ -1,4 +1,4 @@
-# contact-keeper
+# Client management for a website 
 
 A music website with student management and invoice generator functions.
 
