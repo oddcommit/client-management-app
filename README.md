@@ -1,4 +1,4 @@
-# contact-keeper
+# Doremi Music
 
 A music website with student management and invoice generator functions.
 
