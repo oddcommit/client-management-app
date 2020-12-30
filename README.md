@@ -1,6 +1,6 @@
-# Doremi Music
+# Client Management app
 
-A music website with student management and invoice generator functions.
+A website with student management and invoice generator functions.
 
 #### Features:
 
